@@ -1,0 +1,51 @@
+﻿id,name,type,category,level,study_hours,pass_rate,vendor,url
+1,ITパスポート,資格,基礎,1,100.0,50.4,IPA,https://www.ipa.go.jp/shiken/kubun/ip.html
+2,基本情報技術者,資格,基礎,2,200.0,41.6,IPA,https://www.ipa.go.jp/shiken/kubun/fe.html
+3,応用情報技術者,資格,基礎,3,300.0,22.6,IPA,https://www.ipa.go.jp/shiken/kubun/ap.html
+4,情報処理安全確保支援士,資格,セキュリティ,4,400.0,19.0,IPA,https://www.ipa.go.jp/shiken/kubun/sc.html
+5,ネットワークスペシャリスト,資格,ネットワーク,4,350.0,15.4,IPA,https://www.ipa.go.jp/shiken/kubun/nw.html
+6,データベーススペシャリスト,資格,データベース,4,350.0,17.2,IPA,https://www.ipa.go.jp/shiken/kubun/db.html
+7,システムアーキテクト,資格,設計,4,350.0,15.8,IPA,https://www.ipa.go.jp/shiken/kubun/sa.html
+8,エンベデッドシステムスペシャリスト,資格,組込み,4,350.0,16.5,IPA,https://www.ipa.go.jp/shiken/kubun/es.html
+9,ITストラテジスト,資格,マネジメント,4,350.0,15.0,IPA,https://www.ipa.go.jp/shiken/kubun/st.html
+10,プロジェクトマネージャ,資格,マネジメント,4,350.0,14.8,IPA,https://www.ipa.go.jp/shiken/kubun/pm.html
+11,AWS Certified Cloud Practitioner,資格,クラウド,1,40.0,,AWS,https://aws.amazon.com/jp/certification/certified-cloud-practitioner/
+12,AWS Certified Solutions Architect Associate,資格,クラウド,3,120.0,,AWS,https://aws.amazon.com/jp/certification/certified-solutions-architect-associate/
+13,LinuC Level 1,資格,Linux,2,80.0,,LPI-Japan,https://linuc.org/linuc1/
+14,Python3エンジニア認定基礎試験,資格,プログラミング,2,50.0,,Python ED,https://www.pythonic-exam.com/exam/basic
+15,G検定,資格,AI,2,40.0,,JDLA,https://www.jdla.org/certificate/general/
+101,プログラミング,スキル,Skill,0,,,,
+102,ネットワーク,スキル,Skill,0,,,,
+103,データベース,スキル,Skill,0,,,,
+104,セキュリティ,スキル,Skill,0,,,,
+105,クラウド,スキル,Skill,0,,,,
+106,AI,スキル,Skill,0,,,,
+107,Linux,スキル,Skill,0,,,,
+16,情報セキュリティマネジメント,資格,セキュリティ,2,120,,IPA,https://www.ipa.go.jp/shiken/kubun/sg/index.html
+17,ITサービスマネージャ,資格,マネジメント,4,350,,IPA,https://www.ipa.go.jp/shiken/kubun/sm.html
+18,システム監査技術者,資格,監査,4,350,,IPA,https://www.ipa.go.jp/shiken/kubun/au.html
+19,Cisco CCNA,資格,ネットワーク,3,160,,Cisco,https://www.cisco.com/site/us/en/learn/training-certifications/certifications/enterprise/ccna/index.html
+20,CompTIA Network+,資格,ネットワーク,2,100,,CompTIA,https://www.comptia.org/ja-jp/certifications/network/
+21,CompTIA Security+,資格,セキュリティ,3,120,,CompTIA,https://www.comptia.org/ja-jp/certifications/security/
+22,Microsoft Azure Fundamentals,資格,クラウド,1,40,,Microsoft,https://learn.microsoft.com/ja-jp/credentials/certifications/azure-fundamentals/
+23,Microsoft Azure AI Fundamentals,資格,AI,1,40,,Microsoft,https://learn.microsoft.com/ja-jp/credentials/certifications/azure-ai-fundamentals/
+24,Microsoft Azure Data Fundamentals,資格,データ分析,1,40,,Microsoft,https://learn.microsoft.com/ja-jp/credentials/certifications/azure-data-fundamentals/
+25,Google Cloud Digital Leader,資格,クラウド,1,40,,Google Cloud,https://cloud.google.com/learn/certification/cloud-digital-leader
+26,LinuC Level 2,資格,Linux,3,120,,LPI-Japan,https://linuc.org/linuc2/
+27,HTML5プロフェッショナル認定 Level.1,資格,Web,2,80,,LPI-Japan,https://html5exam.jp/
+28,OSS-DB Silver,資格,データベース,2,100,,LPI-Japan,https://oss-db.jp/outline/silver
+29,Python3エンジニア認定データ分析試験,資格,データ分析,2,80,,Python ED,https://www.pythonic-exam.com/exam/analyist
+30,E資格,資格,AI,4,300,,JDLA,https://www.jdla.org/certificate/engineer/
+31,データサイエンティスト検定,資格,データ分析,2,80,,DS協会,https://www.datascientist.or.jp/dscertification/
+32,統計検定2級,資格,データ分析,3,120,,統計質保証推進協会,https://www.toukei-kentei.jp/grade/grade2/
+108,Web,スキル,Skill,0,,,,
+109,SQL,スキル,Skill,0,,,,
+110,データ分析,スキル,Skill,0,,,,
+111,統計,スキル,Skill,0,,,,
+112,監査,スキル,Skill,0,,,,
+113,ITサービス運用,スキル,Skill,0,,,,
+114,Azure,スキル,Skill,0,,,,
+115,Cisco,スキル,Skill,0,,,,
+116,ディープラーニング,スキル,Skill,0,,,,
+117,サーバー運用,スキル,Skill,0,,,,
+118,クラウド基礎,スキル,Skill,0,,,,
