@@ -25,7 +25,7 @@ export const getNodeColor = (node) => {
 
 export const getNodeRadius = (node) => {
   const connectionCount = Math.max(0, Number(node.connection_count) || 0);
-  return 12 + Math.sqrt(connectionCount) * 3.5;
+  return 6 + Math.sqrt(connectionCount) * 6;
 };
 
 export const getShortName = (name) => {

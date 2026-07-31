@@ -1,3 +1,5 @@
+import { getNodeRadius } from "../utils/graphUtils";
+
 export default function Legend({
   activeCategory,
   setActiveCategory,
@@ -42,23 +44,25 @@ export default function Legend({
 
       <h3 className="size-legend-title">円の大きさ</h3>
       <div className="size-legend" aria-label="円の大きさは直接つながる資格数を表します">
-        {[
-          { count: 5, size: 12 },
-          { count: 15, size: 17 },
-          { count: 30, size: 22 },
-          { count: 60, size: 28 },
-        ].map((item) => (
-          <div className="size-legend-item" key={item.count}>
+        {[5, 15, 30, 60].map((count) => (
+          <div className="size-legend-item" key={count}>
             <span
               className="size-legend-circle"
-              style={{ width: item.size, height: item.size }}
+              style={{
+                width: Math.round(
+                  getNodeRadius({ connection_count: count })
+                ),
+                height: Math.round(
+                  getNodeRadius({ connection_count: count })
+                ),
+              }}
             />
-            関連 {item.count}件
+            関連 {count}件
           </div>
         ))}
       </div>
       <p className="size-legend-note">
-        円が大きいほど、多くの資格と試験内容が共通しています。
+        円が大きいほど、直接つながる資格が多く、他の資格を探す起点になりやすいことを表します。難易度や人気ではありません。
       </p>
     </>
   );
