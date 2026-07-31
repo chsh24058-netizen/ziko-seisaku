@@ -2,35 +2,60 @@ export const getId = (value) => {
   return typeof value === "object" ? value.id : value;
 };
 
+const categoryColors = {
+  基礎: "#356f95",
+  セキュリティ: "#a84a3f",
+  ネットワーク: "#4d5f91",
+  データベース: "#3f7d73",
+  クラウド: "#b97832",
+  AI: "#7a5a8d",
+  プログラミング: "#76594b",
+  Linux: "#68737b",
+  マネジメント: "#9a5572",
+  Web: "#3b8791",
+  データ分析: "#6e8a47",
+  監査: "#777772",
+  設計: "#718493",
+  組込み: "#806b55",
+};
+
 export const getNodeColor = (node) => {
-  if (node.type === "スキル") return "#43a047";
-
-  if (node.category === "基礎") return "#1e88e5";
-  if (node.category === "セキュリティ") return "#e53935";
-  if (node.category === "ネットワーク") return "#3949ab";
-  if (node.category === "データベース") return "#00897b";
-  if (node.category === "クラウド") return "#fb8c00";
-  if (node.category === "AI") return "#8e24aa";
-  if (node.category === "プログラミング") return "#6d4c41";
-  if (node.category === "Linux") return "#546e7a";
-  if (node.category === "マネジメント") return "#d81b60";
-  if (node.category === "Web") return "#00acc1";
-  if (node.category === "データ分析") return "#7cb342";
-  if (node.category === "監査") return "#757575";
-  if (node.category === "設計") return "#78909c";
-  if (node.category === "組込み") return "#8d6e63";
-
-  return "#757575";
+  return categoryColors[node.category] ?? "#777772";
 };
 
 export const getNodeRadius = (node) => {
-  if (node.type === "スキル") return 12;
-  return 13 + node.level * 3;
+  const connectionCount = Math.max(0, Number(node.connection_count) || 0);
+  return 12 + Math.sqrt(connectionCount) * 3.5;
 };
 
 export const getShortName = (name) => {
   if (!name) return "";
   return name.length > 18 ? `${name.slice(0, 17)}…` : name;
+};
+
+const categoryPositions = {
+  基礎: [0.5, 0.48],
+  セキュリティ: [0.18, 0.25],
+  ネットワーク: [0.18, 0.52],
+  データベース: [0.38, 0.76],
+  クラウド: [0.68, 0.26],
+  AI: [0.82, 0.68],
+  プログラミング: [0.58, 0.78],
+  Linux: [0.32, 0.48],
+  マネジメント: [0.8, 0.16],
+  Web: [0.68, 0.88],
+  データ分析: [0.86, 0.82],
+  監査: [0.92, 0.28],
+  設計: [0.5, 0.2],
+  組込み: [0.28, 0.84],
+};
+
+export const getCategoryPosition = (category, width, height) => {
+  const [xRatio, yRatio] = categoryPositions[category] ?? [0.5, 0.5];
+  return {
+    x: width * xRatio,
+    y: height * yRatio,
+  };
 };
 
 export const isNodeConnectedToSelected = (node, selectedNode, links) => {
@@ -93,27 +118,12 @@ export const isLinkRelatedToSearch = (
 export const isCategoryMatched = (node, activeCategory) => {
   if (!activeCategory) return true;
 
-  if (activeCategory.type === "スキル") {
-    return node.type === "スキル";
-  }
-
   return node.category === activeCategory.label;
 };
 
-export const getLegendItems = () => [
-  { label: "基礎", color: "#1e88e5" },
-  { label: "セキュリティ", color: "#e53935" },
-  { label: "ネットワーク", color: "#3949ab" },
-  { label: "データベース", color: "#00897b" },
-  { label: "クラウド", color: "#fb8c00" },
-  { label: "AI", color: "#8e24aa" },
-  { label: "プログラミング", color: "#6d4c41" },
-  { label: "Linux", color: "#546e7a" },
-  { label: "マネジメント", color: "#d81b60" },
-  { label: "Web", color: "#00acc1" },
-  { label: "データ分析", color: "#7cb342" },
-  { label: "監査", color: "#757575" },
-  { label: "設計", color: "#78909c" },
-  { label: "組込み", color: "#8d6e63" },
-  { label: "スキル", color: "#43a047", type: "スキル" },
-];
+export const getLegendItems = () => {
+  return Object.entries(categoryColors).map(([label, color]) => ({
+    label,
+    color,
+  }));
+};

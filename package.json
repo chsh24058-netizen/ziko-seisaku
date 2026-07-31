@@ -5,6 +5,8 @@
   "main": "index.js",
   "scripts": {
     "dev": "vite",
+    "generate:data": "node scripts/generate_graph_data.mjs",
+    "validate:data": "node scripts/validate_graph_data.mjs",
     "build": "vite build",
     "preview": "vite preview"
   },

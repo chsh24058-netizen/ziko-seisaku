@@ -1,0 +1,2337 @@
+[
+  {
+    "key": "ipa_ip",
+    "name": "ITパスポート試験",
+    "category": "基礎",
+    "vendor": "独立行政法人情報処理推進機構（IPA）",
+    "url": "https://www.ipa.go.jp/shiken/kubun/ip.html",
+    "scope_url": "https://www.ipa.go.jp/shiken/syllabus/gaiyou.html",
+    "topics": [
+      "IT基礎",
+      "コンピュータ基礎",
+      "データベース",
+      "ネットワーク基礎",
+      "セキュリティ基礎",
+      "データ分析",
+      "AI基礎",
+      "プロジェクト管理",
+      "IT戦略"
+    ],
+    "evidence_note": "公式の対象者像・シラバスは、コンピュータ、データベース、ネットワーク、情報セキュリティ、データ利活用、AI、開発・運用、企業活動を含むIT共通知識を対象としている。"
+  },
+  {
+    "key": "ipa_sg",
+    "name": "情報セキュリティマネジメント試験",
+    "category": "セキュリティ",
+    "vendor": "独立行政法人情報処理推進機構（IPA）",
+    "url": "https://www.ipa.go.jp/shiken/kubun/sg.html",
+    "scope_url": "https://www.ipa.go.jp/shiken/syllabus/gaiyou.html",
+    "topics": [
+      "セキュリティ基礎",
+      "リスク管理",
+      "セキュリティ運用",
+      "インシデント対応",
+      "ID・アクセス管理",
+      "ネットワーク基礎"
+    ],
+    "evidence_note": "公式シラバスは、情報セキュリティ管理、リスク評価、委託先管理、インシデント管理、アクセス管理、ネットワークなどを対象としている。"
+  },
+  {
+    "key": "ipa_fe",
+    "name": "基本情報技術者試験",
+    "category": "基礎",
+    "vendor": "独立行政法人情報処理推進機構（IPA）",
+    "url": "https://www.ipa.go.jp/shiken/kubun/fe.html",
+    "scope_url": "https://www.ipa.go.jp/shiken/syllabus/gaiyou.html",
+    "topics": [
+      "コンピュータ基礎",
+      "OS",
+      "アルゴリズム",
+      "プログラミング",
+      "ソフトウェア開発",
+      "データベース",
+      "ネットワーク基礎",
+      "セキュリティ基礎"
+    ],
+    "evidence_note": "公式シラバスと科目B範囲は、コンピュータ科学、OS、データベース、ネットワーク、セキュリティ、アルゴリズム及びプログラミングを対象としている。"
+  },
+  {
+    "key": "ipa_ap",
+    "name": "応用情報技術者試験",
+    "category": "基礎",
+    "vendor": "独立行政法人情報処理推進機構（IPA）",
+    "url": "https://www.ipa.go.jp/shiken/kubun/ap.html",
+    "scope_url": "https://www.ipa.go.jp/shiken/syllabus/gaiyou.html",
+    "topics": [
+      "コンピュータ基礎",
+      "OS",
+      "アルゴリズム",
+      "ソフトウェア開発",
+      "データベース",
+      "ネットワーク設計",
+      "セキュリティ基礎",
+      "システム設計",
+      "プロジェクト管理",
+      "ITサービス管理",
+      "IT戦略",
+      "監査"
+    ],
+    "evidence_note": "公式シラバスは、技術、システム開発、プロジェクト管理、サービス管理、システム戦略及び監査を横断する応用的知識・技能を対象としている。"
+  },
+  {
+    "key": "ipa_st",
+    "name": "ITストラテジスト試験",
+    "category": "マネジメント",
+    "vendor": "独立行政法人情報処理推進機構（IPA）",
+    "url": "https://www.ipa.go.jp/shiken/kubun/st.html",
+    "scope_url": "https://www.ipa.go.jp/shiken/syllabus/gaiyou.html",
+    "topics": [
+      "IT戦略",
+      "システム設計",
+      "プロジェクト管理",
+      "ガバナンス",
+      "データ分析"
+    ],
+    "evidence_note": "公式の対象者像・シラバスは、事業戦略に基づくIT戦略、情報システム戦略、システム化構想・計画及び評価を対象としている。"
+  },
+  {
+    "key": "ipa_sa",
+    "name": "システムアーキテクト試験",
+    "category": "設計",
+    "vendor": "独立行政法人情報処理推進機構（IPA）",
+    "url": "https://www.ipa.go.jp/shiken/kubun/sa.html",
+    "scope_url": "https://www.ipa.go.jp/shiken/syllabus/gaiyou.html",
+    "topics": [
+      "システム設計",
+      "ソフトウェア開発",
+      "データベース",
+      "ネットワーク設計",
+      "セキュリティ基礎"
+    ],
+    "evidence_note": "公式の対象者像・シラバスは、要件定義、システム方式設計、ソフトウェア設計、データ設計及び開発・評価を対象としている。"
+  },
+  {
+    "key": "ipa_pm",
+    "name": "プロジェクトマネージャ試験",
+    "category": "マネジメント",
+    "vendor": "独立行政法人情報処理推進機構（IPA）",
+    "url": "https://www.ipa.go.jp/shiken/kubun/pm.html",
+    "scope_url": "https://www.ipa.go.jp/shiken/syllabus/gaiyou.html",
+    "topics": [
+      "プロジェクト管理",
+      "リスク管理",
+      "システム設計"
+    ],
+    "evidence_note": "公式の対象者像・シラバスは、プロジェクト計画、体制、進捗・資源・品質・リスク管理及び評価を対象としている。"
+  },
+  {
+    "key": "ipa_nw",
+    "name": "ネットワークスペシャリスト試験",
+    "category": "ネットワーク",
+    "vendor": "独立行政法人情報処理推進機構（IPA）",
+    "url": "https://www.ipa.go.jp/shiken/kubun/nw.html",
+    "scope_url": "https://www.ipa.go.jp/shiken/syllabus/gaiyou.html",
+    "topics": [
+      "ネットワーク基礎",
+      "ルーティング・スイッチング",
+      "ネットワーク設計",
+      "無線",
+      "セキュリティ基礎"
+    ],
+    "evidence_note": "公式の対象者像・シラバスは、ネットワーク方式・構成設計、プロトコル、信頼性、性能、セキュリティ及び運用を対象としている。"
+  },
+  {
+    "key": "ipa_db",
+    "name": "データベーススペシャリスト試験",
+    "category": "データベース",
+    "vendor": "独立行政法人情報処理推進機構（IPA）",
+    "url": "https://www.ipa.go.jp/shiken/kubun/db.html",
+    "scope_url": "https://www.ipa.go.jp/shiken/syllabus/gaiyou.html",
+    "topics": [
+      "データベース",
+      "SQL",
+      "システム設計",
+      "データエンジニアリング"
+    ],
+    "evidence_note": "公式の対象者像・シラバスは、データ資源管理、データモデリング、データベース設計・実装・運用及びSQLを対象としている。"
+  },
+  {
+    "key": "ipa_es",
+    "name": "エンベデッドシステムスペシャリスト試験",
+    "category": "組込み",
+    "vendor": "独立行政法人情報処理推進機構（IPA）",
+    "url": "https://www.ipa.go.jp/shiken/kubun/es.html",
+    "scope_url": "https://www.ipa.go.jp/shiken/syllabus/gaiyou.html",
+    "topics": [
+      "組込み",
+      "システム設計",
+      "ソフトウェア開発",
+      "プログラミング"
+    ],
+    "evidence_note": "公式の対象者像・シラバスは、組込みシステムの要求分析、ハードウェア・ソフトウェア協調設計、実装、評価及び保守を対象としている。"
+  },
+  {
+    "key": "ipa_sm",
+    "name": "ITサービスマネージャ試験",
+    "category": "マネジメント",
+    "vendor": "独立行政法人情報処理推進機構（IPA）",
+    "url": "https://www.ipa.go.jp/shiken/kubun/sm.html",
+    "scope_url": "https://www.ipa.go.jp/shiken/syllabus/gaiyou.html",
+    "topics": [
+      "ITサービス管理",
+      "リスク管理",
+      "セキュリティ運用",
+      "インシデント対応"
+    ],
+    "evidence_note": "公式の対象者像・シラバスは、ITサービスの計画・提供・改善、サービスレベル、可用性、インシデント及びリスク管理を対象としている。"
+  },
+  {
+    "key": "ipa_au",
+    "name": "システム監査技術者試験",
+    "category": "監査",
+    "vendor": "独立行政法人情報処理推進機構（IPA）",
+    "url": "https://www.ipa.go.jp/shiken/kubun/au.html",
+    "scope_url": "https://www.ipa.go.jp/shiken/syllabus/gaiyou.html",
+    "topics": [
+      "監査",
+      "ガバナンス",
+      "リスク管理",
+      "セキュリティ基礎"
+    ],
+    "evidence_note": "公式の対象者像・シラバスは、情報システム・組込みシステムの監査、ガバナンス、リスク評価、統制の検証及び改善提案を対象としている。"
+  },
+  {
+    "key": "ipa_sc",
+    "name": "情報処理安全確保支援士試験",
+    "category": "セキュリティ",
+    "vendor": "独立行政法人情報処理推進機構（IPA）",
+    "url": "https://www.ipa.go.jp/shiken/kubun/sc.html",
+    "scope_url": "https://www.ipa.go.jp/shiken/syllabus/gaiyou.html",
+    "topics": [
+      "セキュリティ基礎",
+      "ID・アクセス管理",
+      "暗号",
+      "リスク管理",
+      "セキュリティ運用",
+      "インシデント対応",
+      "ネットワーク設計"
+    ],
+    "evidence_note": "公式シラバスは、セキュリティ要求分析・設計、暗号・認証、アクセス制御、脅威・脆弱性、運用、監視及びインシデント対応を対象としている。"
+  },
+  {
+    "key": "linuc_1",
+    "name": "LinuCレベル1",
+    "category": "Linux",
+    "vendor": "LPI-Japan（一般社団法人EDUCO）",
+    "url": "https://linuc.org/linuc1/",
+    "scope_url": "https://linuc.org/linuc1/range/",
+    "topics": [
+      "Linux",
+      "OS",
+      "ネットワーク基礎",
+      "セキュリティ基礎",
+      "コンテナ"
+    ],
+    "evidence_note": "公式範囲は、Linuxの導入・基本操作、GNU/Unixコマンド、シェル、ネットワーク基礎、システム管理、サービス及びセキュリティを対象としている。"
+  },
+  {
+    "key": "linuc_2",
+    "name": "LinuCレベル2",
+    "category": "Linux",
+    "vendor": "LPI-Japan（一般社団法人EDUCO）",
+    "url": "https://linuc.org/linuc2/",
+    "scope_url": "https://linuc.org/linuc2/range/",
+    "topics": [
+      "Linux",
+      "OS",
+      "ネットワーク設計",
+      "セキュリティ運用",
+      "コンテナ"
+    ],
+    "evidence_note": "公式範囲は、Linuxカーネル、ストレージ、高度なネットワーク、保守運用、DNS・Web・ファイル共有等のサーバー、仮想化及びコンテナを対象としている。"
+  },
+  {
+    "key": "linuc_3ps",
+    "name": "LinuCレベル3 プラットフォームスペシャリスト",
+    "category": "Linux",
+    "vendor": "LPI-Japan（一般社団法人EDUCO）",
+    "url": "https://linuc.org/linuc3/3ps/",
+    "scope_url": "https://linuc.org/linuc3/3ps/range/",
+    "topics": [
+      "Linux",
+      "コンテナ",
+      "自動化",
+      "DevOps",
+      "システム設計",
+      "ネットワーク設計"
+    ],
+    "evidence_note": "公式3PS範囲は、仮想化基盤、ネットワーク・ストレージ、コンテナ、高可用性、IaC、継続的デプロイ、監視及びバックアップを対象としている。"
+  },
+  {
+    "key": "linuc_3ss",
+    "name": "LinuCレベル3 セキュリティスペシャリスト",
+    "category": "セキュリティ",
+    "vendor": "LPI-Japan（一般社団法人EDUCO）",
+    "url": "https://linuc.org/linuc3/3ss/",
+    "scope_url": "https://linuc.org/linuc3/3ss/range/",
+    "topics": [
+      "Linux",
+      "セキュリティ基礎",
+      "ID・アクセス管理",
+      "暗号",
+      "監査",
+      "コンテナ",
+      "インシデント対応"
+    ],
+    "evidence_note": "公式3SS範囲は、アクセス・権限制御、システム保護と監査、コンテナの堅牢化、暗号・セキュアプロトコル、認証認可及び攻撃対策を対象としている。"
+  },
+  {
+    "key": "linuc_4sa",
+    "name": "LinuCレベル4 システムアーキテクト",
+    "category": "設計",
+    "vendor": "LPI-Japan（一般社団法人EDUCO）",
+    "url": "https://linuc.org/linuc4/",
+    "scope_url": "https://linuc.org/linuc4/range/",
+    "topics": [
+      "Linux",
+      "システム設計",
+      "ネットワーク設計",
+      "コンテナ",
+      "DevOps",
+      "セキュリティ基礎",
+      "自動化"
+    ],
+    "evidence_note": "公式4SA01・4SA02範囲は、システムアーキテクチャ、ネットワーク・ストレージ、可用性・性能、コンテナ、セキュリティ、監視及び継続的開発を対象としている。"
+  },
+  {
+    "key": "html5_level1",
+    "name": "HTML5プロフェッショナル認定試験 レベル1",
+    "category": "Web",
+    "vendor": "LPI-Japan（一般社団法人EDUCO）",
+    "url": "https://html5exam.jp/outline/lv1.html",
+    "scope_url": "https://html5exam.jp/outline/objectives_lv1.html",
+    "topics": [
+      "Web",
+      "プログラミング",
+      "ネットワーク基礎"
+    ],
+    "evidence_note": "公式範囲は、HTML/CSSによるマークアップとスタイル、レスポンシブWeb、Webプロトコル、APIの基礎及びJavaScriptの基礎を対象としている。"
+  },
+  {
+    "key": "html5_level2",
+    "name": "HTML5プロフェッショナル認定試験 レベル2",
+    "category": "Web",
+    "vendor": "LPI-Japan（一般社団法人EDUCO）",
+    "url": "https://html5exam.jp/outline/lv2.html",
+    "scope_url": "https://html5exam.jp/outline/objectives_lv2.html",
+    "topics": [
+      "Web",
+      "プログラミング",
+      "OOP",
+      "ソフトウェア開発"
+    ],
+    "evidence_note": "公式範囲は、JavaScript、イベント、通信、ストレージ、マルチメディア、デバイスアクセス、パフォーマンス及びオフラインWebアプリケーションを対象としている。"
+  },
+  {
+    "key": "ossdb_silver",
+    "name": "OSS-DB Silver",
+    "category": "データベース",
+    "vendor": "LPI-Japan（一般社団法人EDUCO）",
+    "url": "https://oss-db.jp/outline/silver",
+    "scope_url": "https://oss-db.jp/outline/silver",
+    "topics": [
+      "データベース",
+      "SQL"
+    ],
+    "evidence_note": "公式範囲は、PostgreSQLを基準としたRDBMS一般知識、導入・運用管理、バックアップ及びSQLによる開発を対象としている。"
+  },
+  {
+    "key": "ossdb_gold",
+    "name": "OSS-DB Gold",
+    "category": "データベース",
+    "vendor": "LPI-Japan（一般社団法人EDUCO）",
+    "url": "https://oss-db.jp/outline/gold",
+    "scope_url": "https://oss-db.jp/outline/gold",
+    "topics": [
+      "データベース",
+      "SQL",
+      "システム設計"
+    ],
+    "evidence_note": "公式範囲は、PostgreSQLの高度な運用管理、性能監視、パフォーマンスチューニング及び障害対応を対象としている。"
+  },
+  {
+    "key": "python_basic",
+    "name": "Python 3 エンジニア認定基礎試験",
+    "category": "プログラミング",
+    "vendor": "一般社団法人Pythonエンジニア育成推進協会",
+    "url": "https://www.pythonic-exam.com/exam/basic",
+    "scope_url": "https://www.pythonic-exam.com/exam/basic",
+    "topics": [
+      "プログラミング",
+      "OOP"
+    ],
+    "evidence_note": "公式範囲は、Pythonの基本文法、制御構造、データ構造、モジュール、入出力、例外、クラス及び標準ライブラリを対象としている。"
+  },
+  {
+    "key": "python_practical",
+    "name": "Python3 エンジニア認定実践試験",
+    "category": "プログラミング",
+    "vendor": "一般社団法人Pythonエンジニア育成推進協会",
+    "url": "https://www.pythonic-exam.com/exam/jissen",
+    "scope_url": "https://www.pythonic-exam.com/exam/jissen",
+    "topics": [
+      "プログラミング",
+      "OOP",
+      "ソフトウェア開発",
+      "アルゴリズム",
+      "OS"
+    ],
+    "evidence_note": "公式範囲は、Pythonの言語仕様・クラス・型、データ型とアルゴリズム、OSサービス、テスト、デバッグ及び標準ライブラリの実践利用を対象としている。"
+  },
+  {
+    "key": "python_data_analysis",
+    "name": "Python 3 エンジニア認定データ分析試験",
+    "category": "データ分析",
+    "vendor": "一般社団法人Pythonエンジニア育成推進協会",
+    "url": "https://www.pythonic-exam.com/exam/analyist",
+    "scope_url": "https://www.pythonic-exam.com/exam/analyist",
+    "topics": [
+      "プログラミング",
+      "データ分析",
+      "統計",
+      "機械学習"
+    ],
+    "evidence_note": "公式範囲は、Python環境、数学・確率統計、NumPy、pandas、Matplotlib及びscikit-learnによるデータ分析を対象としている。"
+  },
+  {
+    "key": "python_data_analysis_practical",
+    "name": "Python 3 エンジニア認定データ分析実践試験",
+    "category": "データ分析",
+    "vendor": "一般社団法人Pythonエンジニア育成推進協会",
+    "url": "https://www.pythonic-exam.com/exam/cpda",
+    "scope_url": "https://www.pythonic-exam.com/exam/cpda",
+    "topics": [
+      "プログラミング",
+      "データ分析",
+      "データエンジニアリング"
+    ],
+    "evidence_note": "公式範囲は、表形式・数値・時系列・テキスト・画像・グラフ・地理空間データの読込み、加工、評価及び処理を対象としている。"
+  },
+  {
+    "key": "jdla_g",
+    "name": "G検定（ジェネラリスト検定）",
+    "category": "AI",
+    "vendor": "一般社団法人日本ディープラーニング協会（JDLA）",
+    "url": "https://www.jdla.org/certificate/general/",
+    "scope_url": "https://www.jdla.org/certificate/general/#general_No03",
+    "topics": [
+      "AI基礎",
+      "機械学習",
+      "深層学習",
+      "生成AI",
+      "統計"
+    ],
+    "evidence_note": "公式シラバスは、AIの定義と動向、機械学習、深層学習、生成AIを含む応用、数理・統計、法律・倫理及びガバナンスを対象としている。"
+  },
+  {
+    "key": "jdla_e",
+    "name": "E資格（エンジニア資格）",
+    "category": "AI",
+    "vendor": "一般社団法人日本ディープラーニング協会（JDLA）",
+    "url": "https://www.jdla.org/certificate/engineer/",
+    "scope_url": "https://www.jdla.org/certificate/engineer/#engineer_No03",
+    "topics": [
+      "機械学習",
+      "深層学習",
+      "生成AI",
+      "統計",
+      "プログラミング"
+    ],
+    "evidence_note": "公式E2026シラバスは、確率・統計、機械学習、深層ニューラルネットワーク、Transformer、生成モデル、画像・自然言語処理及びPython実装を対象としている。"
+  },
+  {
+    "key": "ds_kentei_literacy",
+    "name": "データサイエンティスト検定 リテラシーレベル",
+    "category": "データ分析",
+    "vendor": "一般社団法人データサイエンティスト協会",
+    "url": "https://www.datascientist.or.jp/dscertification/",
+    "scope_url": "https://www.datascientist.or.jp/dscertification/what/",
+    "topics": [
+      "データ分析",
+      "統計",
+      "データエンジニアリング",
+      "AI基礎",
+      "機械学習",
+      "深層学習",
+      "生成AI",
+      "プログラミング",
+      "SQL"
+    ],
+    "evidence_note": "公式範囲は、基盤、データサイエンス、データエンジニアリング、価値創造の4領域と、数理・データサイエンス・AIリテラシーを対象としている。"
+  },
+  {
+    "key": "statistics_grade4",
+    "name": "統計検定4級",
+    "category": "データ分析",
+    "vendor": "一般財団法人統計質保証推進協会",
+    "url": "https://www.toukei-kentei.jp/grade/grade4/",
+    "scope_url": "https://www.toukei-kentei.jp/grade/grade4/",
+    "topics": [
+      "統計",
+      "データ分析"
+    ],
+    "evidence_note": "公式範囲は、データ収集、統計グラフ、集計、代表値、散らばり、クロス集計、時系列及び確率の基礎を対象としている。"
+  },
+  {
+    "key": "statistics_grade3",
+    "name": "統計検定3級",
+    "category": "データ分析",
+    "vendor": "一般財団法人統計質保証推進協会",
+    "url": "https://www.toukei-kentei.jp/grade/grade3/",
+    "scope_url": "https://www.toukei-kentei.jp/grade/grade3/",
+    "topics": [
+      "統計",
+      "データ分析"
+    ],
+    "evidence_note": "公式範囲は、4級内容に加えて、標本調査、相関・回帰、確率分布、標本分布、区間推定及び仮説検定を対象としている。"
+  },
+  {
+    "key": "statistics_grade2",
+    "name": "統計検定2級",
+    "category": "データ分析",
+    "vendor": "一般財団法人統計質保証推進協会",
+    "url": "https://www.toukei-kentei.jp/grade/grade2/",
+    "scope_url": "https://www.toukei-kentei.jp/grade/grade2/",
+    "topics": [
+      "統計",
+      "データ分析"
+    ],
+    "evidence_note": "公式範囲は、大学基礎科目レベルの確率分布、標本分布、推定、仮説検定、カイ二乗検定、回帰分析及び実験計画を対象としている。"
+  },
+  {
+    "key": "statistics_pre1",
+    "name": "統計検定準1級",
+    "category": "データ分析",
+    "vendor": "一般財団法人統計質保証推進協会",
+    "url": "https://www.toukei-kentei.jp/grade/grade_pre-1",
+    "scope_url": "https://www.toukei-kentei.jp/grade/grade_pre-1",
+    "topics": [
+      "統計",
+      "データ分析"
+    ],
+    "evidence_note": "公式範囲は、2級内容に加えて、データ収集を計画し、各種の応用的な統計解析法を選択・適用して結果を解釈する力を対象としている。"
+  },
+  {
+    "key": "statistics_grade1",
+    "name": "統計検定1級",
+    "category": "データ分析",
+    "vendor": "一般財団法人統計質保証推進協会",
+    "url": "https://www.toukei-kentei.jp/grade/grade1/",
+    "scope_url": "https://www.toukei-kentei.jp/grade/grade1/",
+    "topics": [
+      "統計",
+      "データ分析"
+    ],
+    "evidence_note": "公式範囲は、大学専門課程相当の統計数理と、人文・社会科学、理工学、医薬生物学から選択する統計応用を対象としている。"
+  },
+  {
+    "key": "statistics_ds_basic",
+    "name": "統計検定 データサイエンス基礎",
+    "category": "データ分析",
+    "vendor": "一般財団法人統計質保証推進協会",
+    "url": "https://www.toukei-kentei.jp/grade/ds_basic_analytics/",
+    "scope_url": "https://www.toukei-kentei.jp/grade/ds_basic_analytics/",
+    "topics": [
+      "統計",
+      "データ分析",
+      "データエンジニアリング"
+    ],
+    "evidence_note": "公式範囲は、表計算ソフトを用いるデータハンドリング、データセット管理、記述・推測統計、クロス集計、相関・回帰及び結果解釈を対象としている。"
+  },
+  {
+    "key": "statistics_ds_advanced",
+    "name": "統計検定 データサイエンス発展",
+    "category": "データ分析",
+    "vendor": "一般財団法人統計質保証推進協会",
+    "url": "https://www.toukei-kentei.jp/grade/ds_advanced/",
+    "scope_url": "https://www.toukei-kentei.jp/grade/ds_advanced/",
+    "topics": [
+      "統計",
+      "データ分析",
+      "AI基礎",
+      "プログラミング"
+    ],
+    "evidence_note": "公式範囲は、数理・データサイエンス・AIのモデルカリキュラムに準拠した、倫理・AI、数理、情報及び統計の大学教養レベルを対象としている。"
+  },
+  {
+    "key": "statistics_ds_expert",
+    "name": "統計検定 データサイエンスエキスパート",
+    "category": "データ分析",
+    "vendor": "一般財団法人統計質保証推進協会",
+    "url": "https://www.toukei-kentei.jp/grade/ds_expert/",
+    "scope_url": "https://www.toukei-kentei.jp/grade/ds_expert/",
+    "topics": [
+      "統計",
+      "データ分析",
+      "機械学習",
+      "プログラミング"
+    ],
+    "evidence_note": "公式範囲は、応用基礎モデルカリキュラムに準拠した、計算、統計、モデリング及び領域知識の大学専門レベルを対象としている。"
+  },
+  {
+    "key": "c_programming_grade3",
+    "name": "C言語プログラミング能力認定試験 3級",
+    "category": "プログラミング",
+    "vendor": "サーティファイ情報処理能力認定委員会",
+    "url": "https://www.sikaku.gr.jp/js/cpjv/cp/",
+    "scope_url": "https://www.sikaku.gr.jp/js/cpjv/cp/introduction/range/03/",
+    "topics": [
+      "プログラミング",
+      "アルゴリズム"
+    ],
+    "evidence_note": "公式範囲は、C言語の定数・型・演算子、制御文、配列、関数及び基本的なプログラム読解・作成を対象としている。"
+  },
+  {
+    "key": "c_programming_grade2",
+    "name": "C言語プログラミング能力認定試験 2級",
+    "category": "プログラミング",
+    "vendor": "サーティファイ情報処理能力認定委員会",
+    "url": "https://www.sikaku.gr.jp/js/cpjv/cp/",
+    "scope_url": "https://www.sikaku.gr.jp/js/cpjv/cp/introduction/range/02/",
+    "topics": [
+      "プログラミング",
+      "アルゴリズム",
+      "ソフトウェア開発"
+    ],
+    "evidence_note": "公式範囲は、C言語の基本範囲に加えて、ポインタ、構造体、ファイル処理、プリプロセッサ及び応用的なプログラム作成を対象としている。"
+  },
+  {
+    "key": "c_programming_grade1",
+    "name": "C言語プログラミング能力認定試験 1級",
+    "category": "プログラミング",
+    "vendor": "サーティファイ情報処理能力認定委員会",
+    "url": "https://www.sikaku.gr.jp/js/cpjv/cp/",
+    "scope_url": "https://www.sikaku.gr.jp/js/cpjv/cp/introduction/range/",
+    "topics": [
+      "プログラミング",
+      "ソフトウェア開発",
+      "アルゴリズム"
+    ],
+    "evidence_note": "公式範囲は、公開テーマプログラムに対する仕様変更・追加、コーディング、コンパイル、デバッグ及び変更仕様書作成の実技を対象としている。"
+  },
+  {
+    "key": "ruby_silver_v3",
+    "name": "Ruby Association Certified Ruby Programmer Silver version 3",
+    "category": "プログラミング",
+    "vendor": "一般財団法人Rubyアソシエーション",
+    "url": "https://www.ruby.or.jp/ja/certification/examination/",
+    "scope_url": "https://www.ruby.or.jp/en/certification/examination/",
+    "topics": [
+      "プログラミング",
+      "OOP",
+      "ソフトウェア開発"
+    ],
+    "evidence_note": "公式試験説明は、Ruby 3.1系の背景、文法、クラス、オブジェクト、組込みライブラリ及び標準ライブラリの基礎を対象としている。"
+  },
+  {
+    "key": "ruby_gold_v3",
+    "name": "Ruby Association Certified Ruby Programmer Gold version 3",
+    "category": "プログラミング",
+    "vendor": "一般財団法人Rubyアソシエーション",
+    "url": "https://www.ruby.or.jp/ja/certification/examination/",
+    "scope_url": "https://www.ruby.or.jp/en/certification/examination/",
+    "topics": [
+      "プログラミング",
+      "OOP",
+      "ソフトウェア開発"
+    ],
+    "evidence_note": "公式試験説明は、Silverの範囲を前提に、Ruby 3.1系の高度な文法、オブジェクト指向、メタプログラミング及びライブラリを対象としている。"
+  },
+  {
+    "key": "php8_basic",
+    "name": "PHP8技術者認定初級試験",
+    "category": "プログラミング",
+    "vendor": "一般社団法人PHP技術者認定機構",
+    "url": "https://www.phpexam.jp/summary/novice8",
+    "scope_url": "https://www.phpexam.jp/summary/novice8",
+    "topics": [
+      "プログラミング",
+      "OOP",
+      "Web",
+      "データベース"
+    ],
+    "evidence_note": "公式範囲は、PHPの基本、演算子、制御構文、関数、標準クラス、リクエスト、データベース連携及びオブジェクト指向構文を対象としている。"
+  },
+  {
+    "key": "php8_advanced",
+    "name": "PHP8技術者認定上級／準上級試験",
+    "category": "プログラミング",
+    "vendor": "一般社団法人PHP技術者認定機構",
+    "url": "https://www.phpexam.jp/summary/expert8",
+    "scope_url": "https://www.phpexam.jp/summary/expert8",
+    "topics": [
+      "プログラミング",
+      "OOP",
+      "Web",
+      "データベース",
+      "SQL",
+      "セキュリティ基礎"
+    ],
+    "evidence_note": "公式範囲は、PHP 8の言語仕様、クラスとオブジェクト、Web処理、データベース、セキュリティ及び各種標準機能を対象としている。"
+  },
+  {
+    "key": "webdesign_grade3",
+    "name": "ウェブデザイン技能検定 3級",
+    "category": "Web",
+    "vendor": "特定非営利活動法人インターネットスキル認定普及協会",
+    "url": "https://www.webdesign.gr.jp/",
+    "scope_url": "https://www.webdesign.gr.jp/application/items/",
+    "topics": [
+      "Web",
+      "プログラミング",
+      "ソフトウェア開発"
+    ],
+    "evidence_note": "公式試験細目は、インターネット概論、Webサイト構築、HTML/CSS等によるデザイン作業及び運用管理の基礎を対象としている。"
+  },
+  {
+    "key": "webdesign_grade2",
+    "name": "ウェブデザイン技能検定 2級",
+    "category": "Web",
+    "vendor": "特定非営利活動法人インターネットスキル認定普及協会",
+    "url": "https://www.webdesign.gr.jp/",
+    "scope_url": "https://www.webdesign.gr.jp/application/items/",
+    "topics": [
+      "Web",
+      "プログラミング",
+      "ソフトウェア開発",
+      "セキュリティ基礎"
+    ],
+    "evidence_note": "公式試験細目は、Webサイトの設計・構築、HTML/CSS、画像・マルチメディア、スクリプト、サーバーサイド処理、アクセシビリティ及び運用を対象としている。"
+  },
+  {
+    "key": "webdesign_grade1",
+    "name": "ウェブデザイン技能検定 1級",
+    "category": "Web",
+    "vendor": "特定非営利活動法人インターネットスキル認定普及協会",
+    "url": "https://www.webdesign.gr.jp/",
+    "scope_url": "https://www.webdesign.gr.jp/application/items/",
+    "topics": [
+      "Web",
+      "プログラミング",
+      "ソフトウェア開発",
+      "システム設計",
+      "セキュリティ基礎"
+    ],
+    "evidence_note": "公式試験細目は、Webサイトの設計・計画、情報デザイン、コーディング、スクリプト・サーバーサイドアプリケーション、運用管理及び実技を対象としている。"
+  },
+  {
+    "key": "jken_use_grade3",
+    "name": "情報検定（J検）情報活用試験 3級",
+    "category": "基礎",
+    "vendor": "一般財団法人職業教育・キャリア教育財団",
+    "url": "https://jken.sgec.or.jp/information/juse/",
+    "scope_url": "https://jken.sgec.or.jp/information/juse/",
+    "topics": [
+      "IT基礎",
+      "コンピュータ基礎",
+      "Web"
+    ],
+    "evidence_note": "公式範囲は、情報表現と処理手順、パソコン、インターネット、情報機器、情報社会・モラル及び基本的なアプリケーション操作を対象としている。"
+  },
+  {
+    "key": "jken_use_grade2",
+    "name": "情報検定（J検）情報活用試験 2級",
+    "category": "基礎",
+    "vendor": "一般財団法人職業教育・キャリア教育財団",
+    "url": "https://jken.sgec.or.jp/information/juse/",
+    "scope_url": "https://jken.sgec.or.jp/information/juse/",
+    "topics": [
+      "IT基礎",
+      "コンピュータ基礎",
+      "ネットワーク基礎",
+      "セキュリティ基礎",
+      "プロジェクト管理",
+      "IT戦略",
+      "Web"
+    ],
+    "evidence_note": "公式範囲は、経営・システム戦略、プロジェクト管理、データ構造、問題解決、コンピュータ、インターネット、セキュリティ及びアプリケーション利用を対象としている。"
+  },
+  {
+    "key": "jken_use_grade1",
+    "name": "情報検定（J検）情報活用試験 1級",
+    "category": "基礎",
+    "vendor": "一般財団法人職業教育・キャリア教育財団",
+    "url": "https://jken.sgec.or.jp/information/juse/",
+    "scope_url": "https://jken.sgec.or.jp/information/juse/",
+    "topics": [
+      "IT基礎",
+      "コンピュータ基礎",
+      "ネットワーク基礎",
+      "セキュリティ基礎"
+    ],
+    "evidence_note": "公式範囲は、情報の収集・加工・管理、パソコンシステム、ネットワーク利用、情報社会、情報セキュリティ及びアプリケーションによる問題解決を対象としている。"
+  },
+  {
+    "key": "jken_system_basic",
+    "name": "情報検定（J検）情報システム試験 基本スキル",
+    "category": "基礎",
+    "vendor": "一般財団法人職業教育・キャリア教育財団",
+    "url": "https://jken.sgec.or.jp/information/jsystem/",
+    "scope_url": "https://jken.sgec.or.jp/common/pdf/information/jsystem_kihon.pdf",
+    "topics": [
+      "コンピュータ基礎",
+      "OS",
+      "プロジェクト管理",
+      "ソフトウェア開発"
+    ],
+    "evidence_note": "公式範囲は、プロジェクト管理、情報表現、データ構造・論理、CPU・記憶装置、システム構成及び基本ソフトウェアを対象としている。"
+  },
+  {
+    "key": "jken_system_programming",
+    "name": "情報検定（J検）情報システム試験 プログラミングスキル",
+    "category": "プログラミング",
+    "vendor": "一般財団法人職業教育・キャリア教育財団",
+    "url": "https://jken.sgec.or.jp/information/jsystem/",
+    "scope_url": "https://jken.sgec.or.jp/common/pdf/information/jsystem_programming.pdf",
+    "topics": [
+      "アルゴリズム",
+      "プログラミング",
+      "ソフトウェア開発"
+    ],
+    "evidence_note": "公式範囲は、配列・リスト・木等のデータ構造、探索・整列・再帰等のアルゴリズム、計算量、擬似言語実装及びテストを対象としている。"
+  },
+  {
+    "key": "jken_system_design",
+    "name": "情報検定（J検）情報システム試験 システムデザインスキル",
+    "category": "設計",
+    "vendor": "一般財団法人職業教育・キャリア教育財団",
+    "url": "https://jken.sgec.or.jp/information/jsystem/",
+    "scope_url": "https://jken.sgec.or.jp/common/pdf/information/jsystem_systemdesign.pdf",
+    "topics": [
+      "システム設計",
+      "ソフトウェア開発",
+      "ネットワーク設計",
+      "データベース",
+      "SQL",
+      "セキュリティ基礎",
+      "IT戦略",
+      "監査"
+    ],
+    "evidence_note": "公式範囲は、経営・システム戦略、システム開発、ネットワーク、データベース・SQL、セキュリティ、標準化及び監査を対象としている。"
+  },
+  {
+    "key": "aws-clf-c02",
+    "name": "AWS Certified Cloud Practitioner",
+    "category": "クラウド",
+    "vendor": "Amazon Web Services",
+    "url": "https://aws.amazon.com/certification/certified-cloud-practitioner/",
+    "scope_url": "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02.html",
+    "topics": [
+      "クラウド基礎",
+      "セキュリティ基礎",
+      "ネットワーク基礎",
+      "データベース",
+      "コスト管理"
+    ],
+    "evidence_note": "CLF-C02公式ガイドは、クラウド概念、セキュリティとコンプライアンス、クラウド技術・サービス、請求・料金・サポートを出題領域としている。"
+  },
+  {
+    "key": "aws-aif-c01",
+    "name": "AWS Certified AI Practitioner",
+    "category": "AI",
+    "vendor": "Amazon Web Services",
+    "url": "https://aws.amazon.com/certification/certified-ai-practitioner/",
+    "scope_url": "https://docs.aws.amazon.com/aws-certification/latest/ai-practitioner-01/ai-practitioner-01.html",
+    "topics": [
+      "AI基礎",
+      "機械学習",
+      "生成AI",
+      "セキュリティ基礎",
+      "ガバナンス"
+    ],
+    "evidence_note": "AIF-C01公式ガイドは、AI・ML基礎、生成AI、基盤モデルの応用、責任あるAI、AIのセキュリティ・コンプライアンス・ガバナンスを扱う。"
+  },
+  {
+    "key": "aws-soa-c03",
+    "name": "AWS Certified CloudOps Engineer - Associate",
+    "category": "クラウド",
+    "vendor": "Amazon Web Services",
+    "url": "https://aws.amazon.com/certification/certified-cloudops-engineer-associate/",
+    "scope_url": "https://docs.aws.amazon.com/aws-certification/latest/sysops-administrator-associate-03/sysops-administrator-associate-03.html",
+    "topics": [
+      "クラウド運用",
+      "自動化",
+      "セキュリティ運用",
+      "ネットワーク基礎",
+      "インシデント対応",
+      "コンテナ",
+      "コスト管理"
+    ],
+    "evidence_note": "SOA-C03公式ガイドは、監視・分析・修復、信頼性、展開と自動化、セキュリティ、ネットワークを領域とし、インシデント修復やコンテナ基礎も明記する。"
+  },
+  {
+    "key": "aws-dea-c01",
+    "name": "AWS Certified Data Engineer - Associate",
+    "category": "データ分析",
+    "vendor": "Amazon Web Services",
+    "url": "https://aws.amazon.com/certification/certified-data-engineer-associate/",
+    "scope_url": "https://docs.aws.amazon.com/aws-certification/latest/data-engineer-associate-01/data-engineer-associate-01.html",
+    "topics": [
+      "データエンジニアリング",
+      "データベース",
+      "SQL",
+      "データ分析",
+      "ID・アクセス管理",
+      "暗号",
+      "ガバナンス"
+    ],
+    "evidence_note": "DEA-C01公式ガイドは、データ取込み・変換、データストア管理、データ運用、データセキュリティとガバナンスを扱い、SQL、認証・認可、暗号化を明記する。"
+  },
+  {
+    "key": "aws-dva-c02",
+    "name": "AWS Certified Developer - Associate",
+    "category": "プログラミング",
+    "vendor": "Amazon Web Services",
+    "url": "https://aws.amazon.com/certification/certified-developer-associate/",
+    "scope_url": "https://docs.aws.amazon.com/aws-certification/latest/developer-associate-02/developer-associate-02.html",
+    "topics": [
+      "プログラミング",
+      "ソフトウェア開発",
+      "クラウド運用",
+      "DevOps",
+      "セキュリティ基礎"
+    ],
+    "evidence_note": "DVA-C02公式ガイドは、AWS上のアプリケーション開発、セキュリティ、デプロイ、トラブルシューティングと最適化を出題領域としている。"
+  },
+  {
+    "key": "aws-mla-c01",
+    "name": "AWS Certified Machine Learning Engineer - Associate",
+    "category": "AI",
+    "vendor": "Amazon Web Services",
+    "url": "https://aws.amazon.com/certification/certified-machine-learning-engineer-associate/",
+    "scope_url": "https://docs.aws.amazon.com/aws-certification/latest/machine-learning-engineer-associate-01/machine-learning-engineer-associate-01.html",
+    "topics": [
+      "機械学習",
+      "データエンジニアリング",
+      "DevOps",
+      "クラウド運用",
+      "セキュリティ基礎"
+    ],
+    "evidence_note": "MLA-C01公式ガイドは、ML用データ準備、モデル開発、MLワークフローのデプロイとオーケストレーション、監視・保守・セキュリティを扱う。"
+  },
+  {
+    "key": "aws-saa-c03",
+    "name": "AWS Certified Solutions Architect - Associate",
+    "category": "クラウド",
+    "vendor": "Amazon Web Services",
+    "url": "https://aws.amazon.com/certification/certified-solutions-architect-associate/",
+    "scope_url": "https://docs.aws.amazon.com/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.html",
+    "topics": [
+      "クラウド設計",
+      "クラウドセキュリティ",
+      "ネットワーク設計",
+      "データベース",
+      "コスト管理"
+    ],
+    "evidence_note": "SAA-C03公式ガイドは、安全で耐障害性・高性能・コスト最適化されたAWSアーキテクチャの設計を4領域で評価する。"
+  },
+  {
+    "key": "aws-dop-c02",
+    "name": "AWS Certified DevOps Engineer - Professional",
+    "category": "クラウド",
+    "vendor": "Amazon Web Services",
+    "url": "https://aws.amazon.com/certification/certified-devops-engineer-professional/",
+    "scope_url": "https://docs.aws.amazon.com/aws-certification/latest/devops-engineer-professional-02/devops-engineer-professional-02.html",
+    "topics": [
+      "DevOps",
+      "自動化",
+      "クラウド運用",
+      "クラウドセキュリティ",
+      "インシデント対応",
+      "コスト管理"
+    ],
+    "evidence_note": "DOP-C02公式ガイドは、SDLC自動化、構成管理とIaC、耐障害性、監視・ロギング、インシデント対応、セキュリティとコンプライアンスを扱う。"
+  },
+  {
+    "key": "aws-aip-c01",
+    "name": "AWS Certified Generative AI Developer - Professional",
+    "category": "AI",
+    "vendor": "Amazon Web Services",
+    "url": "https://aws.amazon.com/certification/certified-generative-ai-developer-professional/",
+    "scope_url": "https://docs.aws.amazon.com/aws-certification/latest/ai-professional-01/ai-professional-01.html",
+    "topics": [
+      "生成AI",
+      "機械学習",
+      "データエンジニアリング",
+      "ソフトウェア開発",
+      "クラウドセキュリティ",
+      "コスト管理"
+    ],
+    "evidence_note": "AIP-C01公式ガイドは、本番向け生成AIソリューションの設計・実装・展開を対象とし、データ、モデル、セキュリティ、運用、コストを扱う。"
+  },
+  {
+    "key": "aws-sap-c02",
+    "name": "AWS Certified Solutions Architect - Professional",
+    "category": "設計",
+    "vendor": "Amazon Web Services",
+    "url": "https://aws.amazon.com/certification/certified-solutions-architect-professional/",
+    "scope_url": "https://docs.aws.amazon.com/aws-certification/latest/solutions-architect-professional-02/solutions-architect-professional-02.html",
+    "topics": [
+      "クラウド設計",
+      "システム設計",
+      "ネットワーク設計",
+      "クラウドセキュリティ",
+      "クラウド運用",
+      "コスト管理"
+    ],
+    "evidence_note": "SAP-C02公式ガイドは、組織の複雑性に対応する設計、新規ソリューション設計、既存ソリューション改善、移行・モダナイゼーションを扱う。"
+  },
+  {
+    "key": "aws-ans-c01",
+    "name": "AWS Certified Advanced Networking - Specialty",
+    "category": "ネットワーク",
+    "vendor": "Amazon Web Services",
+    "url": "https://aws.amazon.com/certification/certified-advanced-networking-specialty/",
+    "scope_url": "https://docs.aws.amazon.com/aws-certification/latest/advanced-networking-specialty-01/advanced-networking-specialty-01.html",
+    "topics": [
+      "ネットワーク設計",
+      "ルーティング・スイッチング",
+      "クラウド設計",
+      "クラウドセキュリティ",
+      "クラウド運用"
+    ],
+    "evidence_note": "ANS-C01公式ガイドは、大規模なAWS・ハイブリッドネットワークの設計、実装、管理・運用、セキュリティとコンプライアンスを扱う。"
+  },
+  {
+    "key": "aws-scs-c03",
+    "name": "AWS Certified Security - Specialty",
+    "category": "セキュリティ",
+    "vendor": "Amazon Web Services",
+    "url": "https://aws.amazon.com/certification/certified-security-specialty/",
+    "scope_url": "https://docs.aws.amazon.com/aws-certification/latest/security-specialty-03/security-specialty-03.html",
+    "topics": [
+      "クラウドセキュリティ",
+      "ID・アクセス管理",
+      "セキュリティ運用",
+      "インシデント対応",
+      "暗号",
+      "リスク管理",
+      "ガバナンス"
+    ],
+    "evidence_note": "SCS-C03公式ガイドは、脅威検出、インシデント対応、インフラ・データ・IDの保護、セキュリティ基盤管理、ガバナンスを扱う。"
+  },
+  {
+    "key": "gcp-cloud-digital-leader",
+    "name": "Cloud Digital Leader",
+    "category": "クラウド",
+    "vendor": "Google Cloud",
+    "url": "https://cloud.google.com/learn/certification/cloud-digital-leader/",
+    "scope_url": "https://services.google.com/fh/files/misc/cloud_digital_leader_exam_guide_english.pdf",
+    "topics": [
+      "クラウド基礎",
+      "データ分析",
+      "AI基礎",
+      "セキュリティ基礎",
+      "クラウド運用",
+      "コスト管理"
+    ],
+    "evidence_note": "現行ガイドは、デジタル変革、データ、AI、インフラとアプリの近代化、信頼とセキュリティ、クラウド運用を6領域としている。"
+  },
+  {
+    "key": "gcp-generative-ai-leader",
+    "name": "Generative AI Leader",
+    "category": "AI",
+    "vendor": "Google Cloud",
+    "url": "https://cloud.google.com/learn/certification/generative-ai-leader",
+    "scope_url": "https://services.google.com/fh/files/misc/generative_ai_leader_exam_guide_english.pdf",
+    "topics": [
+      "AI基礎",
+      "機械学習",
+      "生成AI",
+      "リスク管理",
+      "ガバナンス",
+      "セキュリティ基礎"
+    ],
+    "evidence_note": "公式ガイドは、生成AI基礎、Google Cloudの生成AI製品、出力改善技法、成功する生成AI施策のビジネス戦略と責任あるAIを扱う。"
+  },
+  {
+    "key": "gcp-associate-cloud-engineer",
+    "name": "Associate Cloud Engineer",
+    "category": "クラウド",
+    "vendor": "Google Cloud",
+    "url": "https://cloud.google.com/learn/certification/cloud-engineer/",
+    "scope_url": "https://services.google.com/fh/files/misc/associate_cloud_engineer_exam_guide_english.pdf",
+    "topics": [
+      "クラウド設計",
+      "クラウド運用",
+      "ID・アクセス管理",
+      "クラウドセキュリティ",
+      "ネットワーク基礎"
+    ],
+    "evidence_note": "公式ガイドは、クラウド環境の設定、ソリューションの計画・実装、運用、アクセスとセキュリティ設定を扱う。"
+  },
+  {
+    "key": "gcp-associate-workspace-admin",
+    "name": "Associate Google Workspace Administrator",
+    "category": "クラウド",
+    "vendor": "Google Cloud",
+    "url": "https://cloud.google.com/learn/certification/associate-google-workspace-administrator",
+    "scope_url": "https://services.google.com/fh/files/misc/associate_google_workspace_administrator_exam_guide_english.pdf",
+    "topics": [
+      "クラウド運用",
+      "ID・アクセス管理",
+      "セキュリティ運用",
+      "ガバナンス",
+      "監査",
+      "自動化"
+    ],
+    "evidence_note": "公式ガイドは、アカウント・ドメイン、Workspaceサービス、データガバナンス、アクセス制御、端末、監視とトラブル対応を扱う。"
+  },
+  {
+    "key": "gcp-associate-data-practitioner",
+    "name": "Associate Data Practitioner",
+    "category": "データ分析",
+    "vendor": "Google Cloud",
+    "url": "https://cloud.google.com/learn/certification/data-practitioner",
+    "scope_url": "https://services.google.com/fh/files/misc/v1.0_associate_data_practitioner_exam_guide_english.pdf",
+    "topics": [
+      "データエンジニアリング",
+      "データ分析",
+      "SQL",
+      "機械学習",
+      "データベース",
+      "ID・アクセス管理",
+      "暗号"
+    ],
+    "evidence_note": "公式ガイドは、データ準備・取込み、BigQueryと可視化による分析、ML、パイプライン、アクセス制御・暗号化を含むデータ管理を扱う。"
+  },
+  {
+    "key": "gcp-professional-cloud-architect",
+    "name": "Professional Cloud Architect",
+    "category": "設計",
+    "vendor": "Google Cloud",
+    "url": "https://cloud.google.com/learn/certification/cloud-architect/",
+    "scope_url": "https://services.google.com/fh/files/misc/professional_cloud_architect_exam_guide_english.pdf",
+    "topics": [
+      "クラウド設計",
+      "システム設計",
+      "ネットワーク設計",
+      "クラウドセキュリティ",
+      "クラウド運用",
+      "コスト管理",
+      "コンテナ"
+    ],
+    "evidence_note": "公式ガイドは、クラウドアーキテクチャの設計、インフラ管理、セキュリティとコンプライアンス、実装、運用品質とコスト最適化を扱う。"
+  },
+  {
+    "key": "gcp-professional-cloud-database-engineer",
+    "name": "Professional Cloud Database Engineer",
+    "category": "データベース",
+    "vendor": "Google Cloud",
+    "url": "https://cloud.google.com/learn/certification/cloud-database-engineer/",
+    "scope_url": "https://services.google.com/fh/files/misc/professional_cloud_database_engineer_exam_guide_english.pdf",
+    "topics": [
+      "データベース",
+      "SQL",
+      "クラウド設計",
+      "クラウド運用",
+      "クラウドセキュリティ",
+      "データエンジニアリング"
+    ],
+    "evidence_note": "公式ガイドは、スケーラブルで高可用なクラウドDBの設計・展開・管理、複数DBの統合、移行、セキュリティを扱う。"
+  },
+  {
+    "key": "gcp-professional-cloud-developer",
+    "name": "Professional Cloud Developer",
+    "category": "プログラミング",
+    "vendor": "Google Cloud",
+    "url": "https://cloud.google.com/learn/certification/cloud-developer/",
+    "scope_url": "https://services.google.com/fh/files/misc/professional_cloud_developer_exam_guide_english.pdf",
+    "topics": [
+      "プログラミング",
+      "ソフトウェア開発",
+      "クラウド設計",
+      "クラウドセキュリティ",
+      "DevOps",
+      "コンテナ",
+      "データベース"
+    ],
+    "evidence_note": "公式ガイドは、クラウドネイティブアプリの設計、構築・テスト、Cloud Run/GKEへの展開、データ・API統合、観測性を扱う。"
+  },
+  {
+    "key": "gcp-professional-data-engineer",
+    "name": "Professional Data Engineer",
+    "category": "データ分析",
+    "vendor": "Google Cloud",
+    "url": "https://cloud.google.com/learn/certification/data-engineer/",
+    "scope_url": "https://services.google.com/fh/files/misc/professional_data_engineer_exam_guide_english.pdf",
+    "topics": [
+      "データエンジニアリング",
+      "データ分析",
+      "データベース",
+      "SQL",
+      "機械学習",
+      "自動化",
+      "ガバナンス"
+    ],
+    "evidence_note": "公式ガイドは、データ処理システム設計、取込み・処理、保存、分析準備、AI/ML向け準備、データワークロードの自動化と運用を扱う。"
+  },
+  {
+    "key": "gcp-professional-cloud-devops-engineer",
+    "name": "Professional Cloud DevOps Engineer",
+    "category": "クラウド",
+    "vendor": "Google Cloud",
+    "url": "https://cloud.google.com/learn/certification/cloud-devops-engineer/",
+    "scope_url": "https://services.google.com/fh/files/misc/professional_cloud_devops_engineer_exam_guide_english.pdf",
+    "topics": [
+      "DevOps",
+      "自動化",
+      "クラウド運用",
+      "コンテナ",
+      "セキュリティ運用",
+      "インシデント対応",
+      "コスト管理"
+    ],
+    "evidence_note": "公式ガイドは、組織とIaC、CI/CD、SRE、可観測性とトラブル対応、性能・コスト最適化を扱う。"
+  },
+  {
+    "key": "gcp-professional-cloud-security-engineer",
+    "name": "Professional Cloud Security Engineer",
+    "category": "セキュリティ",
+    "vendor": "Google Cloud",
+    "url": "https://cloud.google.com/learn/certification/cloud-security-engineer/",
+    "scope_url": "https://services.google.com/fh/files/misc/professional_cloud_security_engineer_exam_guide_english.pdf",
+    "topics": [
+      "クラウドセキュリティ",
+      "ID・アクセス管理",
+      "ネットワーク設計",
+      "暗号",
+      "セキュリティ運用",
+      "自動化",
+      "ガバナンス"
+    ],
+    "evidence_note": "公式ガイドは、IDとアクセス、通信・境界防御、データ保護、セキュリティ運用、コンプライアンスを扱い、AIとサプライチェーン保護も含む。"
+  },
+  {
+    "key": "gcp-professional-cloud-network-engineer",
+    "name": "Professional Cloud Network Engineer",
+    "category": "ネットワーク",
+    "vendor": "Google Cloud",
+    "url": "https://cloud.google.com/learn/certification/cloud-network-engineer/",
+    "scope_url": "https://services.google.com/fh/files/misc/042426_professional_cloud_network_engineer_exam_guide_english.pdf",
+    "topics": [
+      "ネットワーク設計",
+      "ルーティング・スイッチング",
+      "クラウド設計",
+      "クラウド運用",
+      "クラウドセキュリティ"
+    ],
+    "evidence_note": "公式ガイドは、VPC設計・実装、ルーティングと管理サービス、ハイブリッド・マルチクラウド接続、監視・障害対応、ネットワークセキュリティを扱う。"
+  },
+  {
+    "key": "gcp-professional-machine-learning-engineer",
+    "name": "Professional Machine Learning Engineer",
+    "category": "AI",
+    "vendor": "Google Cloud",
+    "url": "https://cloud.google.com/learn/certification/machine-learning-engineer/",
+    "scope_url": "https://services.google.com/fh/files/misc/professional_machine_learning_engineer_exam_guide_english_new.pdf",
+    "topics": [
+      "機械学習",
+      "生成AI",
+      "データエンジニアリング",
+      "プログラミング",
+      "DevOps",
+      "クラウド運用",
+      "ガバナンス"
+    ],
+    "evidence_note": "公式ガイドは、AIソリューション設計、データとモデル管理、モデル構築・提供・拡張、MLパイプライン自動化、監視、責任あるAIを扱う。"
+  },
+  {
+    "key": "gcp-professional-security-operations-engineer",
+    "name": "Professional Security Operations Engineer",
+    "category": "セキュリティ",
+    "vendor": "Google Cloud",
+    "url": "https://cloud.google.com/learn/certification/security-operations-engineer",
+    "scope_url": "https://services.google.com/fh/files/misc/professional_security_operations_engineer_exam_guide_english.pdf",
+    "topics": [
+      "セキュリティ運用",
+      "インシデント対応",
+      "データ分析",
+      "自動化",
+      "リスク管理",
+      "クラウドセキュリティ"
+    ],
+    "evidence_note": "公式ガイドは、セキュリティ基盤運用、ログデータ管理、脅威ハンティング、検知エンジニアリング、インシデント対応、可観測性を扱う。"
+  },
+  {
+    "key": "cisco-ccst-networking",
+    "name": "Cisco Certified Support Technician (CCST) Networking",
+    "category": "ネットワーク",
+    "vendor": "Cisco",
+    "url": "https://www.cisco.com/site/us/en/learn/training-certifications/certifications/support-technician/index.html",
+    "scope_url": "https://www.cisco.com/site/us/en/learn/training-certifications/certifications/support-technician/index.html",
+    "topics": [
+      "ネットワーク基礎",
+      "セキュリティ基礎"
+    ],
+    "evidence_note": "Cisco公式ページは、ネットワーク通信を成立させるデバイス、媒体、プロトコルなどの入門ネットワーク知識とスキルを対象としている。"
+  },
+  {
+    "key": "cisco-ccst-cybersecurity",
+    "name": "Cisco Certified Support Technician (CCST) Cybersecurity",
+    "category": "セキュリティ",
+    "vendor": "Cisco",
+    "url": "https://www.cisco.com/site/us/en/learn/training-certifications/certifications/support-technician/index.html",
+    "scope_url": "https://www.cisco.com/site/us/en/learn/training-certifications/certifications/support-technician/index.html",
+    "topics": [
+      "セキュリティ基礎",
+      "ネットワーク基礎",
+      "リスク管理",
+      "インシデント対応"
+    ],
+    "evidence_note": "Cisco公式ページは、セキュリティ原則、ネットワーク・エンドポイント防御、脆弱性評価とリスク管理、インシデント対応を対象としている。"
+  },
+  {
+    "key": "cisco-ccna",
+    "name": "Cisco Certified Network Associate (CCNA)",
+    "category": "ネットワーク",
+    "vendor": "Cisco",
+    "url": "https://www.cisco.com/site/us/en/learn/training-certifications/certifications/enterprise/ccna/index.html",
+    "scope_url": "https://www.cisco.com/site/us/en/learn/training-certifications/certifications/enterprise/ccna/index.html",
+    "topics": [
+      "ネットワーク基礎",
+      "ルーティング・スイッチング",
+      "無線",
+      "セキュリティ基礎",
+      "自動化"
+    ],
+    "evidence_note": "Cisco公式範囲は、ネットワーク基礎、ネットワークアクセス、IP接続・サービス、セキュリティ基礎、自動化とプログラマビリティを扱う。"
+  },
+  {
+    "key": "cisco-ccna-automation",
+    "name": "Cisco Certified Network Associate (CCNA) Automation",
+    "category": "プログラミング",
+    "vendor": "Cisco",
+    "url": "https://www.cisco.com/site/us/en/learn/training-certifications/certifications/automation/ccna-automation/index.html",
+    "scope_url": "https://www.cisco.com/site/us/en/learn/training-certifications/certifications/automation/ccna-automation/index.html",
+    "topics": [
+      "プログラミング",
+      "ソフトウェア開発",
+      "ネットワーク基礎",
+      "自動化",
+      "セキュリティ基礎"
+    ],
+    "evidence_note": "Cisco公式ページは、Python・Git・データ形式、API、Cisco上の開発、セキュアなアプリ展開、ワークフロー自動化、ネットワーク基礎を扱う。"
+  },
+  {
+    "key": "cisco-ccna-cybersecurity",
+    "name": "Cisco Certified Network Associate (CCNA) Cybersecurity",
+    "category": "セキュリティ",
+    "vendor": "Cisco",
+    "url": "https://www.cisco.com/site/us/en/learn/training-certifications/certifications/cybersecurity/ccna-cybersecurity/index.html",
+    "scope_url": "https://www.cisco.com/site/us/en/learn/training-certifications/certifications/cybersecurity/ccna-cybersecurity/index.html",
+    "topics": [
+      "セキュリティ基礎",
+      "セキュリティ運用",
+      "インシデント対応",
+      "ネットワーク基礎"
+    ],
+    "evidence_note": "Cisco公式ページは、セキュリティ概念、監視、ホスト分析、ネットワーク侵入分析と、脅威の検知・対応を対象としている。"
+  },
+  {
+    "key": "cisco-ccnp-enterprise",
+    "name": "Cisco Certified Network Professional (CCNP) Enterprise",
+    "category": "ネットワーク",
+    "vendor": "Cisco",
+    "url": "https://www.cisco.com/site/us/en/learn/training-certifications/certifications/enterprise/ccnp-enterprise/index.html",
+    "scope_url": "https://www.cisco.com/site/us/en/learn/training-certifications/certifications/enterprise/ccnp-enterprise/index.html",
+    "topics": [
+      "ネットワーク設計",
+      "ルーティング・スイッチング",
+      "無線",
+      "セキュリティ基礎",
+      "自動化"
+    ],
+    "evidence_note": "Cisco公式範囲は、エンタープライズネットワークのアーキテクチャ、仮想化、インフラ、保証、セキュリティ、自動化を扱う。"
+  },
+  {
+    "key": "cisco-ccnp-security",
+    "name": "Cisco Certified Network Professional (CCNP) Security",
+    "category": "セキュリティ",
+    "vendor": "Cisco",
+    "url": "https://www.cisco.com/site/us/en/learn/training-certifications/certifications/security/ccnp-security/index.html",
+    "scope_url": "https://www.cisco.com/site/us/en/learn/training-certifications/certifications/security/ccnp-security/index.html",
+    "topics": [
+      "セキュリティ運用",
+      "ID・アクセス管理",
+      "ネットワーク設計",
+      "クラウドセキュリティ",
+      "自動化"
+    ],
+    "evidence_note": "Cisco公式ページは、ネットワーク・クラウドセキュリティ、セキュアアクセス、可視性と実施、コンテンツセキュリティ、自動化を扱う。"
+  },
+  {
+    "key": "cisco-ccnp-cybersecurity",
+    "name": "Cisco Certified Network Professional (CCNP) Cybersecurity",
+    "category": "セキュリティ",
+    "vendor": "Cisco",
+    "url": "https://www.cisco.com/site/us/en/learn/training-certifications/certifications/cybersecurity/ccnp-cybersecurity/index.html",
+    "scope_url": "https://www.cisco.com/site/us/en/learn/training-certifications/certifications/cybersecurity/ccnp-cybersecurity/index.html",
+    "topics": [
+      "セキュリティ運用",
+      "インシデント対応",
+      "リスク管理",
+      "自動化",
+      "クラウドセキュリティ"
+    ],
+    "evidence_note": "Cisco公式ページは、攻撃防止、インシデント対応、クラウド保護、脅威分析、侵害調査、脆弱性緩和、セキュリティ自動化を扱う。"
+  },
+  {
+    "key": "cisco-ccnp-automation",
+    "name": "Cisco Certified Network Professional (CCNP) Automation",
+    "category": "プログラミング",
+    "vendor": "Cisco",
+    "url": "https://www.cisco.com/site/us/en/learn/training-certifications/certifications/automation/ccnp-automation/index.html",
+    "scope_url": "https://www.cisco.com/site/us/en/learn/training-certifications/certifications/automation/ccnp-automation/index.html",
+    "topics": [
+      "プログラミング",
+      "ソフトウェア開発",
+      "DevOps",
+      "自動化",
+      "ネットワーク基礎",
+      "セキュリティ基礎"
+    ],
+    "evidence_note": "Cisco公式ページは、Ciscoプラットフォーム上のアプリ開発・保守、API、セキュアな展開、ネットワーク自動化とプログラマビリティを扱う。"
+  },
+  {
+    "key": "cisco-ccnp-data-center",
+    "name": "Cisco Certified Network Professional (CCNP) Data Center",
+    "category": "設計",
+    "vendor": "Cisco",
+    "url": "https://www.cisco.com/site/us/en/learn/training-certifications/certifications/data-center/ccnp-data-center/index.html",
+    "scope_url": "https://www.cisco.com/site/us/en/learn/training-certifications/certifications/data-center/ccnp-data-center/index.html",
+    "topics": [
+      "システム設計",
+      "ネットワーク設計",
+      "自動化",
+      "セキュリティ基礎"
+    ],
+    "evidence_note": "Cisco公式ページは、データセンターのネットワーク、コンピューティング、ストレージ、自動化、セキュリティを中核技術としている。"
+  },
+  {
+    "key": "cisco-ccnp-wireless",
+    "name": "CCNP Wireless",
+    "category": "ネットワーク",
+    "vendor": "Cisco",
+    "url": "https://www.cisco.com/site/us/en/learn/training-certifications/certifications/wireless/ccnp-wireless/index.html",
+    "scope_url": "https://www.cisco.com/site/us/en/learn/training-certifications/certifications/wireless/ccnp-wireless/index.html",
+    "topics": [
+      "無線",
+      "ネットワーク設計",
+      "ネットワーク基礎"
+    ],
+    "evidence_note": "Cisco公式ページは、現代的な無線ネットワークの設計、実装、管理に関する高度な知識と実務スキルを対象としている。"
+  },
+  {
+    "key": "cisco-ccnp-service-provider",
+    "name": "Cisco Certified Network Professional (CCNP) Service Provider",
+    "category": "ネットワーク",
+    "vendor": "Cisco",
+    "url": "https://www.cisco.com/site/us/en/learn/training-certifications/certifications/service-provider/ccnp-service-provider/index.html",
+    "scope_url": "https://www.cisco.com/site/us/en/learn/training-certifications/certifications/service-provider/ccnp-service-provider/index.html",
+    "topics": [
+      "ネットワーク設計",
+      "ルーティング・スイッチング",
+      "自動化"
+    ],
+    "evidence_note": "Cisco公式ページは、次世代サービスプロバイダーIPネットワーク基盤の構成、検証、最適化を対象としている。"
+  },
+  {
+    "key": "comptia-tech-fc0-u71",
+    "name": "CompTIA Tech+",
+    "category": "基礎",
+    "vendor": "CompTIA",
+    "url": "https://www.comptia.org/ja-jp/certifications/tech/",
+    "scope_url": "https://www.comptia.org/ja-jp/certifications/tech/",
+    "topics": [
+      "IT基礎",
+      "コンピュータ基礎",
+      "ネットワーク基礎",
+      "セキュリティ基礎"
+    ],
+    "evidence_note": "CompTIA公式ページは、コンピューティング、ネットワーク、ソフトウェア、データ、セキュリティの基礎を対象としている。"
+  },
+  {
+    "key": "comptia-a-220-1201-1202",
+    "name": "CompTIA A+",
+    "category": "基礎",
+    "vendor": "CompTIA",
+    "url": "https://www.comptia.org/ja-jp/certifications/a/core-1-and-2-v15/",
+    "scope_url": "https://www.comptia.org/ja-jp/certifications/a/core-1-and-2-v15/",
+    "topics": [
+      "IT基礎",
+      "コンピュータ基礎",
+      "OS",
+      "ネットワーク基礎",
+      "セキュリティ基礎"
+    ],
+    "evidence_note": "CompTIA公式ページは、ハードウェア、ソフトウェア、ネットワーク、トラブルシューティング、セキュリティをCore 1/Core 2で扱う。"
+  },
+  {
+    "key": "comptia-network-n10-009",
+    "name": "CompTIA Network+",
+    "category": "ネットワーク",
+    "vendor": "CompTIA",
+    "url": "https://www.comptia.org/ja-jp/certifications/network/",
+    "scope_url": "https://www.comptia.org/ja-jp/certifications/network/",
+    "topics": [
+      "ネットワーク基礎",
+      "ルーティング・スイッチング",
+      "無線",
+      "ネットワーク設計",
+      "セキュリティ基礎"
+    ],
+    "evidence_note": "CompTIA公式ページは、各種ネットワークの接続、構成、運用、管理、セキュリティ維持をベンダーニュートラルに扱う。"
+  },
+  {
+    "key": "comptia-security-sy0-701",
+    "name": "CompTIA Security+",
+    "category": "セキュリティ",
+    "vendor": "CompTIA",
+    "url": "https://www.comptia.org/ja-jp/certifications/security/",
+    "scope_url": "https://www.comptia.org/ja-jp/certifications/security/",
+    "topics": [
+      "セキュリティ基礎",
+      "ID・アクセス管理",
+      "暗号",
+      "リスク管理",
+      "セキュリティ運用",
+      "インシデント対応",
+      "ガバナンス"
+    ],
+    "evidence_note": "SY0-701公式範囲は、一般セキュリティ概念、脅威と緩和、セキュリティアーキテクチャ、運用、プログラム管理と監督を扱う。"
+  },
+  {
+    "key": "comptia-linux-xk0-006",
+    "name": "CompTIA Linux+",
+    "category": "Linux",
+    "vendor": "CompTIA",
+    "url": "https://www.comptia.org/ja-jp/certifications/v8/",
+    "scope_url": "https://www.comptia.org/ja-jp/certifications/v8/",
+    "topics": [
+      "Linux",
+      "OS",
+      "セキュリティ運用",
+      "自動化",
+      "コンテナ"
+    ],
+    "evidence_note": "CompTIA公式ページは、クラウド・ハイブリッド環境でのLinux管理、セキュリティ、障害対応、自動化、コンテナとオーケストレーションを扱う。"
+  },
+  {
+    "key": "comptia-server-sk0-005",
+    "name": "CompTIA Server+",
+    "category": "設計",
+    "vendor": "CompTIA",
+    "url": "https://www.comptia.org/en-us/certifications/server/",
+    "scope_url": "https://www.comptia.org/en-us/certifications/server/",
+    "topics": [
+      "コンピュータ基礎",
+      "OS",
+      "ネットワーク基礎",
+      "セキュリティ基礎",
+      "システム設計"
+    ],
+    "evidence_note": "CompTIA公式範囲は、オンプレミス・ハイブリッド環境のサーバーハードウェア、管理、セキュリティ、障害対応、災害復旧を扱う。"
+  },
+  {
+    "key": "comptia-cloud-cv0-004",
+    "name": "CompTIA Cloud+",
+    "category": "クラウド",
+    "vendor": "CompTIA",
+    "url": "https://www.comptia.org/ja-jp/certifications/cloud/",
+    "scope_url": "https://www.comptia.org/ja-jp/certifications/cloud/",
+    "topics": [
+      "クラウド設計",
+      "クラウド運用",
+      "クラウドセキュリティ",
+      "DevOps",
+      "コンテナ"
+    ],
+    "evidence_note": "CompTIA公式ページは、マルチクラウドのアーキテクチャ、展開、セキュリティ、DevOps、運用最適化、トラブルシューティングを扱う。"
+  },
+  {
+    "key": "comptia-cysa-cs0-003",
+    "name": "CompTIA CySA+",
+    "category": "セキュリティ",
+    "vendor": "CompTIA",
+    "url": "https://www.comptia.org/ja-jp/certifications/cybersecurity-analyst/v3/",
+    "scope_url": "https://www.comptia.org/ja-jp/certifications/cybersecurity-analyst/v3/",
+    "topics": [
+      "セキュリティ運用",
+      "インシデント対応",
+      "リスク管理",
+      "データ分析"
+    ],
+    "evidence_note": "CompTIA公式ページは、脅威の検知・分析・阻止、脆弱性管理、セキュリティツールとデータの分析、インシデント対応を扱う。"
+  },
+  {
+    "key": "comptia-pentest-pt0-003",
+    "name": "CompTIA PenTest+",
+    "category": "セキュリティ",
+    "vendor": "CompTIA",
+    "url": "https://www.comptia.org/ja-jp/certifications/pentest/",
+    "scope_url": "https://www.comptia.org/ja-jp/certifications/pentest/",
+    "topics": [
+      "セキュリティ運用",
+      "リスク管理",
+      "Web",
+      "クラウドセキュリティ"
+    ],
+    "evidence_note": "CompTIA公式ページは、クラウド、Webアプリ、API、IoTを含むペネトレーションテスト工程と、リスク発見・報告を扱う。"
+  },
+  {
+    "key": "comptia-securityx-cas-005",
+    "name": "CompTIA SecurityX",
+    "category": "セキュリティ",
+    "vendor": "CompTIA",
+    "url": "https://www.comptia.org/en-us/certifications/securityx/",
+    "scope_url": "https://www.comptia.org/en-us/certifications/securityx/",
+    "topics": [
+      "システム設計",
+      "クラウドセキュリティ",
+      "セキュリティ運用",
+      "インシデント対応",
+      "暗号",
+      "リスク管理",
+      "ガバナンス"
+    ],
+    "evidence_note": "CAS-005公式範囲は、企業セキュリティアーキテクチャとエンジニアリング、運用、リスク・ガバナンス・コンプライアンスを扱う。"
+  },
+  {
+    "key": "comptia-cloudnetx-cnx-001",
+    "name": "CompTIA CloudNetX",
+    "category": "ネットワーク",
+    "vendor": "CompTIA",
+    "url": "https://www.comptia.org/en-us/certifications/cloudnetx/",
+    "scope_url": "https://www.comptia.org/en-us/certifications/cloudnetx/",
+    "topics": [
+      "ネットワーク設計",
+      "クラウド設計",
+      "クラウドセキュリティ",
+      "クラウド運用",
+      "自動化"
+    ],
+    "evidence_note": "CNX-001公式範囲は、オンプレミスとクラウドをまたぐ安全なネットワーク設計・構成、監視、自動化、障害対応と保守を扱う。"
+  },
+  {
+    "key": "comptia-data-da0-002",
+    "name": "CompTIA Data+",
+    "category": "データ分析",
+    "vendor": "CompTIA",
+    "url": "https://www.comptia.org/ja-jp/certifications/data/",
+    "scope_url": "https://www.comptia.org/ja-jp/certifications/data/",
+    "topics": [
+      "データ分析",
+      "統計",
+      "SQL",
+      "ガバナンス"
+    ],
+    "evidence_note": "DA0-002公式範囲は、データ概念と環境、データ取得・準備、分析、可視化・報告、データガバナンスを扱う。"
+  },
+  {
+    "key": "comptia-datasys-ds0-001",
+    "name": "CompTIA DataSys+",
+    "category": "データベース",
+    "vendor": "CompTIA",
+    "url": "https://www.comptia.org/en-us/certifications/datasys/",
+    "scope_url": "https://www.comptia.org/en-us/certifications/datasys/",
+    "topics": [
+      "データベース",
+      "SQL",
+      "セキュリティ運用",
+      "クラウド運用"
+    ],
+    "evidence_note": "DS0-001公式範囲は、データベース基礎、展開、管理・保守、データとDBのセキュリティ、事業継続を扱う。"
+  },
+  {
+    "key": "comptia-dataai-dy0-001",
+    "name": "CompTIA DataAI",
+    "category": "AI",
+    "vendor": "CompTIA",
+    "url": "https://www.comptia.org/en-us/certifications/dataai/",
+    "scope_url": "https://www.comptia.org/en-us/certifications/dataai/",
+    "topics": [
+      "データ分析",
+      "統計",
+      "データエンジニアリング",
+      "機械学習",
+      "深層学習",
+      "DevOps"
+    ],
+    "evidence_note": "DY0-001公式範囲は、データサイエンス工程、統計と数学、データ準備、機械学習・深層学習モデル、モデル運用とMLOpsを扱う。"
+  },
+  {
+    "key": "comptia-secai-cy0-001",
+    "name": "CompTIA SecAI+",
+    "category": "セキュリティ",
+    "vendor": "CompTIA",
+    "url": "https://www.comptia.org/en-us/certifications/secai/",
+    "scope_url": "https://www.comptia.org/en-us/certifications/secai/",
+    "topics": [
+      "AI基礎",
+      "機械学習",
+      "生成AI",
+      "セキュリティ運用",
+      "リスク管理",
+      "ガバナンス",
+      "自動化"
+    ],
+    "evidence_note": "CY0-001公式範囲は、サイバーセキュリティに関するAI基礎、AIシステムの保護、AI支援セキュリティ、AIのガバナンス・リスク・コンプライアンスを扱う。"
+  },
+  {
+    "key": "ms_az900",
+    "name": "Microsoft Certified: Azure Fundamentals",
+    "category": "クラウド",
+    "vendor": "Microsoft",
+    "url": "https://learn.microsoft.com/en-us/credentials/certifications/azure-fundamentals/",
+    "scope_url": "https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/az-900",
+    "topics": [
+      "クラウド基礎",
+      "クラウド運用",
+      "ネットワーク基礎",
+      "ID・アクセス管理",
+      "コスト管理"
+    ],
+    "evidence_note": "AZ-900公式ガイドはクラウド概念、Azureのアーキテクチャとサービス、管理・ガバナンスを測定範囲としている。"
+  },
+  {
+    "key": "ms_az104",
+    "name": "Microsoft Certified: Azure Administrator Associate",
+    "category": "クラウド",
+    "vendor": "Microsoft",
+    "url": "https://learn.microsoft.com/en-us/credentials/certifications/azure-administrator/",
+    "scope_url": "https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/az-104",
+    "topics": [
+      "クラウド運用",
+      "ID・アクセス管理",
+      "ネットワーク基礎",
+      "クラウドセキュリティ",
+      "自動化",
+      "コスト管理"
+    ],
+    "evidence_note": "AZ-104公式ガイドはIDとガバナンス、ストレージ、コンピュート、仮想ネットワーク、監視と保守を測定する。"
+  },
+  {
+    "key": "ms_az305",
+    "name": "Microsoft Certified: Azure Solutions Architect Expert",
+    "category": "設計",
+    "vendor": "Microsoft",
+    "url": "https://learn.microsoft.com/en-us/credentials/certifications/azure-solutions-architect/",
+    "scope_url": "https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/az-305",
+    "topics": [
+      "クラウド設計",
+      "システム設計",
+      "ネットワーク設計",
+      "ID・アクセス管理",
+      "データベース",
+      "コスト管理"
+    ],
+    "evidence_note": "AZ-305公式ガイドはID・ガバナンス・監視、データストレージ、事業継続、インフラの各設計領域を測定する。"
+  },
+  {
+    "key": "ms_az400",
+    "name": "Microsoft Certified: DevOps Engineer Expert",
+    "category": "クラウド",
+    "vendor": "Microsoft",
+    "url": "https://learn.microsoft.com/en-us/credentials/certifications/devops-engineer/",
+    "scope_url": "https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/az-400",
+    "topics": [
+      "DevOps",
+      "ソフトウェア開発",
+      "自動化",
+      "クラウド運用",
+      "クラウドセキュリティ"
+    ],
+    "evidence_note": "AZ-400公式ガイドはプロセスとコミュニケーション、ソース管理、ビルド・リリース、セキュリティとコンプライアンスを測定する。"
+  },
+  {
+    "key": "ms_az700",
+    "name": "Microsoft Certified: Azure Network Engineer Associate",
+    "category": "ネットワーク",
+    "vendor": "Microsoft",
+    "url": "https://learn.microsoft.com/en-us/credentials/certifications/azure-network-engineer-associate/",
+    "scope_url": "https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/az-700",
+    "topics": [
+      "ネットワーク基礎",
+      "ネットワーク設計",
+      "ルーティング・スイッチング",
+      "クラウド運用",
+      "クラウドセキュリティ"
+    ],
+    "evidence_note": "AZ-700公式ガイドはコアネットワーク、ハイブリッド接続、アプリケーション配信、Azureサービスへのプライベート接続を測定する。"
+  },
+  {
+    "key": "ms_az140",
+    "name": "Microsoft Certified: Azure Virtual Desktop Specialty",
+    "category": "クラウド",
+    "vendor": "Microsoft",
+    "url": "https://learn.microsoft.com/en-us/credentials/certifications/azure-virtual-desktop-specialty/",
+    "scope_url": "https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/az-140",
+    "topics": [
+      "OS",
+      "クラウド運用",
+      "ID・アクセス管理",
+      "ネットワーク基礎",
+      "自動化"
+    ],
+    "evidence_note": "AZ-140公式ガイドはAzure Virtual Desktopの計画・実装、IDとセキュリティ、ユーザー環境、監視と保守を測定する。"
+  },
+  {
+    "key": "ms_dp900",
+    "name": "Microsoft Certified: Azure Data Fundamentals",
+    "category": "データベース",
+    "vendor": "Microsoft",
+    "url": "https://learn.microsoft.com/en-us/credentials/certifications/azure-data-fundamentals/",
+    "scope_url": "https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/dp-900",
+    "topics": [
+      "データベース",
+      "SQL",
+      "データ分析",
+      "データエンジニアリング",
+      "クラウド基礎"
+    ],
+    "evidence_note": "DP-900公式ガイドはリレーショナル／非リレーショナルデータ、トランザクション、分析ワークロードとAzureデータサービスを測定する。"
+  },
+  {
+    "key": "ms_dp300",
+    "name": "Microsoft Certified: Azure Database Administrator Associate",
+    "category": "データベース",
+    "vendor": "Microsoft",
+    "url": "https://learn.microsoft.com/en-us/credentials/certifications/azure-database-administrator-associate/",
+    "scope_url": "https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/dp-300",
+    "topics": [
+      "データベース",
+      "SQL",
+      "クラウド運用",
+      "クラウドセキュリティ",
+      "自動化"
+    ],
+    "evidence_note": "DP-300公式範囲はデータプラットフォーム資源、セキュア環境、性能最適化、自動化、高可用性と災害復旧を扱う。"
+  },
+  {
+    "key": "ms_dp420",
+    "name": "Microsoft Certified: Azure Cosmos DB Developer Specialty",
+    "category": "データベース",
+    "vendor": "Microsoft",
+    "url": "https://learn.microsoft.com/en-us/credentials/certifications/azure-cosmos-db-developer-specialty/",
+    "scope_url": "https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/dp-420",
+    "topics": [
+      "データベース",
+      "SQL",
+      "ソフトウェア開発",
+      "クラウド運用",
+      "クラウドセキュリティ"
+    ],
+    "evidence_note": "DP-420公式ガイドはNoSQLデータモデルと分散、Azure連携、クエリ最適化、保守を測定する。"
+  },
+  {
+    "key": "ms_dp600",
+    "name": "Microsoft Certified: Fabric Analytics Engineer Associate",
+    "category": "データ分析",
+    "vendor": "Microsoft",
+    "url": "https://learn.microsoft.com/en-us/credentials/certifications/fabric-analytics-engineer-associate/",
+    "scope_url": "https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/dp-600",
+    "topics": [
+      "データ分析",
+      "データエンジニアリング",
+      "データベース",
+      "SQL"
+    ],
+    "evidence_note": "DP-600公式範囲は分析ソリューションの保守、データ準備、セマンティックモデルの実装・管理を扱う。"
+  },
+  {
+    "key": "ms_dp700",
+    "name": "Microsoft Certified: Fabric Data Engineer Associate",
+    "category": "データ分析",
+    "vendor": "Microsoft",
+    "url": "https://learn.microsoft.com/en-us/credentials/certifications/fabric-data-engineer-associate/",
+    "scope_url": "https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/dp-700",
+    "topics": [
+      "データエンジニアリング",
+      "データ分析",
+      "SQL",
+      "クラウド運用"
+    ],
+    "evidence_note": "DP-700公式ガイドはデータ取り込み・変換、分析ソリューションの保護と管理、監視と最適化を測定する。"
+  },
+  {
+    "key": "ms_dp750",
+    "name": "Microsoft Certified: Azure Databricks Data Engineer Associate",
+    "category": "データ分析",
+    "vendor": "Microsoft",
+    "url": "https://learn.microsoft.com/en-us/credentials/certifications/implementing-data-engineering-solutions-using-azure-databricks/",
+    "scope_url": "https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/dp-750",
+    "topics": [
+      "データエンジニアリング",
+      "SQL",
+      "プログラミング",
+      "DevOps",
+      "クラウド運用"
+    ],
+    "evidence_note": "DP-750公式ガイドはDatabricks環境、Unity Catalog、データ処理、パイプラインの配備・保守を測定し、SQL・Python・Gitを明記する。"
+  },
+  {
+    "key": "ms_dp800",
+    "name": "Microsoft Certified: SQL AI Developer Associate",
+    "category": "データベース",
+    "vendor": "Microsoft",
+    "url": "https://learn.microsoft.com/en-us/credentials/certifications/developing-ai-enabled-database-solutions/",
+    "scope_url": "https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/dp-800",
+    "topics": [
+      "データベース",
+      "SQL",
+      "AI基礎",
+      "生成AI",
+      "DevOps",
+      "ソフトウェア開発"
+    ],
+    "evidence_note": "DP-800公式ガイドはSQLデータベース開発、保護・最適化・配備、埋め込み・ベクトル検索・RAGなどAI機能を測定する。"
+  },
+  {
+    "key": "ms_pl300",
+    "name": "Microsoft Certified: Power BI Data Analyst Associate",
+    "category": "データ分析",
+    "vendor": "Microsoft",
+    "url": "https://learn.microsoft.com/en-us/credentials/certifications/power-bi-data-analyst-associate/",
+    "scope_url": "https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/pl-300",
+    "topics": [
+      "データ分析",
+      "データベース"
+    ],
+    "evidence_note": "PL-300公式ガイドはデータの準備、モデリング、可視化・分析、Power BIの管理と保護を測定する。"
+  },
+  {
+    "key": "ms_ai901",
+    "name": "Microsoft Certified: Azure AI Fundamentals",
+    "category": "AI",
+    "vendor": "Microsoft",
+    "url": "https://learn.microsoft.com/en-us/credentials/certifications/azure-ai-fundamentals/",
+    "scope_url": "https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/ai-901",
+    "topics": [
+      "AI基礎",
+      "機械学習",
+      "生成AI",
+      "クラウド基礎"
+    ],
+    "evidence_note": "AI-901公式範囲はAIワークロード、Azure上の機械学習、コンピュータービジョン、自然言語処理、生成AIを扱う。"
+  },
+  {
+    "key": "ms_ai103",
+    "name": "Microsoft Certified: Azure AI Apps and Agents Developer Associate",
+    "category": "AI",
+    "vendor": "Microsoft",
+    "url": "https://learn.microsoft.com/en-us/credentials/certifications/azure-ai-apps-and-agents-developer-associate/",
+    "scope_url": "https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/ai-103",
+    "topics": [
+      "AI基礎",
+      "生成AI",
+      "プログラミング",
+      "ソフトウェア開発",
+      "クラウド設計",
+      "クラウドセキュリティ"
+    ],
+    "evidence_note": "AI-103公式ガイドはAzure AIの計画・管理、生成AIとエージェント、画像、テキスト、情報抽出の実装を測定する。"
+  },
+  {
+    "key": "ms_ai200",
+    "name": "Microsoft Certified: Azure AI Cloud Developer Associate",
+    "category": "AI",
+    "vendor": "Microsoft",
+    "url": "https://learn.microsoft.com/en-us/credentials/certifications/azure-ai-cloud-developer-associate/",
+    "scope_url": "https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/ai-200",
+    "topics": [
+      "AI基礎",
+      "生成AI",
+      "プログラミング",
+      "ソフトウェア開発",
+      "データベース",
+      "コンテナ",
+      "クラウド運用"
+    ],
+    "evidence_note": "AI-200公式資格ページはAzure上のAIバックエンド、データ管理、監視、メッセージング、ベクトルDB、Python、コンテナ実装を範囲に挙げる。"
+  },
+  {
+    "key": "ms_sc900",
+    "name": "Microsoft Certified: Security, Compliance, and Identity Fundamentals",
+    "category": "セキュリティ",
+    "vendor": "Microsoft",
+    "url": "https://learn.microsoft.com/en-us/credentials/certifications/security-compliance-and-identity-fundamentals/",
+    "scope_url": "https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/sc-900",
+    "topics": [
+      "セキュリティ基礎",
+      "ID・アクセス管理",
+      "リスク管理",
+      "ガバナンス",
+      "クラウド基礎"
+    ],
+    "evidence_note": "SC-900公式ガイドはセキュリティ・コンプライアンス・IDの概念と、Microsoft Entraおよびセキュリティ／コンプライアンス製品を測定する。"
+  },
+  {
+    "key": "ms_sc200",
+    "name": "Microsoft Certified: Security Operations Analyst Associate",
+    "category": "セキュリティ",
+    "vendor": "Microsoft",
+    "url": "https://learn.microsoft.com/en-us/credentials/certifications/security-operations-analyst/",
+    "scope_url": "https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/sc-200",
+    "topics": [
+      "セキュリティ運用",
+      "インシデント対応",
+      "自動化",
+      "ID・アクセス管理",
+      "クラウドセキュリティ"
+    ],
+    "evidence_note": "SC-200公式範囲はセキュリティ運用環境の管理、インシデント対応、脅威ハンティングを扱う。"
+  },
+  {
+    "key": "ms_sc300",
+    "name": "Microsoft Certified: Identity and Access Administrator Associate",
+    "category": "セキュリティ",
+    "vendor": "Microsoft",
+    "url": "https://learn.microsoft.com/en-us/credentials/certifications/identity-and-access-administrator/",
+    "scope_url": "https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/sc-300",
+    "topics": [
+      "ID・アクセス管理",
+      "セキュリティ基礎",
+      "クラウドセキュリティ",
+      "ガバナンス",
+      "自動化"
+    ],
+    "evidence_note": "SC-300公式ガイドはユーザーID、認証、ワークロードID、IDガバナンスの実装と管理を測定する。"
+  },
+  {
+    "key": "ms_sc100",
+    "name": "Microsoft Certified: Cybersecurity Architect Expert",
+    "category": "セキュリティ",
+    "vendor": "Microsoft",
+    "url": "https://learn.microsoft.com/en-us/credentials/certifications/cybersecurity-architect-expert/",
+    "scope_url": "https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/sc-100",
+    "topics": [
+      "クラウドセキュリティ",
+      "セキュリティ運用",
+      "ID・アクセス管理",
+      "リスク管理",
+      "ガバナンス",
+      "システム設計"
+    ],
+    "evidence_note": "SC-100公式ガイドはセキュリティ戦略、運用・ID・コンプライアンス、インフラ、アプリケーションとデータのセキュリティ設計を測定する。"
+  },
+  {
+    "key": "ms_sc500",
+    "name": "Microsoft Certified: Cloud and AI Security Engineer Associate",
+    "category": "セキュリティ",
+    "vendor": "Microsoft",
+    "url": "https://learn.microsoft.com/en-us/credentials/certifications/cloud-and-ai-security-engineer-associate/",
+    "scope_url": "https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/sc-500",
+    "topics": [
+      "クラウドセキュリティ",
+      "ID・アクセス管理",
+      "セキュリティ運用",
+      "リスク管理",
+      "ネットワーク基礎"
+    ],
+    "evidence_note": "SC-500公式範囲はID・アクセス・ガバナンス、ストレージ・DB・ネットワーク、コンピュート、セキュリティ態勢の保護と監視を扱う。"
+  },
+  {
+    "key": "oracle_java21",
+    "name": "Oracle Certified Professional: Java SE 21 Developer",
+    "category": "プログラミング",
+    "vendor": "Oracle",
+    "url": "https://education.oracle.com/outrackpath-trackp_jse21ocp/trackp_JSE21OCP",
+    "scope_url": "https://education.oracle.com/ja/java-se-17-programmer-i/pexam_1Z0-830",
+    "topics": [
+      "プログラミング",
+      "OOP",
+      "ソフトウェア開発"
+    ],
+    "evidence_note": "Oracle公式の1Z0-830はJava SE 21の言語機能とAPIを用いる開発者の技能を検証する試験として案内されている。"
+  },
+  {
+    "key": "oracle_java25",
+    "name": "Oracle Certified Professional: Java SE 25 Developer",
+    "category": "プログラミング",
+    "vendor": "Oracle",
+    "url": "https://education.oracle.com/zh_TW/outrackpath-trackp_jse25ocp/trackp_JSE25OCP",
+    "scope_url": "https://education.oracle.com/pt_BR/ouexam-pexam_1z0-831/pexam_1Z0-831",
+    "topics": [
+      "プログラミング",
+      "OOP",
+      "ソフトウェア開発"
+    ],
+    "evidence_note": "Oracle公式の1Z0-831はJava SE 25の開発スキルと専門知識を検証する現行Developer Professional試験である。"
+  },
+  {
+    "key": "oracle_db23ai_sql",
+    "name": "Oracle AI Database SQL Certified Associate",
+    "category": "データベース",
+    "vendor": "Oracle",
+    "url": "https://education.oracle.com/en/oracle-database-23ai-sql-certified-associate/trackp_DB23aiSQLOCA",
+    "scope_url": "https://education.oracle.com/fr/ouexam-pexam_1z0-171/pexam_1Z0-171",
+    "topics": [
+      "データベース",
+      "SQL"
+    ],
+    "evidence_note": "Oracle公式の1Z0-171はSELECT、INSERT、UPDATE、DELETE、MERGEに加えDDLとDCLの実務知識を検証する。"
+  },
+  {
+    "key": "oracle_db23ai_admin",
+    "name": "Oracle AI Database Administration Certified Associate",
+    "category": "データベース",
+    "vendor": "Oracle",
+    "url": "https://education.oracle.com/en/oracle-database-23ai-administration-certified-associate/trackp_DB23aiADMOCA",
+    "scope_url": "https://education.oracle.com/ja/ouexam-pexam_1z0-182/pexam_1Z0-182",
+    "topics": [
+      "データベース",
+      "SQL"
+    ],
+    "evidence_note": "Oracle公式の1Z0-182はOracle AI Databaseの管理者向け試験で、公式ページは研修と1年以上の実務経験を推奨している。"
+  },
+  {
+    "key": "oracle_db19c_admin_ocp",
+    "name": "Oracle Database Administration 2019 Certified Professional",
+    "category": "データベース",
+    "vendor": "Oracle",
+    "url": "https://education.oracle.com/oracle-database-administration-2019-certified-professional/trackp_DB19COCP",
+    "scope_url": "https://education.oracle.com/produktkatalog-ouexam-pexam_1z0-083/pexam_1Z0-083",
+    "topics": [
+      "データベース",
+      "SQL"
+    ],
+    "evidence_note": "Oracle公式認定パスは1Z0-083 Database Administration IIを必須試験とし、バックアップ／リカバリやマルチテナント管理を学習領域に挙げる。"
+  },
+  {
+    "key": "oracle_plsql_dev_ocp",
+    "name": "Oracle Database PL/SQL Developer Certified Professional",
+    "category": "データベース",
+    "vendor": "Oracle",
+    "url": "https://education.oracle.com/%E8%A3%BD%E5%93%81%E3%82%AB%E3%82%BF%E3%83%AD%E3%82%B0-outrackpath-trackp_ocpplsql19c/trackp_OCPPLSQL19C",
+    "scope_url": "https://education.oracle.com/fr/oracle-database-19c-program-with-pl-sql/pexam_1Z0-149",
+    "topics": [
+      "データベース",
+      "SQL",
+      "プログラミング",
+      "ソフトウェア開発"
+    ],
+    "evidence_note": "Oracle公式認定パスは1Z0-149 Oracle Database Program with PL/SQLを必須試験として掲載している。"
+  },
+  {
+    "key": "oracle_mysql80_dev",
+    "name": "MySQL 8.0 Database Developer Oracle Certified Professional",
+    "category": "データベース",
+    "vendor": "Oracle",
+    "url": "https://education.oracle.com/mysql-80-database-developer-oracle-certified-professional/trackp_MYSQLPRG80OCP%20%20%20",
+    "scope_url": "https://education.oracle.com/ko/%EC%A0%9C%ED%92%88-%EC%B9%B4%ED%83%88%EB%A1%9C%EA%B7%B8-ouexam-pexam_1z0-909/pexam_1Z0-909",
+    "topics": [
+      "データベース",
+      "SQL",
+      "ソフトウェア開発"
+    ],
+    "evidence_note": "Oracle公式の1Z0-909はMySQL 8.0を利用するデータベース開発者の知識とコネクター利用技能を検証する。"
+  },
+  {
+    "key": "oracle_mysql80_admin",
+    "name": "Oracle Certified Professional, MySQL 8.0 Database Administrator",
+    "category": "データベース",
+    "vendor": "Oracle",
+    "url": "https://education.oracle.com/produktkatalog-outrackpath-trackp_mysqldba80ocp/trackp_MYSQLDBA80OCP",
+    "scope_url": "https://education.oracle.com/mysql-80-database-administrator-also-available-in-chs-for-taiwan/pexam_1Z0-908",
+    "topics": [
+      "データベース",
+      "SQL"
+    ],
+    "evidence_note": "Oracle公式の1Z0-908はMySQL 8.0 Database Administratorの現行認定試験として掲載されている。"
+  },
+  {
+    "key": "oracle_oci26_foundations",
+    "name": "Oracle Cloud Infrastructure 2026 Certified Foundations Associate",
+    "category": "クラウド",
+    "vendor": "Oracle",
+    "url": "https://education.oracle.com/de/ouexam-pexam_1z0-1085-26/pexam_1Z0-1085-26",
+    "scope_url": "https://education.oracle.com/de/ouexam-pexam_1z0-1085-26/pexam_1Z0-1085-26",
+    "topics": [
+      "クラウド基礎",
+      "ネットワーク基礎",
+      "クラウド運用",
+      "ID・アクセス管理",
+      "コスト管理"
+    ],
+    "evidence_note": "1Z0-1085-26公式範囲はOCIのコンピュート、ネットワーク、ストレージなど基礎サービスを説明する能力を扱う。"
+  },
+  {
+    "key": "oracle_oci26_architect",
+    "name": "Oracle Cloud Infrastructure 2026 Certified Architect Associate",
+    "category": "設計",
+    "vendor": "Oracle",
+    "url": "https://education.oracle.com/zh_TW/oracle-cloud-infrastructure-2026-certified-architect-associate/trackp_OCI26CAA",
+    "scope_url": "https://education.oracle.com/de/ouexam-pexam_1z0-1072-26/pexam_1Z0-1072-26",
+    "topics": [
+      "クラウド設計",
+      "ネットワーク設計",
+      "ID・アクセス管理",
+      "クラウドセキュリティ",
+      "コスト管理"
+    ],
+    "evidence_note": "Oracle公式ページはOCIのコアクラウドアーキテクチャ原則と、OCI上での設計に関する実践的知識を対象としている。"
+  },
+  {
+    "key": "oracle_oci26_agentic_ai",
+    "name": "Oracle Cloud Infrastructure 2026 Certified Agentic AI Foundations Associate",
+    "category": "AI",
+    "vendor": "Oracle",
+    "url": "https://education.oracle.com/de/ouexam-pexam_1z0-1157-26/pexam_1Z0-1157-26",
+    "scope_url": "https://education.oracle.com/de/ouexam-pexam_1z0-1157-26/pexam_1Z0-1157-26",
+    "topics": [
+      "AI基礎",
+      "プログラミング"
+    ],
+    "evidence_note": "1Z0-1157-26公式範囲にはAIエージェント入門、LangChain、MCP、OpenAI Responses APIとAgents SDKが明記される。"
+  },
+  {
+    "key": "oracle_oci26_cloudops",
+    "name": "Oracle Cloud Infrastructure 2026 Certified Cloud Ops Professional",
+    "category": "クラウド",
+    "vendor": "Oracle",
+    "url": "https://education.oracle.com/oracle-cloud-infrastructure-cloud-ops-professional/pexam_1Z0-1067-26",
+    "scope_url": "https://education.oracle.com/oracle-cloud-infrastructure-cloud-ops-professional/pexam_1Z0-1067-26",
+    "topics": [
+      "クラウド運用",
+      "自動化",
+      "コスト管理"
+    ],
+    "evidence_note": "Oracle公式の1Z0-1067-26はOCI 2026で検証されたCloud Ops Professional試験として、運用担当者向けに提供されている。"
+  },
+  {
+    "key": "oracle_oci26_security",
+    "name": "Oracle Cloud Infrastructure 2026 Certified Security Professional",
+    "category": "セキュリティ",
+    "vendor": "Oracle",
+    "url": "https://education.oracle.com/ko/outrackpath-trackp_ocis2026cp/trackp_OCIS2026CP",
+    "scope_url": "https://education.oracle.com/ko/ouexam-pexam_1z0-1104-26/pexam_1Z0-1104-26",
+    "topics": [
+      "クラウドセキュリティ",
+      "ID・アクセス管理",
+      "ネットワーク設計"
+    ],
+    "evidence_note": "Oracle公式は1Z0-1104-26をクラウドセキュリティエンジニア、セキュリティアーキテクト、管理者向けのOCI 2026認定としている。"
+  },
+  {
+    "key": "cncf_kcna",
+    "name": "Kubernetes and Cloud Native Associate (KCNA)",
+    "category": "クラウド",
+    "vendor": "CNCF / Linux Foundation",
+    "url": "https://training.linuxfoundation.org/certification/kubernetes-cloud-native-associate/",
+    "scope_url": "https://training.linuxfoundation.org/certification/kubernetes-cloud-native-associate/",
+    "topics": [
+      "クラウド基礎",
+      "コンテナ",
+      "ネットワーク基礎",
+      "クラウド運用",
+      "DevOps"
+    ],
+    "evidence_note": "公式領域はKubernetes基礎、コンテナオーケストレーション、クラウドネイティブなアプリ配信とアーキテクチャである。"
+  },
+  {
+    "key": "cncf_kcsa",
+    "name": "Kubernetes and Cloud Native Security Associate (KCSA)",
+    "category": "セキュリティ",
+    "vendor": "CNCF / Linux Foundation",
+    "url": "https://training.linuxfoundation.org/certification/kubernetes-and-cloud-native-security-associate-kcsa/",
+    "scope_url": "https://training.linuxfoundation.org/certification/kubernetes-and-cloud-native-security-associate-kcsa/",
+    "topics": [
+      "セキュリティ基礎",
+      "クラウドセキュリティ",
+      "コンテナ",
+      "ID・アクセス管理",
+      "セキュリティ運用"
+    ],
+    "evidence_note": "公式領域はクラウドネイティブセキュリティ、Kubernetes各コンポーネント、認証・認可・Secrets、脅威モデル、コンプライアンスを含む。"
+  },
+  {
+    "key": "cncf_cka",
+    "name": "Certified Kubernetes Administrator (CKA)",
+    "category": "クラウド",
+    "vendor": "CNCF / Linux Foundation",
+    "url": "https://training.linuxfoundation.org/certification/certified-kubernetes-administrator-cka/",
+    "scope_url": "https://training.linuxfoundation.org/certification/certified-kubernetes-administrator-cka/",
+    "topics": [
+      "コンテナ",
+      "クラウド運用",
+      "ネットワーク基礎",
+      "自動化",
+      "ID・アクセス管理"
+    ],
+    "evidence_note": "公式領域はストレージ、障害対応、ワークロード、クラスタ構成、サービスとネットワークで、Kubernetes v1.35対応である。"
+  },
+  {
+    "key": "cncf_ckad",
+    "name": "Certified Kubernetes Application Developer (CKAD)",
+    "category": "プログラミング",
+    "vendor": "CNCF / Linux Foundation",
+    "url": "https://training.linuxfoundation.org/certification/certified-kubernetes-application-developer-ckad/",
+    "scope_url": "https://training.linuxfoundation.org/certification/certified-kubernetes-application-developer-ckad/",
+    "topics": [
+      "コンテナ",
+      "ソフトウェア開発",
+      "DevOps",
+      "ネットワーク基礎",
+      "クラウドセキュリティ"
+    ],
+    "evidence_note": "公式領域はアプリの設計・ビルド・配備、可観測性、構成とセキュリティ、サービスとネットワークである。"
+  },
+  {
+    "key": "cncf_cks",
+    "name": "Certified Kubernetes Security Specialist (CKS)",
+    "category": "セキュリティ",
+    "vendor": "CNCF / Linux Foundation",
+    "url": "https://training.linuxfoundation.org/certification/certified-kubernetes-security-specialist/",
+    "scope_url": "https://training.linuxfoundation.org/certification/certified-kubernetes-security-specialist/",
+    "topics": [
+      "コンテナ",
+      "クラウドセキュリティ",
+      "ID・アクセス管理",
+      "セキュリティ運用",
+      "インシデント対応"
+    ],
+    "evidence_note": "公式領域はクラスタ／OSの堅牢化、マイクロサービス脆弱性、供給網、監視・ログ・実行時セキュリティで、CKA合格が前提である。"
+  },
+  {
+    "key": "hashicorp_terraform004",
+    "name": "HashiCorp Certified: Terraform Associate (004)",
+    "category": "クラウド",
+    "vendor": "HashiCorp",
+    "url": "https://developer.hashicorp.com/certifications/infrastructure-automation",
+    "scope_url": "https://developer.hashicorp.com/certifications/infrastructure-automation",
+    "topics": [
+      "自動化",
+      "クラウド基礎",
+      "クラウド運用",
+      "DevOps"
+    ],
+    "evidence_note": "公式試験目標はIaC、Terraform基礎とワークフロー、設定・モジュール・状態管理、HCP Terraformを扱う。"
+  },
+  {
+    "key": "hashicorp_terraform_pro",
+    "name": "HashiCorp Certified: Terraform Authoring and Operations Professional",
+    "category": "クラウド",
+    "vendor": "HashiCorp",
+    "url": "https://developer.hashicorp.com/certifications/infrastructure-automation",
+    "scope_url": "https://developer.hashicorp.com/certifications/infrastructure-automation",
+    "topics": [
+      "自動化",
+      "クラウド運用",
+      "DevOps",
+      "Linux",
+      "ネットワーク基礎"
+    ],
+    "evidence_note": "公式試験目標は資源ライフサイクル、動的設定、共同ワークフロー、モジュールとプロバイダー、HCP Terraformを実技で扱う。"
+  }
+]

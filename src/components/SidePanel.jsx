@@ -2,44 +2,86 @@ import Legend from "./Legend";
 
 export default function SidePanel({
   selectedNode,
+  selectedLink,
   setSelectedNode,
+  setSelectedLink,
   normalizedSearch,
   searchResults,
-  acquiredCount,
-  qualificationCount,
-  isAcquired,
-  toggleAcquired,
   activeCategory,
   setActiveCategory,
   legendItems,
 }) {
   return (
     <aside className="side-panel">
-      <h2>詳細情報</h2>
+      <h2>{selectedLink ? "関係の根拠" : "資格情報"}</h2>
 
-      <div className="status-card">
-        <strong>取得済み：</strong>
-        {acquiredCount} / {qualificationCount} 資格
-      </div>
+      {selectedLink ? (
+        <div>
+          <h3>
+            {selectedLink.source.name}
+            <br />
+            <span className="relation-arrow">↕</span>
+            <br />
+            {selectedLink.target.name}
+          </h3>
 
-      {selectedNode && selectedNode.type === "資格" && (
-        <label
-          className="acquired-label"
-          style={{
-            background: isAcquired(selectedNode) ? "#e8f5e9" : "#f6f8fb",
-          }}
-        >
-          <input
-            type="checkbox"
-            checked={isAcquired(selectedNode)}
-            onChange={() => toggleAcquired(selectedNode)}
-            style={{ marginRight: "8px" }}
-          />
-          取得済みにする
-        </label>
-      )}
+          <p>
+            <strong>共通する試験内容：</strong>
+            <br />
+            {selectedLink.common_topics?.length > 0
+              ? selectedLink.common_topics.join("・")
+              : "未設定"}
+          </p>
 
-      {selectedNode ? (
+          <p>
+            <strong>接続した理由：</strong>
+            <br />
+            {selectedLink.reason || "未設定"}
+          </p>
+
+          <p>
+            <strong>共通項目数：</strong>
+            {selectedLink.common_count}個
+          </p>
+
+          {(selectedLink.source_evidence_url ||
+            selectedLink.target_evidence_url) && (
+            <>
+              <p>
+                <strong>根拠となる公式情報：</strong>
+              </p>
+              <div className="evidence-links">
+                {selectedLink.source_evidence_url && (
+                  <a
+                    className="official-link"
+                    href={selectedLink.source_evidence_url}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    {selectedLink.source.name}の根拠
+                  </a>
+                )}
+                {selectedLink.target_evidence_url && (
+                  <a
+                    className="official-link"
+                    href={selectedLink.target_evidence_url}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    {selectedLink.target.name}の根拠
+                  </a>
+                )}
+              </div>
+            </>
+          )}
+
+          <hr />
+
+          <p className="muted">
+            線を選択すると、資格同士を結んだ理由と根拠を確認できます。
+          </p>
+        </div>
+      ) : selectedNode ? (
         <div>
           <h3>{selectedNode.name}</h3>
 
@@ -54,27 +96,30 @@ export default function SidePanel({
           </p>
 
           <p>
-            <strong>難易度：</strong>
-            {"★".repeat(selectedNode.level)}
-            {"☆".repeat(Math.max(0, 5 - selectedNode.level))}
-          </p>
-
-          <p>
-            <strong>勉強時間：</strong>
-            {selectedNode.study_hours !== null
-              ? `${selectedNode.study_hours}時間`
-              : "-"}
-          </p>
-
-          <p>
-            <strong>合格率：</strong>
-            {selectedNode.pass_rate !== null ? `${selectedNode.pass_rate}%` : "-"}
-          </p>
-
-          <p>
             <strong>主催：</strong>
             {selectedNode.vendor}
           </p>
+
+          <p>
+            <strong>直接つながる資格：</strong>
+            {selectedNode.connection_count}件
+          </p>
+
+          <p>
+            <strong>主な試験内容：</strong>
+            <br />
+            {selectedNode.topics?.length > 0
+              ? selectedNode.topics.join("・")
+              : "-"}
+          </p>
+
+          {selectedNode.evidence_note && (
+            <p>
+              <strong>試験範囲の概要：</strong>
+              <br />
+              {selectedNode.evidence_note}
+            </p>
+          )}
 
           {selectedNode.url && (
             <p>
@@ -91,15 +136,36 @@ export default function SidePanel({
             </p>
           )}
 
+          {selectedNode.scope_url && (
+            <p>
+              <strong>試験範囲の根拠：</strong>
+              <br />
+              <a
+                className="official-link"
+                href={selectedNode.scope_url}
+                target="_blank"
+                rel="noreferrer"
+              >
+                公式の試験範囲を開く
+              </a>
+            </p>
+          )}
+
+          {selectedNode.checked_at && (
+            <p className="checked-at">
+              公式情報の確認日：{selectedNode.checked_at}
+            </p>
+          )}
+
           <hr />
 
           <p className="muted">
-            選択したノードと関係のある資格・スキルだけが強調表示されます。
+            資格同士を結ぶ線をクリックすると、共通する試験内容を確認できます。
           </p>
         </div>
       ) : (
         <p className="muted">
-          左の資格やスキルをクリックすると、ここに詳細が表示されます。
+          左の資格または関係線をクリックすると、ここに詳細が表示されます。
         </p>
       )}
 
@@ -111,21 +177,23 @@ export default function SidePanel({
 
           {searchResults.length > 0 ? (
             searchResults.map((node) => (
-              <div
+              <button
+                type="button"
                 key={node.id}
-                onClick={() => setSelectedNode(node)}
-                className="search-result"
-                style={{
-                  background:
-                    selectedNode?.id === node.id ? "#e3f2fd" : "#f5f7fa",
+                onClick={() => {
+                  setSelectedNode(node);
+                  setSelectedLink(null);
                 }}
+                className={`search-result${
+                  selectedNode?.id === node.id ? " is-selected" : ""
+                }`}
               >
                 <strong>{node.name}</strong>
                 <br />
-                <span style={{ color: "#596273" }}>
+                <span className="search-result-meta">
                   {node.category} / {node.type}
                 </span>
-              </div>
+              </button>
             ))
           ) : (
             <p className="muted">一致する資格はありません。</p>

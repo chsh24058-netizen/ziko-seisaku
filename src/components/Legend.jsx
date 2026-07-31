@@ -9,16 +9,9 @@ export default function Legend({
 
       {activeCategory && (
         <button
+          type="button"
+          className="legend-clear-button"
           onClick={() => setActiveCategory(null)}
-          style={{
-            padding: "8px 10px",
-            marginBottom: "10px",
-            borderRadius: "8px",
-            border: "1px solid #ccc",
-            background: "white",
-            cursor: "pointer",
-            fontWeight: "700",
-          }}
         >
           凡例フィルターを解除
         </button>
@@ -29,18 +22,12 @@ export default function Legend({
           const active = activeCategory?.label === item.label;
 
           return (
-            <div
-              className="legend-item"
+            <button
+              type="button"
+              className={`legend-item${active ? " is-active" : ""}`}
               key={item.label}
               onClick={() => {
                 setActiveCategory(active ? null : item);
-              }}
-              style={{
-                cursor: "pointer",
-                padding: "8px 10px",
-                borderRadius: "10px",
-                background: active ? "#e3f2fd" : "transparent",
-                border: active ? "1px solid #90caf9" : "1px solid transparent",
               }}
             >
               <span
@@ -48,10 +35,31 @@ export default function Legend({
                 style={{ background: item.color }}
               />
               {item.label}
-            </div>
+            </button>
           );
         })}
       </div>
+
+      <h3 className="size-legend-title">円の大きさ</h3>
+      <div className="size-legend" aria-label="円の大きさは直接つながる資格数を表します">
+        {[
+          { count: 5, size: 12 },
+          { count: 15, size: 17 },
+          { count: 30, size: 22 },
+          { count: 60, size: 28 },
+        ].map((item) => (
+          <div className="size-legend-item" key={item.count}>
+            <span
+              className="size-legend-circle"
+              style={{ width: item.size, height: item.size }}
+            />
+            関連 {item.count}件
+          </div>
+        ))}
+      </div>
+      <p className="size-legend-note">
+        円が大きいほど、多くの資格と試験内容が共通しています。
+      </p>
     </>
   );
 }
