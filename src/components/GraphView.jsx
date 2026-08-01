@@ -10,6 +10,17 @@ import {
 const minZoom = 0.2;
 const maxZoom = 2.4;
 
+const getLinkStrokeWidth = (commonCount) => {
+  const count = Math.max(2, Number(commonCount) || 2);
+
+  if (count >= 7) return 13;
+  if (count === 6) return 9.5;
+  if (count === 5) return 6.5;
+  if (count === 4) return 4;
+  if (count === 3) return 2.5;
+  return 1.5;
+};
+
 const createFitView = (
   viewportWidth,
   viewportHeight,
@@ -341,6 +352,7 @@ export default function GraphView({
             const selected = selectedLink === link;
             const opacity = getLinkOpacity(link);
             const commonCount = Number(link.common_count) || 2;
+            const linkStrokeWidth = getLinkStrokeWidth(commonCount);
 
             return (
               <g
@@ -361,7 +373,7 @@ export default function GraphView({
                   x2={link.target.x}
                   y2={link.target.y}
                   stroke="transparent"
-                  strokeWidth="14"
+                  strokeWidth={Math.max(14, linkStrokeWidth + 8)}
                   vectorEffect="non-scaling-stroke"
                 />
                 <line
@@ -371,7 +383,7 @@ export default function GraphView({
                   y2={link.target.y}
                   stroke={selected ? "#1f2421" : "#777b78"}
                   strokeWidth={
-                    selected ? 4 : 0.8 + Math.min(commonCount, 7) * 0.65
+                    selected ? linkStrokeWidth + 3 : linkStrokeWidth
                   }
                   opacity={opacity}
                   vectorEffect="non-scaling-stroke"
