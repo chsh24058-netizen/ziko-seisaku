@@ -5,17 +5,19 @@ export default function Legend({
 }) {
   return (
     <>
-      <h3>凡例</h3>
+      <div className="legend-header">
+        <h3>凡例</h3>
 
-      {activeCategory && (
-        <button
-          type="button"
-          className="legend-clear-button"
-          onClick={() => setActiveCategory(null)}
-        >
-          凡例フィルターを解除
-        </button>
-      )}
+        {activeCategory && (
+          <button
+            type="button"
+            className="legend-clear-button"
+            onClick={() => setActiveCategory(null)}
+          >
+            フィルターを解除
+          </button>
+        )}
+      </div>
 
       <div className="legend-grid">
         {legendItems.map((item) => {

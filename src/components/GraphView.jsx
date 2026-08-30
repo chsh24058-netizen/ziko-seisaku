@@ -13,6 +13,22 @@ const maxZoom = 2.4;
 const minNodeScreenRadius = 8;
 const minCategoryLabelScreenSize = 11;
 const minStrokeScale = 0.45;
+const hoverCardWidth = 264;
+
+const getHoverNameLines = (name, maxCharacters = 16) => {
+  const characters = Array.from(name ?? "");
+
+  if (characters.length <= maxCharacters) return [characters.join("")];
+
+  const firstLine = characters.slice(0, maxCharacters).join("");
+  const remaining = characters.slice(maxCharacters);
+  const secondLine =
+    remaining.length > maxCharacters
+      ? `${remaining.slice(0, maxCharacters - 1).join("")}…`
+      : remaining.join("");
+
+  return [firstLine, secondLine];
+};
 const getLinkStrokeWidth = (similarity) => {
   const score = Math.max(0, Math.min(1, Number(similarity) || 0));
 
@@ -224,6 +240,15 @@ export default function GraphView({
     30,
     minCategoryLabelScreenSize / view.k
   );
+  const hoverNameLines = getHoverNameLines(hoverNode?.name);
+  const hoverCardHeight = hoverNameLines.length === 1 ? 72 : 92;
+  const hoverNodeScreenX = hoverNode ? view.x + hoverNode.x * view.k : 0;
+  const hoverNodeScreenY = hoverNode ? view.y + hoverNode.y * view.k : 0;
+  const hoverCardXOffset =
+    hoverNodeScreenX + 24 + hoverCardWidth > viewportWidth
+      ? -hoverCardWidth - 24
+      : 24;
+  const hoverCardYOffset = hoverNodeScreenY < 28 ? 24 : -24;
 
   return (
     <div className="graph-card">
@@ -419,22 +444,33 @@ export default function GraphView({
           {hoverNode && (
             <g
               className="hover-card"
-              transform={`translate(${hoverNode.x + 24 / view.k}, ${
-                hoverNode.y - 24 / view.k
+              transform={`translate(${
+                hoverNode.x + hoverCardXOffset / view.k
+              }, ${
+                hoverNode.y + hoverCardYOffset / view.k
               }) scale(${1 / view.k})`}
             >
               <rect
-                width="245"
-                height="72"
-                rx="2"
-                fill="#fffefb"
-                stroke="#8b8b84"
+                width={hoverCardWidth}
+                height={hoverCardHeight}
+                rx="8"
+                fill="#ffffff"
+                stroke="#aebdc5"
                 opacity="0.98"
               />
-              <text x="12" y="26" fontSize="14" fontWeight="bold">
-                {hoverNode.name}
+              <text x="14" y="25" fontSize="14" fontWeight="bold" fill="#17252e">
+                {hoverNameLines.map((line, index) => (
+                  <tspan x="14" dy={index === 0 ? 0 : 21} key={`${line}-${index}`}>
+                    {line}
+                  </tspan>
+                ))}
               </text>
-              <text x="12" y="51" fontSize="13" fill="#596273">
+              <text
+                x="14"
+                y={hoverNameLines.length === 1 ? 53 : 74}
+                fontSize="12"
+                fill="#596873"
+              >
                 {hoverNode.category} / 関連資格 {hoverNode.connection_count}件
               </text>
             </g>
