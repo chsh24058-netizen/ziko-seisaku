@@ -211,7 +211,6 @@ export default function App() {
           </div>
           <div className="dataset-summary">
             収録 {nodes.length}資格 ／ 表示 {visibleRelationLinks.length}関係
-            （候補 {links.length}）
           </div>
         </div>
 
