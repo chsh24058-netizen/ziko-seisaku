@@ -30,7 +30,7 @@ const graphWidth = 3600;
 const graphHeight = 2500;
 
 export default function App() {
-  const [minSimilarity, setMinSimilarity] = useState(0.4);
+  const minSimilarity = 0.42;
   const { nodes, links } = useGraphData(
     nodesCsv,
     edgesCsv,
@@ -194,14 +194,6 @@ export default function App() {
     setSelectedLink(null);
   };
 
-  const handleMinSimilarityChange = (value) => {
-    const nextValue = Number(value);
-    setMinSimilarity(nextValue);
-    setSelectedNode(null);
-    setSelectedLink(null);
-    setHoverNode(null);
-  };
-
   return (
     <div className="app-shell">
       <main className="left-area">
@@ -251,7 +243,6 @@ export default function App() {
           getNodeOpacity={getNodeOpacity}
           getLinkOpacity={getLinkOpacity}
           minSimilarity={minSimilarity}
-          setMinSimilarity={handleMinSimilarityChange}
         />
       </main>
 
@@ -341,10 +332,16 @@ export default function App() {
                   主な分野ごとにまとめています。位置は難易度や取得順を表しません。
                 </dd>
               </div>
+              <div>
+                <dt>合格率</dt>
+                <dd>
+                  主催団体が公式に公表した値だけを対象期間とともに表示します。確認できない資格は「非公開」と表示します。
+                </dd>
+              </div>
             </dl>
 
             <p className="guide-note">
-              関連度 ＝ 共通項目数 ÷ 2資格が持つ項目の合計種類数（Jaccard係数）です。右上の「関連度の基準」で30%〜60%を比較できます。
+              関連度 ＝ 共通項目数 ÷ 2資格が持つ項目の合計種類数（Jaccard係数）です。関連度42%以上の関係を表示します。
             </p>
             <p className="guide-checked-at">
               公式情報の確認日：{checkedAt || "読み込み中"}

@@ -29,6 +29,19 @@ for (const node of nodes) {
   if (node.topics.split("|").filter(Boolean).length < 2) {
     throw new Error(`試験トピックが2個未満です: ${node.name}`);
   }
+  if (node.pass_rate) {
+    const passRate = Number(node.pass_rate);
+    if (
+      !Number.isFinite(passRate) ||
+      passRate < 0 ||
+      passRate > 100 ||
+      !node.pass_rate_period ||
+      !node.pass_rate_url.startsWith("https://") ||
+      !node.pass_rate_checked_at
+    ) {
+      throw new Error(`合格率データが不正です: ${node.name}`);
+    }
+  }
 }
 
 for (const edge of edges) {
@@ -86,7 +99,7 @@ const isolatedNodes = nodes
   .filter((node) => degree.get(node.id) === 0)
   .map((node) => node.name);
 const maxDegree = Math.max(0, ...degree.values());
-const similarityThresholds = [0.2, 0.3, 0.4, 0.45, 0.6].map(
+const similarityThresholds = [0.42].map(
   (threshold) => {
     const visibleEdges = edges.filter(
       (edge) => Number(edge.similarity) >= threshold
@@ -101,7 +114,7 @@ const similarityThresholds = [0.2, 0.3, 0.4, 0.45, 0.6].map(
     const degrees = [...visibleDegree.values()];
 
     return {
-      thresholdPercent: threshold * 100,
+      thresholdPercent: Math.round(threshold * 100),
       relationships: visibleEdges.length,
       isolatedQualifications: degrees.filter((value) => value === 0).length,
       maximumDegree: Math.max(0, ...degrees),
@@ -113,6 +126,8 @@ console.log(
   JSON.stringify(
     {
       qualifications: nodes.length,
+      publishedPassRates: nodes.filter((node) => node.pass_rate).length,
+      unpublishedPassRates: nodes.filter((node) => !node.pass_rate).length,
       relationships: edges.length,
       isolatedQualifications: isolatedNodes,
       maximumDegree: maxDegree,

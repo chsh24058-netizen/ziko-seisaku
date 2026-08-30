@@ -30,6 +30,10 @@ export function useGraphData(
           topics: d.topics ? d.topics.split("|").filter(Boolean) : [],
           evidence_note: d.evidence_note || "",
           checked_at: d.checked_at || "",
+          pass_rate: d.pass_rate === "" ? null : Number(d.pass_rate),
+          pass_rate_period: d.pass_rate_period || "",
+          pass_rate_url: d.pass_rate_url || "",
+          pass_rate_checked_at: d.pass_rate_checked_at || "",
           connection_count: 0,
         }));
 

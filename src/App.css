@@ -319,7 +319,8 @@ select:focus-visible {
   background: #f8f7f2;
 }
 
-.relation-filter label {
+.relation-filter label,
+.relation-filter span {
   color: #505651;
   font-size: 11px;
   font-weight: 700;

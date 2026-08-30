@@ -111,6 +111,40 @@ export default function SidePanel({
           </p>
 
           <p>
+            <strong>公式発表の合格率：</strong>
+            {selectedNode.pass_rate === null ? (
+              "非公開"
+            ) : (
+              <>
+                {selectedNode.pass_rate}%
+                <br />
+                <span className="muted">{selectedNode.pass_rate_period}</span>
+                {selectedNode.pass_rate_url && (
+                  <>
+                    <br />
+                    <a
+                      className="official-link"
+                      href={selectedNode.pass_rate_url}
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      公式の合格率データを開く
+                    </a>
+                  </>
+                )}
+                {selectedNode.pass_rate_checked_at && (
+                  <>
+                    <br />
+                    <span className="checked-at">
+                      合格率の確認日：{selectedNode.pass_rate_checked_at}
+                    </span>
+                  </>
+                )}
+              </>
+            )}
+          </p>
+
+          <p>
             <strong>主な試験内容：</strong>
             <br />
             {selectedNode.topics?.length > 0

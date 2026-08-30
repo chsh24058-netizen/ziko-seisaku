@@ -8,17 +8,11 @@ import {
 } from "../utils/graphUtils";
 
 const minZoom = 0.2;
+const initialZoom = 0.25;
 const maxZoom = 2.4;
 const minNodeScreenRadius = 8;
 const minCategoryLabelScreenSize = 11;
 const minStrokeScale = 0.45;
-const relationThresholds = [
-  { value: 0.3, label: "30%以上" },
-  { value: 0.4, label: "40%以上（標準）" },
-  { value: 0.45, label: "45%以上" },
-  { value: 0.6, label: "60%以上" },
-];
-
 const getLinkStrokeWidth = (similarity) => {
   const score = Math.max(0, Math.min(1, Number(similarity) || 0));
 
@@ -56,13 +50,7 @@ const createInitialView = (
   graphWidth,
   graphHeight
 ) => {
-  const fit = createFitView(
-    viewportWidth,
-    viewportHeight,
-    graphWidth,
-    graphHeight
-  );
-  const k = Math.max(fit.k, 0.58);
+  const k = initialZoom;
 
   return {
     x: (viewportWidth - graphWidth * k) / 2,
@@ -89,7 +77,6 @@ export default function GraphView({
   getNodeOpacity,
   getLinkOpacity,
   minSimilarity,
-  setMinSimilarity,
 }) {
   const svgRef = useRef(null);
   const panRef = useRef(null);
@@ -138,9 +125,9 @@ export default function GraphView({
     });
   };
 
-  const zoomFromCenter = (factor) => {
+  const zoomFromCenter = (delta) => {
     changeZoom(
-      view.k * factor,
+      view.k + delta,
       viewportWidth / 2,
       viewportHeight / 2
     );
@@ -152,9 +139,9 @@ export default function GraphView({
     const rect = svgRef.current.getBoundingClientRect();
     const x = ((e.clientX - rect.left) / rect.width) * viewportWidth;
     const y = ((e.clientY - rect.top) / rect.height) * viewportHeight;
-    const factor = e.deltaY < 0 ? 1.13 : 0.885;
+    const delta = e.deltaY < 0 ? 0.01 : -0.01;
 
-    changeZoom(view.k * factor, x, y);
+    changeZoom(view.k + delta, x, y);
   };
 
   const handlePanStart = (e) => {
@@ -243,7 +230,7 @@ export default function GraphView({
       <div className="graph-controls" aria-label="マップ操作">
         <button
           type="button"
-          onClick={() => zoomFromCenter(1.2)}
+          onClick={() => zoomFromCenter(0.01)}
           aria-label="拡大"
         >
           ＋
@@ -251,7 +238,7 @@ export default function GraphView({
         <span>{Math.round(view.k * 100)}%</span>
         <button
           type="button"
-          onClick={() => zoomFromCenter(1 / 1.2)}
+          onClick={() => zoomFromCenter(-0.01)}
           aria-label="縮小"
         >
           −
@@ -262,26 +249,7 @@ export default function GraphView({
       </div>
 
       <div className="relation-filter">
-        <label htmlFor="relation-threshold">関連度の基準</label>
-        <select
-          id="relation-threshold"
-          value={minSimilarity}
-          onChange={(e) => setMinSimilarity(e.target.value)}
-        >
-          {relationThresholds.map((option) => {
-            const count = links.filter(
-              (link) =>
-                Number(link.common_count) >= 2 &&
-                Number(link.similarity) >= option.value
-            ).length;
-
-            return (
-              <option value={option.value} key={option.value}>
-                {option.label}（{count}本）
-              </option>
-            );
-          })}
-        </select>
+        <span>関連度42%以上（{visibleLinks.length}本）</span>
       </div>
 
       <div className="graph-help">

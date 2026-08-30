@@ -9,6 +9,12 @@ const catalogPath = path.join(
   "data",
   "qualification_catalog.json"
 );
+const passRatesPath = path.join(
+  rootDir,
+  "src",
+  "data",
+  "qualification_pass_rates.json"
+);
 const nodesPath = path.join(
   rootDir,
   "src",
@@ -94,6 +100,7 @@ const csvCell = (value) => {
 };
 
 const catalog = JSON.parse(fs.readFileSync(catalogPath, "utf8"));
+const passRates = JSON.parse(fs.readFileSync(passRatesPath, "utf8"));
 const keys = new Set();
 const names = new Set();
 
@@ -133,6 +140,22 @@ catalog.forEach((item, index) => {
 
   keys.add(item.key);
   names.add(item.name);
+});
+
+Object.entries(passRates).forEach(([key, item]) => {
+  if (!keys.has(key)) {
+    throw new Error(`合格率データが存在しない資格を参照しています: ${key}`);
+  }
+  if (
+    !Number.isFinite(item.rate) ||
+    item.rate < 0 ||
+    item.rate > 100 ||
+    !item.period ||
+    !item.source_url?.startsWith("https://") ||
+    !item.checked_at
+  ) {
+    throw new Error(`合格率データが不正です: ${key}`);
+  }
 });
 
 const categoryOrder = [
@@ -221,20 +244,32 @@ const nodeHeader = [
   "topics",
   "evidence_note",
   "checked_at",
+  "pass_rate",
+  "pass_rate_period",
+  "pass_rate_url",
+  "pass_rate_checked_at",
 ];
-const nodeRows = nodes.map((node) => [
-  node.id,
-  node.key,
-  node.name,
-  "資格",
-  node.category,
-  node.vendor,
-  node.url,
-  node.scope_url,
-  node.topics.join("|"),
-  node.evidence_note,
-  node.checked_at ?? "2026-07-30",
-]);
+const nodeRows = nodes.map((node) => {
+  const passRate = passRates[node.key];
+
+  return [
+    node.id,
+    node.key,
+    node.name,
+    "資格",
+    node.category,
+    node.vendor,
+    node.url,
+    node.scope_url,
+    node.topics.join("|"),
+    node.evidence_note,
+    node.checked_at ?? "2026-07-30",
+    passRate?.rate ?? "",
+    passRate?.period ?? "",
+    passRate?.source_url ?? "",
+    passRate?.checked_at ?? "",
+  ];
+});
 
 const edgeHeader = [
   "source",
