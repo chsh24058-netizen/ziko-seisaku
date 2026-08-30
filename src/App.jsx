@@ -155,7 +155,7 @@ export default function App() {
       selectedNode || selectedLink || normalizedSearch || activeCategory;
 
     if (!hasEmphasis) {
-      return 0.68;
+      return 0.75;
     }
 
     let selectedOk = true;
@@ -173,14 +173,14 @@ export default function App() {
     );
 
     if (!activeCategory) {
-      return selectedOk && searchOk ? 0.85 : 0.12;
+      return selectedOk && searchOk ? 0.9 : 0.18;
     }
 
     const sourceMatched = isCategoryMatched(link.source, activeCategory);
     const targetMatched = isCategoryMatched(link.target, activeCategory);
     const categoryOk = sourceMatched && targetMatched;
 
-    return selectedOk && searchOk && categoryOk ? 0.85 : 0;
+    return selectedOk && searchOk && categoryOk ? 0.9 : 0;
   };
 
   const clearSearch = () => {

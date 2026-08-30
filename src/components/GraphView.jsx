@@ -9,7 +9,6 @@ const minZoom = 0.2;
 const initialZoom = 0.25;
 const maxZoom = 2;
 const minNodeScreenRadius = 8;
-const minStrokeScale = 0.45;
 const hoverCardWidth = 264;
 
 const getHoverNameLines = (name, maxCharacters = 16) => {
@@ -253,7 +252,6 @@ export default function GraphView({
     width: viewportWidth / view.k,
     height: viewportHeight / view.k,
   };
-  const strokeScale = Math.max(minStrokeScale, Math.min(1, view.k));
   const hoverNameLines = getHoverNameLines(hoverNode?.name);
   const hoverCardHeight = hoverNameLines.length === 1 ? 72 : 92;
   const hoverNodeScreenX = hoverNode ? view.x + hoverNode.x * view.k : 0;
@@ -299,6 +297,8 @@ export default function GraphView({
             const selected = selectedLink === link;
             const opacity = getLinkOpacity(link);
             const linkStrokeWidth = getLinkStrokeWidth(link.similarity);
+            const visibleLinkStrokeWidth =
+              selected ? linkStrokeWidth + 3 : linkStrokeWidth;
 
             return (
               <g
@@ -319,21 +319,16 @@ export default function GraphView({
                   x2={link.target.x}
                   y2={link.target.y}
                   stroke="transparent"
-                  strokeWidth={Math.max(14, linkStrokeWidth + 8)}
-                  vectorEffect="non-scaling-stroke"
+                  strokeWidth={Math.max(14 / view.k, visibleLinkStrokeWidth + 8)}
                 />
                 <line
                   x1={link.source.x}
                   y1={link.source.y}
                   x2={link.target.x}
                   y2={link.target.y}
-                  stroke={selected ? "#1f2421" : "#777b78"}
-                  strokeWidth={
-                    (selected ? linkStrokeWidth + 3 : linkStrokeWidth) *
-                    strokeScale
-                  }
+                  stroke={selected ? "#171a18" : "#4b504d"}
+                  strokeWidth={visibleLinkStrokeWidth}
                   opacity={opacity}
-                  vectorEffect="non-scaling-stroke"
                 />
               </g>
             );
@@ -389,11 +384,7 @@ export default function GraphView({
                       ? "#e0ad2f"
                       : "#fffefb"
                   }
-                  strokeWidth={
-                    (selectedNode?.id === node.id || matched ? 5 : 3) *
-                    strokeScale
-                  }
-                  vectorEffect="non-scaling-stroke"
+                  strokeWidth={selectedNode?.id === node.id || matched ? 5 : 3}
                 />
 
                 {showLabel && (
