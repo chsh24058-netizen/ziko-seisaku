@@ -9,16 +9,26 @@ import {
 
 const minZoom = 0.2;
 const maxZoom = 2.4;
+const minNodeScreenRadius = 8;
+const minCategoryLabelScreenSize = 11;
+const minStrokeScale = 0.45;
+const relationThresholds = [
+  { value: 0.3, label: "30%以上" },
+  { value: 0.4, label: "40%以上（標準）" },
+  { value: 0.45, label: "45%以上" },
+  { value: 0.6, label: "60%以上" },
+];
 
-const getLinkStrokeWidth = (commonCount) => {
-  const count = Math.max(2, Number(commonCount) || 2);
+const getLinkStrokeWidth = (similarity) => {
+  const score = Math.max(0, Math.min(1, Number(similarity) || 0));
 
-  if (count >= 7) return 13;
-  if (count === 6) return 9.5;
-  if (count === 5) return 6.5;
-  if (count === 4) return 4;
-  if (count === 3) return 2.5;
-  return 1.5;
+  if (score >= 0.8) return 11;
+  if (score >= 0.65) return 8;
+  if (score >= 0.55) return 6;
+  if (score >= 0.45) return 4;
+  if (score >= 0.35) return 2.5;
+  if (score >= 0.25) return 1.5;
+  return 1;
 };
 
 const createFitView = (
@@ -78,15 +88,12 @@ export default function GraphView({
   isSearchMatched,
   getNodeOpacity,
   getLinkOpacity,
-  minCommonCount,
-  setMinCommonCount,
+  minSimilarity,
+  setMinSimilarity,
 }) {
   const svgRef = useRef(null);
   const panRef = useRef(null);
-  const nodeDragRef = useRef(null);
-  const suppressNodeClickRef = useRef(false);
   const [isPanning, setIsPanning] = useState(false);
-  const [, forceDragRender] = useState(0);
   const [view, setView] = useState(() =>
     createInitialView(viewportWidth, viewportHeight, graphWidth, graphHeight)
   );
@@ -212,54 +219,12 @@ export default function GraphView({
     }));
   };
 
-  const handleNodeDragStart = (e, node) => {
-    e.stopPropagation();
-    const rect = svgRef.current.getBoundingClientRect();
-    e.currentTarget.setPointerCapture(e.pointerId);
-    nodeDragRef.current = {
-      pointerId: e.pointerId,
-      element: e.currentTarget,
-      clientX: e.clientX,
-      clientY: e.clientY,
-      node,
-      nodeX: node.x,
-      nodeY: node.y,
-      scaleX: viewportWidth / rect.width / view.k,
-      scaleY: viewportHeight / rect.height / view.k,
-      moved: false,
-    };
-  };
-
-  const handleNodeDragMove = (e) => {
-    const drag = nodeDragRef.current;
-    if (!drag || drag.pointerId !== e.pointerId) return;
-
-    const dx = e.clientX - drag.clientX;
-    const dy = e.clientY - drag.clientY;
-    if (Math.abs(dx) > 3 || Math.abs(dy) > 3) drag.moved = true;
-
-    drag.node.x = drag.nodeX + dx * drag.scaleX;
-    drag.node.y = drag.nodeY + dy * drag.scaleY;
-    drag.node.fx = drag.node.x;
-    drag.node.fy = drag.node.y;
-    forceDragRender((version) => version + 1);
-  };
-
-  const handleNodeDragEnd = (e) => {
-    const drag = nodeDragRef.current;
-    if (!drag || drag.pointerId !== e.pointerId) return;
-
-    suppressNodeClickRef.current = drag.moved;
-    if (drag.element.hasPointerCapture(e.pointerId)) {
-      drag.element.releasePointerCapture(e.pointerId);
-    }
-    nodeDragRef.current = null;
-  };
-
   const categories = getLegendItems();
   const visibleLinks = links.filter((link) => getLinkOpacity(link) > 0.2);
   const minimapLinks = links.filter(
-    (link) => Number(link.common_count) >= minCommonCount
+    (link) =>
+      Number(link.common_count) >= 2 &&
+      Number(link.similarity) >= minSimilarity
   );
   const minimapViewport = {
     x: -view.x / view.k,
@@ -267,6 +232,11 @@ export default function GraphView({
     width: viewportWidth / view.k,
     height: viewportHeight / view.k,
   };
+  const strokeScale = Math.max(minStrokeScale, Math.min(1, view.k));
+  const categoryLabelFontSize = Math.max(
+    30,
+    minCategoryLabelScreenSize / view.k
+  );
 
   return (
     <div className="graph-card">
@@ -292,20 +262,30 @@ export default function GraphView({
       </div>
 
       <div className="relation-filter">
-        <label htmlFor="relation-threshold">線の表示</label>
+        <label htmlFor="relation-threshold">関連度の基準</label>
         <select
           id="relation-threshold"
-          value={minCommonCount}
-          onChange={(e) => setMinCommonCount(e.target.value)}
+          value={minSimilarity}
+          onChange={(e) => setMinSimilarity(e.target.value)}
         >
-          <option value="4">共通4項目以上（標準）</option>
-          <option value="3">共通3項目以上</option>
-          <option value="2">共通2項目以上（すべて）</option>
+          {relationThresholds.map((option) => {
+            const count = links.filter(
+              (link) =>
+                Number(link.common_count) >= 2 &&
+                Number(link.similarity) >= option.value
+            ).length;
+
+            return (
+              <option value={option.value} key={option.value}>
+                {option.label}（{count}本）
+              </option>
+            );
+          })}
         </select>
       </div>
 
       <div className="graph-help">
-        ドラッグ：移動　ホイール：拡大・縮小　資格をドラッグ：位置調整
+        背景をドラッグ：移動　ホイール：拡大・縮小
       </div>
 
       <svg
@@ -341,6 +321,7 @@ export default function GraphView({
                   y={position.y - 95}
                   textAnchor="middle"
                   fill={item.color}
+                  style={{ fontSize: categoryLabelFontSize }}
                 >
                   {item.label}
                 </text>
@@ -351,8 +332,7 @@ export default function GraphView({
           {visibleLinks.map((link) => {
             const selected = selectedLink === link;
             const opacity = getLinkOpacity(link);
-            const commonCount = Number(link.common_count) || 2;
-            const linkStrokeWidth = getLinkStrokeWidth(commonCount);
+            const linkStrokeWidth = getLinkStrokeWidth(link.similarity);
 
             return (
               <g
@@ -383,7 +363,8 @@ export default function GraphView({
                   y2={link.target.y}
                   stroke={selected ? "#1f2421" : "#777b78"}
                   strokeWidth={
-                    selected ? linkStrokeWidth + 3 : linkStrokeWidth
+                    (selected ? linkStrokeWidth + 3 : linkStrokeWidth) *
+                    strokeScale
                   }
                   opacity={opacity}
                   vectorEffect="non-scaling-stroke"
@@ -394,12 +375,19 @@ export default function GraphView({
 
           {nodes.map((node) => {
             const matched = isSearchMatched(node);
-            const radius = getNodeRadius(node);
+            const radius = Math.max(
+              getNodeRadius(node),
+              minNodeScreenRadius / view.k
+            );
             const showLabel =
               view.k >= 0.62 ||
               matched ||
               selectedNode?.id === node.id ||
               hoverNode?.id === node.id;
+            const keepLabelReadable = showLabel && view.k < 0.62;
+            const labelFontSize = keepLabelReadable ? 13 / view.k : 13;
+            const labelOffset = keepLabelReadable ? 18 / view.k : 18;
+            const labelStrokeWidth = keepLabelReadable ? 4 / view.k : 4;
 
             return (
               <g
@@ -407,17 +395,9 @@ export default function GraphView({
                 transform={`translate(${node.x}, ${node.y})`}
                 onClick={(e) => {
                   e.stopPropagation();
-                  if (suppressNodeClickRef.current) {
-                    suppressNodeClickRef.current = false;
-                    return;
-                  }
                   setSelectedNode(node);
                   setSelectedLink(null);
                 }}
-                onPointerDown={(e) => handleNodeDragStart(e, node)}
-                onPointerMove={handleNodeDragMove}
-                onPointerUp={handleNodeDragEnd}
-                onPointerCancel={handleNodeDragEnd}
                 onMouseEnter={() => setHoverNode(node)}
                 onMouseLeave={() => setHoverNode(null)}
                 style={{ cursor: "pointer" }}
@@ -443,19 +423,22 @@ export default function GraphView({
                       ? "#e0ad2f"
                       : "#fffefb"
                   }
-                  strokeWidth={selectedNode?.id === node.id || matched ? 5 : 3}
+                  strokeWidth={
+                    (selectedNode?.id === node.id || matched ? 5 : 3) *
+                    strokeScale
+                  }
                   vectorEffect="non-scaling-stroke"
                 />
 
                 {showLabel && (
                   <text
-                    y={radius + 18}
+                    y={radius + labelOffset}
                     textAnchor="middle"
-                    fontSize="13"
+                    fontSize={labelFontSize}
                     fontWeight={selectedNode?.id === node.id ? "700" : "600"}
                     fill="#2c312e"
                     stroke="#fffefb"
-                    strokeWidth="4"
+                    strokeWidth={labelStrokeWidth}
                     paintOrder="stroke"
                   >
                     {getShortName(node.name)}

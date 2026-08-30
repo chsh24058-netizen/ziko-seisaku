@@ -2,7 +2,13 @@ import { useEffect, useState } from "react";
 import * as d3 from "d3";
 import { getCategoryPosition, getNodeRadius } from "../utils/graphUtils";
 
-export function useGraphData(nodesCsv, edgesCsv, graphWidth, graphHeight) {
+export function useGraphData(
+  nodesCsv,
+  edgesCsv,
+  graphWidth,
+  graphHeight,
+  minSimilarity
+) {
   const [nodes, setNodes] = useState([]);
   const [links, setLinks] = useState([]);
 
@@ -33,6 +39,8 @@ export function useGraphData(nodesCsv, edgesCsv, graphWidth, graphHeight) {
           target: nodeById.get(Number(d.target)),
           relation: d.relation,
           common_count: Number(d.common_count),
+          union_count: Number(d.union_count),
+          similarity: Number(d.similarity),
           common_topics: d.common_topics
             ? d.common_topics.split("|").filter(Boolean)
             : [],
@@ -41,14 +49,17 @@ export function useGraphData(nodesCsv, edgesCsv, graphWidth, graphHeight) {
           target_evidence_url: d.target_evidence_url || "",
         }));
 
-        loadedLinks.forEach((link) => {
+        const activeLinks = loadedLinks.filter(
+          (link) =>
+            link.common_count >= 2 && link.similarity >= minSimilarity
+        );
+
+        activeLinks.forEach((link) => {
           link.source.connection_count += 1;
           link.target.connection_count += 1;
         });
 
-        const layoutLinks = loadedLinks.filter(
-          (link) => link.common_count >= 3
-        );
+        const layoutLinks = activeLinks;
 
         simulation = d3
           .forceSimulation(loadedNodes)
@@ -58,11 +69,12 @@ export function useGraphData(nodesCsv, edgesCsv, graphWidth, graphHeight) {
               .forceLink(layoutLinks)
               .id((d) => d.id)
               .distance((d) => {
-                if (d.common_count >= 5) return 125;
-                if (d.common_count >= 4) return 165;
-                return 245;
+                if (d.similarity >= 0.6) return 120;
+                if (d.similarity >= 0.4) return 155;
+                if (d.similarity >= 0.25) return 190;
+                return 230;
               })
-              .strength((d) => 0.12 + Math.min(d.common_count, 6) * 0.04)
+              .strength((d) => 0.12 + Math.min(d.similarity, 1) * 0.28)
           )
           .force("charge", d3.forceManyBody().strength(-720))
           .force(
@@ -117,7 +129,7 @@ export function useGraphData(nodesCsv, edgesCsv, graphWidth, graphHeight) {
       if (simulation) simulation.stop();
       if (animationFrame) cancelAnimationFrame(animationFrame);
     };
-  }, [nodesCsv, edgesCsv, graphWidth, graphHeight]);
+  }, [nodesCsv, edgesCsv, graphWidth, graphHeight, minSimilarity]);
 
   return { nodes, links };
 }

@@ -177,6 +177,10 @@ for (let i = 0; i < nodes.length; i += 1) {
     );
     if (commonTopics.length < 2) continue;
 
+    const unionTopics = new Set([...source.topics, ...target.topics]);
+    const similarity = commonTopics.length / unionTopics.size;
+    const similarityPercent = (similarity * 100).toFixed(1);
+
     edges.push({
       source: source.id,
       target: target.id,
@@ -184,10 +188,14 @@ for (let i = 0; i < nodes.length; i += 1) {
       targetKey: target.key,
       relation: "official_scope_overlap",
       commonCount: commonTopics.length,
+      unionCount: unionTopics.size,
+      similarity,
       commonTopics,
       reason: `公式試験範囲で「${commonTopics.join(
         "・"
-      )}」が共通しているため。`,
+      )}」が共通し、全${unionTopics.size}項目中${
+        commonTopics.length
+      }項目が一致しているため（関連度${similarityPercent}%）。`,
       sourceEvidenceUrl: source.scope_url,
       targetEvidenceUrl: target.scope_url,
     });
@@ -233,6 +241,8 @@ const edgeHeader = [
   "target",
   "relation",
   "common_count",
+  "union_count",
+  "similarity",
   "common_topics",
   "reason",
   "source_evidence_url",
@@ -243,6 +253,8 @@ const edgeRows = edges.map((edge) => [
   idByKey.get(edge.targetKey),
   edge.relation,
   edge.commonCount,
+  edge.unionCount,
+  edge.similarity.toFixed(6),
   edge.commonTopics.join("|"),
   edge.reason,
   edge.sourceEvidenceUrl,
@@ -261,8 +273,9 @@ console.log(
   JSON.stringify(
     {
       qualifications: nodes.length,
-      relationships: edges.length,
-      relationshipRule: "公式試験範囲の共通トピックが2個以上",
+      relationshipCandidates: edges.length,
+      relationshipRule:
+        "共通トピック2個以上を候補とし、Jaccard係数のしきい値で表示",
     },
     null,
     2

@@ -49,12 +49,20 @@ for (const edge of edges) {
   const sourceTopics = new Set(source.topics.split("|").filter(Boolean));
   const targetTopics = new Set(target.topics.split("|").filter(Boolean));
   const commonTopics = edge.common_topics.split("|").filter(Boolean);
+  const unionTopics = new Set([...sourceTopics, ...targetTopics]);
+  const expectedSimilarity = commonTopics.length / unionTopics.size;
 
   if (commonTopics.length < 2) {
     throw new Error(`共通トピックが2個未満の接続があります: ${key}`);
   }
   if (Number(edge.common_count) !== commonTopics.length) {
     throw new Error(`共通トピック数が一致しない接続があります: ${key}`);
+  }
+  if (Number(edge.union_count) !== unionTopics.size) {
+    throw new Error(`全トピック数が一致しない接続があります: ${key}`);
+  }
+  if (Math.abs(Number(edge.similarity) - expectedSimilarity) > 0.000001) {
+    throw new Error(`Jaccard係数が一致しない接続があります: ${key}`);
   }
   if (
     commonTopics.some(
@@ -78,6 +86,28 @@ const isolatedNodes = nodes
   .filter((node) => degree.get(node.id) === 0)
   .map((node) => node.name);
 const maxDegree = Math.max(0, ...degree.values());
+const similarityThresholds = [0.2, 0.3, 0.4, 0.45, 0.6].map(
+  (threshold) => {
+    const visibleEdges = edges.filter(
+      (edge) => Number(edge.similarity) >= threshold
+    );
+    const visibleDegree = new Map(nodes.map((node) => [node.id, 0]));
+
+    visibleEdges.forEach((edge) => {
+      visibleDegree.set(edge.source, visibleDegree.get(edge.source) + 1);
+      visibleDegree.set(edge.target, visibleDegree.get(edge.target) + 1);
+    });
+
+    const degrees = [...visibleDegree.values()];
+
+    return {
+      thresholdPercent: threshold * 100,
+      relationships: visibleEdges.length,
+      isolatedQualifications: degrees.filter((value) => value === 0).length,
+      maximumDegree: Math.max(0, ...degrees),
+    };
+  }
+);
 
 console.log(
   JSON.stringify(
@@ -86,6 +116,7 @@ console.log(
       relationships: edges.length,
       isolatedQualifications: isolatedNodes,
       maximumDegree: maxDegree,
+      similarityThresholds,
     },
     null,
     2

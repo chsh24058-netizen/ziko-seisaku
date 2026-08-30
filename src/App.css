@@ -550,40 +550,6 @@ select:focus-visible {
   border-radius: 50%;
 }
 
-.size-legend-title {
-  margin-top: 22px !important;
-}
-
-.size-legend {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 8px;
-}
-
-.size-legend-item {
-  display: flex;
-  align-items: center;
-  gap: 7px;
-  min-height: 30px;
-  color: #505752;
-  font-size: 11px;
-  font-weight: 700;
-}
-
-.size-legend-circle {
-  display: inline-block;
-  flex: 0 0 auto;
-  border: 1px solid #747d78;
-  border-radius: 50%;
-  background: #9ca7a2;
-}
-
-.size-legend-note {
-  margin: 8px 0 0 !important;
-  color: #747a75 !important;
-  font-size: 11px !important;
-}
-
 .guide-overlay {
   position: fixed;
   z-index: 20;
@@ -637,6 +603,33 @@ select:focus-visible {
 
 .guide-close-button:hover {
   background: #e7e8e4;
+}
+
+.guide-section-title {
+  margin: 17px 0 8px;
+  color: #2a302c;
+  font-size: 15px;
+  letter-spacing: 0.03em;
+}
+
+.guide-section-title:first-of-type {
+  margin-top: 0;
+}
+
+.guide-steps {
+  margin: 0;
+  padding: 0 0 0 25px;
+  color: #4b524d;
+}
+
+.guide-steps li {
+  padding: 5px 2px 5px 4px;
+  font-size: 13px;
+  line-height: 1.65;
+}
+
+.guide-steps strong {
+  color: #303632;
 }
 
 .guide-list {

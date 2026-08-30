@@ -30,19 +30,26 @@ const graphWidth = 3600;
 const graphHeight = 2500;
 
 export default function App() {
-  const { nodes, links } = useGraphData(nodesCsv, edgesCsv, graphWidth, graphHeight);
-
+  const [minSimilarity, setMinSimilarity] = useState(0.4);
+  const { nodes, links } = useGraphData(
+    nodesCsv,
+    edgesCsv,
+    graphWidth,
+    graphHeight,
+    minSimilarity
+  );
   const [selectedNode, setSelectedNode] = useState(null);
   const [selectedLink, setSelectedLink] = useState(null);
   const [hoverNode, setHoverNode] = useState(null);
   const [searchText, setSearchText] = useState("");
   const [activeCategory, setActiveCategory] = useState(null);
-  const [minCommonCount, setMinCommonCount] = useState(4);
-  const [isGuideOpen, setIsGuideOpen] = useState(false);
+  const [isGuideOpen, setIsGuideOpen] = useState(true);
 
   const normalizedSearch = normalizeSearchText(searchText);
   const visibleRelationLinks = links.filter(
-    (link) => Number(link.common_count) >= minCommonCount
+    (link) =>
+      Number(link.common_count) >= 2 &&
+      Number(link.similarity) >= minSimilarity
   );
   const checkedAt = nodes.reduce((latest, node) => {
     return node.checked_at > latest ? node.checked_at : latest;
@@ -131,7 +138,12 @@ export default function App() {
   };
 
   const getLinkOpacity = (link) => {
-    if (Number(link.common_count) < minCommonCount) return 0;
+    if (
+      Number(link.common_count) < 2 ||
+      Number(link.similarity) < minSimilarity
+    ) {
+      return 0;
+    }
 
     const hasEmphasis =
       selectedNode || selectedLink || normalizedSearch || activeCategory;
@@ -160,9 +172,9 @@ export default function App() {
 
     const sourceMatched = isCategoryMatched(link.source, activeCategory);
     const targetMatched = isCategoryMatched(link.target, activeCategory);
-    const categoryOk = sourceMatched || targetMatched;
+    const categoryOk = sourceMatched && targetMatched;
 
-    return selectedOk && searchOk && categoryOk ? 0.85 : 0.08;
+    return selectedOk && searchOk && categoryOk ? 0.85 : 0;
   };
 
   const clearSearch = () => {
@@ -182,16 +194,12 @@ export default function App() {
     setSelectedLink(null);
   };
 
-  const handleMinCommonCountChange = (value) => {
+  const handleMinSimilarityChange = (value) => {
     const nextValue = Number(value);
-    setMinCommonCount(nextValue);
-
-    if (
-      selectedLink &&
-      Number(selectedLink.common_count) < nextValue
-    ) {
-      setSelectedLink(null);
-    }
+    setMinSimilarity(nextValue);
+    setSelectedNode(null);
+    setSelectedLink(null);
+    setHoverNode(null);
   };
 
   return (
@@ -206,11 +214,12 @@ export default function App() {
               onClick={() => setIsGuideOpen(true)}
               aria-haspopup="dialog"
             >
-              見方・データ基準
+              使い方・データ基準
             </button>
           </div>
           <div className="dataset-summary">
-            収録 {nodes.length}資格 ／ {links.length}関係
+            収録 {nodes.length}資格 ／ 表示 {visibleRelationLinks.length}関係
+            （候補 {links.length}）
           </div>
         </div>
 
@@ -241,8 +250,8 @@ export default function App() {
           isSearchMatched={isSearchMatched}
           getNodeOpacity={getNodeOpacity}
           getLinkOpacity={getLinkOpacity}
-          minCommonCount={minCommonCount}
-          setMinCommonCount={handleMinCommonCountChange}
+          minSimilarity={minSimilarity}
+          setMinSimilarity={handleMinSimilarityChange}
         />
       </main>
 
@@ -271,7 +280,7 @@ export default function App() {
             onClick={(e) => e.stopPropagation()}
           >
             <div className="guide-dialog-header">
-              <h2 id="guide-title">見方・データ基準</h2>
+              <h2 id="guide-title">使い方・データ基準</h2>
               <button
                 type="button"
                 className="guide-close-button"
@@ -282,22 +291,45 @@ export default function App() {
               </button>
             </div>
 
+            <h3 className="guide-section-title">基本的な使い方</h3>
+            <ol className="guide-steps">
+              <li>
+                <strong>資格を探す：</strong>
+                検索欄へ資格名・分野・主催団体・試験内容を入力します。
+              </li>
+              <li>
+                <strong>詳細を見る：</strong>
+                円を選ぶと資格情報、線を選ぶと共通する試験内容と関連度を右側に表示します。
+              </li>
+              <li>
+                <strong>分野で絞る：</strong>
+                右側の凡例を選ぶと、その分野の資格と分野内の関係を確認できます。
+              </li>
+              <li>
+                <strong>関連度を変える：</strong>
+                マップ右上の基準を変更すると、表示する関係を30%〜60%で比較できます。
+              </li>
+              <li>
+                <strong>マップを動かす：</strong>
+                背景をドラッグして移動し、ホイールまたは右上のボタンで拡大・縮小します。「全体」で表示を戻せます。
+              </li>
+            </ol>
+
+            <h3 className="guide-section-title">マップの見方</h3>
             <dl className="guide-list">
               <div>
                 <dt>線</dt>
                 <dd>
-                  公式の試験範囲から整理した共通項目が2件以上ある資格同士を結んでいます。
+                  公式の試験範囲から整理した共通項目が2件以上あり、選択した関連度以上の資格同士を結んでいます。
                 </dd>
               </div>
               <div>
                 <dt>線の太さ</dt>
-                <dd>共通する試験内容が多いほど太くなります。</dd>
+                <dd>Jaccard係数による関連度が高いほど太くなります。</dd>
               </div>
               <div>
                 <dt>円の大きさ</dt>
-                <dd>
-                  共通項目が2件以上あり、直接つながっている資格の総数で決まります。
-                </dd>
+                <dd>すべての資格を同じ大きさで表示します。</dd>
               </div>
               <div>
                 <dt>色</dt>
@@ -312,7 +344,7 @@ export default function App() {
             </dl>
 
             <p className="guide-note">
-              右上の「線の表示」で、表示する関係の共通項目数を変更できます。
+              関連度 ＝ 共通項目数 ÷ 2資格が持つ項目の合計種類数（Jaccard係数）です。右上の「関連度の基準」で30%〜60%を比較できます。
             </p>
             <p className="guide-checked-at">
               公式情報の確認日：{checkedAt || "読み込み中"}

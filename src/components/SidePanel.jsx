@@ -44,6 +44,11 @@ export default function SidePanel({
             {selectedLink.common_count}個
           </p>
 
+          <p>
+            <strong>関連度：</strong>
+            {(selectedLink.similarity * 100).toFixed(1)}%
+          </p>
+
           {(selectedLink.source_evidence_url ||
             selectedLink.target_evidence_url) && (
             <>
@@ -101,7 +106,7 @@ export default function SidePanel({
           </p>
 
           <p>
-            <strong>直接つながる資格：</strong>
+            <strong>現在の基準で直接つながる資格：</strong>
             {selectedNode.connection_count}件
           </p>
 

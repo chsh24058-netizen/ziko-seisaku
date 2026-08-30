@@ -23,10 +23,7 @@ export const getNodeColor = (node) => {
   return categoryColors[node.category] ?? "#777772";
 };
 
-export const getNodeRadius = (node) => {
-  const connectionCount = Math.max(0, Number(node.connection_count) || 0);
-  return 6 + Math.sqrt(connectionCount) * 6;
-};
+export const getNodeRadius = () => 18;
 
 export const getShortName = (name) => {
   if (!name) return "";
