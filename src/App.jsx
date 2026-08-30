@@ -292,7 +292,7 @@ export default function App() {
                 onClick={() => setIsGuideOpen(false)}
                 aria-label="説明を閉じる"
               >
-                ×
+                <span className="guide-close-icon" aria-hidden="true">×</span>
               </button>
             </div>
 

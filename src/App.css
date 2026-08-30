@@ -665,6 +665,10 @@ select:focus-visible {
   background: #e7e8e4;
 }
 
+.guide-close-icon {
+  transform: translateY(-2px);
+}
+
 .guide-section-title {
   margin: 17px 0 8px;
   color: #2a302c;
