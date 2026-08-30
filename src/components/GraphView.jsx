@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import {
   getNodeColor,
   getNodeRadius,
@@ -146,7 +146,7 @@ export default function GraphView({
     });
   }, [zoomLevel, viewportWidth, viewportHeight]);
 
-  const changeZoom = (nextZoom, centerX, centerY) => {
+  const changeZoom = useCallback((nextZoom, centerX, centerY) => {
     const k = Math.max(minZoom, Math.min(maxZoom, nextZoom));
     setZoomLevel(k);
     setView((current) => {
@@ -157,7 +157,7 @@ export default function GraphView({
         k,
       };
     });
-  };
+  }, [setZoomLevel]);
 
   const zoomFromCenter = (delta) => {
     changeZoom(
@@ -167,16 +167,25 @@ export default function GraphView({
     );
   };
 
-  const handleWheel = (e) => {
+  const handleWheel = useCallback((e) => {
     e.preventDefault();
+    e.stopPropagation();
 
     const rect = svgRef.current.getBoundingClientRect();
     const x = ((e.clientX - rect.left) / rect.width) * viewportWidth;
     const y = ((e.clientY - rect.top) / rect.height) * viewportHeight;
-    const delta = e.deltaY < 0 ? 0.01 : -0.01;
+    const delta = e.deltaY < 0 ? 0.02 : -0.02;
 
     changeZoom(view.k + delta, x, y);
-  };
+  }, [changeZoom, view.k, viewportHeight, viewportWidth]);
+
+  useEffect(() => {
+    const svg = svgRef.current;
+    if (!svg) return undefined;
+
+    svg.addEventListener("wheel", handleWheel, { passive: false });
+    return () => svg.removeEventListener("wheel", handleWheel);
+  }, [handleWheel]);
 
   const handlePanStart = (e) => {
     const rect = svgRef.current.getBoundingClientRect();
@@ -280,7 +289,6 @@ export default function GraphView({
         className={`graph-svg${isPanning ? " is-panning" : ""}`}
         viewBox={`0 0 ${viewportWidth} ${viewportHeight}`}
         preserveAspectRatio="xMidYMid meet"
-        onWheel={handleWheel}
         onPointerMove={handlePanMove}
         onPointerUp={handlePanEnd}
         onPointerCancel={handlePanEnd}

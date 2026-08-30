@@ -646,6 +646,9 @@ select:focus-visible {
 }
 
 .guide-close-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   width: 30px;
   height: 30px;
   padding: 0;
