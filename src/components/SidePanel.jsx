@@ -73,12 +73,6 @@ export default function SidePanel({
               </div>
             </>
           )}
-
-          <hr />
-
-          <p className="muted">
-            線を選択すると、資格同士を結んだ理由と根拠を確認できます。
-          </p>
         </div>
       ) : selectedNode ? (
         <div>
