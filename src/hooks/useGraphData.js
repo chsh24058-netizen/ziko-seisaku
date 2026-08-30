@@ -109,7 +109,7 @@ export function useGraphData(
           .force(
             "collision",
             d3.forceCollide().radius((d) => {
-              return getNodeRadius(d) + 28;
+              return getNodeRadius() + 28;
             })
           );
 

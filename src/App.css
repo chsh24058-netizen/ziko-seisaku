@@ -142,8 +142,10 @@ select:focus-visible {
   top: calc(100% + 3px);
   right: 0;
   left: 0;
-  max-height: 320px;
+  max-height: min(360px, calc(100vh - 180px));
   overflow-y: auto;
+  overscroll-behavior: contain;
+  scrollbar-gutter: stable;
   border: 1px solid #8f9691;
   border-radius: 2px;
   background: #fffefb;
@@ -214,6 +216,104 @@ select:focus-visible {
   white-space: nowrap;
 }
 
+.size-control {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-left: auto;
+}
+
+.size-control label {
+  color: #5d625e;
+  font-size: 13px;
+  white-space: nowrap;
+}
+
+.zoom-button {
+  min-height: 26px;
+  min-width: 26px;
+  padding: 4px 6px;
+  border: 1px solid #aeb3af;
+  border-radius: 3px;
+  background: #f8f7f2;
+  color: #343936;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.zoom-button:hover {
+  border-color: #657069;
+  background: #ecece7;
+}
+
+.fit-button {
+  min-height: 26px;
+  padding: 4px 8px;
+  border: 1px solid #aeb3af;
+  border-radius: 3px;
+  background: #f8f7f2;
+  color: #343936;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.fit-button:hover {
+  border-color: #657069;
+  background: #ecece7;
+}
+
+.node-size-slider {
+  width: 120px;
+  height: 5px;
+  cursor: pointer;
+}
+
+.zoom-slider {
+  width: 120px;
+  height: 5px;
+  cursor: pointer;
+}
+
+.zoom-input {
+  width: 50px;
+  height: 26px;
+  padding: 4px 6px;
+  border: 1px solid #aeb3af;
+  border-radius: 3px;
+  background: #fffefb;
+  color: #252a27;
+  font-size: 13px;
+  text-align: right;
+  outline: none;
+}
+
+.zoom-input:focus {
+  border-color: #245f84;
+}
+
+.zoom-input::-webkit-outer-spin-button,
+.zoom-input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.zoom-input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+.size-value {
+  color: #5d625e;
+  font-size: 13px;
+  white-space: nowrap;
+  min-width: 15px;
+}
+
 .graph-card {
   position: relative;
   width: 100%;
@@ -278,59 +378,10 @@ select:focus-visible {
   pointer-events: none;
 }
 
-.graph-controls {
-  position: absolute;
-  z-index: 3;
-  top: 10px;
-  right: 10px;
-  display: flex;
-  align-items: center;
-  gap: 0;
-  padding: 0;
-  border: 1px solid #aeb3af;
-  border-radius: 3px;
-  background: #f8f7f2;
-}
-
-.graph-controls button {
-  min-width: 33px;
-  height: 33px;
-  padding: 0 9px;
-  border: 0;
-  border-right: 1px solid #c4c7c3;
-  background: transparent;
-  color: #2f3431;
-  cursor: pointer;
-  font-size: 15px;
-  font-weight: 800;
-}
-
-.graph-controls button:last-child {
-  border-right: 0;
-}
-
-.graph-controls button:hover {
-  background: #e5e8e6;
-}
-
-.graph-controls span {
-  min-width: 48px;
-  color: #535a55;
-  text-align: center;
-  font-size: 12px;
-  font-variant-numeric: tabular-nums;
-  font-weight: 700;
-}
-
-.graph-controls .fit-button {
-  min-width: 48px;
-  font-size: 12px;
-}
-
 .relation-filter {
   position: absolute;
   z-index: 3;
-  top: 51px;
+  top: 10px;
   right: 10px;
   display: flex;
   align-items: center;
@@ -447,6 +498,10 @@ select:focus-visible {
   line-height: 1.7;
 }
 
+.side-panel-empty {
+  min-height: 96px;
+}
+
 .side-panel strong {
   color: #292f2b;
 }
@@ -497,36 +552,6 @@ select:focus-visible {
 .checked-at {
   color: #747a75 !important;
   font-size: 11px !important;
-}
-
-.search-result {
-  display: block;
-  width: 100%;
-  margin: 0;
-  padding: 8px 7px;
-  border: 0;
-  border-bottom: 1px solid #d3d5d2;
-  border-left: 3px solid transparent;
-  border-radius: 0;
-  background: transparent;
-  color: #2e3430;
-  cursor: pointer;
-  text-align: left;
-  font-size: 12px;
-}
-
-.search-result:hover {
-  border-left-color: #7b8e98;
-  background: #efefea;
-}
-
-.search-result.is-selected {
-  border-left-color: #245f84;
-  background: #e5eaeb;
-}
-
-.search-result-meta {
-  color: #666d68;
 }
 
 .legend-clear-button {
@@ -757,13 +782,8 @@ select:focus-visible {
     min-height: 560px;
   }
 
-  .graph-controls {
-    top: 8px;
-    right: 8px;
-  }
-
   .relation-filter {
-    top: 48px;
+    top: 8px;
     right: 8px;
     max-width: calc(100% - 16px);
   }

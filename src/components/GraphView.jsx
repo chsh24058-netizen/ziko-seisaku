@@ -9,7 +9,7 @@ import {
 
 const minZoom = 0.2;
 const initialZoom = 0.25;
-const maxZoom = 2.4;
+const maxZoom = 2;
 const minNodeScreenRadius = 8;
 const minCategoryLabelScreenSize = 11;
 const minStrokeScale = 0.45;
@@ -60,6 +60,8 @@ const createFitView = (
   };
 };
 
+export { createFitView };
+
 const createInitialView = (
   viewportWidth,
   viewportHeight,
@@ -93,20 +95,20 @@ export default function GraphView({
   getNodeOpacity,
   getLinkOpacity,
   minSimilarity,
+  zoomLevel,
+  setZoomLevel,
 }) {
   const svgRef = useRef(null);
   const panRef = useRef(null);
-  const nodeDragRef = useRef(null);
-  const suppressNodeClickUntilRef = useRef(0);
   const [isPanning, setIsPanning] = useState(false);
-  const [draggingNodeId, setDraggingNodeId] = useState(null);
-  const [, updateNodePositions] = useState(0);
   const [view, setView] = useState(() =>
     createInitialView(viewportWidth, viewportHeight, graphWidth, graphHeight)
   );
 
   const fitView = () => {
-    setView(createFitView(viewportWidth, viewportHeight, graphWidth, graphHeight));
+    const newView = createFitView(viewportWidth, viewportHeight, graphWidth, graphHeight);
+    setZoomLevel(newView.k);
+    setView(newView);
   };
 
   useEffect(() => {
@@ -123,19 +125,35 @@ export default function GraphView({
   useEffect(() => {
     if (!selectedNode || selectedNode.x === undefined) return;
 
-    setView((current) => {
-      const nextZoom = Math.max(current.k, 0.8);
-      return {
-        x: viewportWidth / 2 - selectedNode.x * nextZoom,
-        y: viewportHeight / 2 - selectedNode.y * nextZoom,
-        k: nextZoom,
-      };
+    const nextZoom = Math.max(zoomLevel, 0.8);
+    if (Math.abs(nextZoom - zoomLevel) > 0.01) {
+      setZoomLevel(nextZoom);
+    }
+    setView({
+      x: viewportWidth / 2 - selectedNode.x * nextZoom,
+      y: viewportHeight / 2 - selectedNode.y * nextZoom,
+      k: nextZoom,
     });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [selectedNode, viewportWidth, viewportHeight]);
 
-  const changeZoom = (nextZoom, centerX, centerY) => {
+  useEffect(() => {
     setView((current) => {
-      const k = Math.max(minZoom, Math.min(maxZoom, nextZoom));
+      const diff = Math.abs(zoomLevel - current.k);
+      if (diff < 0.01) return current;
+      const ratio = zoomLevel / current.k;
+      return {
+        x: viewportWidth / 2 - (viewportWidth / 2 - current.x) * ratio,
+        y: viewportHeight / 2 - (viewportHeight / 2 - current.y) * ratio,
+        k: zoomLevel,
+      };
+    });
+  }, [zoomLevel, viewportWidth, viewportHeight]);
+
+  const changeZoom = (nextZoom, centerX, centerY) => {
+    const k = Math.max(minZoom, Math.min(maxZoom, nextZoom));
+    setZoomLevel(k);
+    setView((current) => {
       const ratio = k / current.k;
       return {
         x: centerX - (centerX - current.x) * ratio,
@@ -180,63 +198,7 @@ export default function GraphView({
     setIsPanning(true);
   };
 
-  const handleNodeDragStart = (e, node) => {
-    e.preventDefault();
-    e.stopPropagation();
-
-    const rect = svgRef.current.getBoundingClientRect();
-    svgRef.current.setPointerCapture(e.pointerId);
-    node.fx = node.x;
-    node.fy = node.y;
-    nodeDragRef.current = {
-      pointerId: e.pointerId,
-      clientX: e.clientX,
-      clientY: e.clientY,
-      x: node.x,
-      y: node.y,
-      node,
-      zoom: view.k,
-      scaleX: viewportWidth / rect.width,
-      scaleY: viewportHeight / rect.height,
-      moved: false,
-    };
-    setDraggingNodeId(node.id);
-  };
-
   const handlePanMove = (e) => {
-    const nodeDrag = nodeDragRef.current;
-
-    if (nodeDrag?.pointerId === e.pointerId) {
-      const clientDeltaX = e.clientX - nodeDrag.clientX;
-      const clientDeltaY = e.clientY - nodeDrag.clientY;
-
-      if (Math.abs(clientDeltaX) > 3 || Math.abs(clientDeltaY) > 3) {
-        nodeDrag.moved = true;
-      }
-
-      const nextX = Math.max(
-        110,
-        Math.min(
-          graphWidth - 110,
-          nodeDrag.x + (clientDeltaX * nodeDrag.scaleX) / nodeDrag.zoom
-        )
-      );
-      const nextY = Math.max(
-        100,
-        Math.min(
-          graphHeight - 100,
-          nodeDrag.y + (clientDeltaY * nodeDrag.scaleY) / nodeDrag.zoom
-        )
-      );
-
-      nodeDrag.node.x = nextX;
-      nodeDrag.node.y = nextY;
-      nodeDrag.node.fx = nextX;
-      nodeDrag.node.fy = nextY;
-      updateNodePositions((version) => version + 1);
-      return;
-    }
-
     if (!panRef.current || panRef.current.pointerId !== e.pointerId) return;
 
     const start = panRef.current;
@@ -254,20 +216,6 @@ export default function GraphView({
   };
 
   const handlePanEnd = (e) => {
-    const nodeDrag = nodeDragRef.current;
-
-    if (nodeDrag?.pointerId === e.pointerId) {
-      if (svgRef.current.hasPointerCapture(e.pointerId)) {
-        svgRef.current.releasePointerCapture(e.pointerId);
-      }
-      if (nodeDrag.moved) {
-        suppressNodeClickUntilRef.current = Date.now() + 300;
-      }
-      nodeDragRef.current = null;
-      setDraggingNodeId(null);
-      return;
-    }
-
     if (!panRef.current || panRef.current.pointerId !== e.pointerId) return;
 
     const shouldResetSelection =
@@ -329,33 +277,12 @@ export default function GraphView({
 
   return (
     <div className="graph-card">
-      <div className="graph-controls" aria-label="マップ操作">
-        <button
-          type="button"
-          onClick={() => zoomFromCenter(0.01)}
-          aria-label="拡大"
-        >
-          ＋
-        </button>
-        <span>{Math.round(view.k * 100)}%</span>
-        <button
-          type="button"
-          onClick={() => zoomFromCenter(-0.01)}
-          aria-label="縮小"
-        >
-          −
-        </button>
-        <button type="button" className="fit-button" onClick={fitView}>
-          全体
-        </button>
-      </div>
-
       <div className="relation-filter">
         <span>関連度42%以上（{visibleLinks.length}本）</span>
       </div>
 
       <div className="graph-help">
-        ノードをドラッグ：配置変更　背景をドラッグ：移動　ホイール：拡大・縮小
+        背景をドラッグ：移動　ホイール：拡大・縮小
       </div>
 
       <svg
@@ -446,7 +373,7 @@ export default function GraphView({
           {nodes.map((node) => {
             const matched = isSearchMatched(node);
             const radius = Math.max(
-              getNodeRadius(node),
+              getNodeRadius(),
               minNodeScreenRadius / view.k
             );
             const showLabel =
@@ -465,16 +392,12 @@ export default function GraphView({
                 transform={`translate(${node.x}, ${node.y})`}
                 onClick={(e) => {
                   e.stopPropagation();
-                  if (Date.now() < suppressNodeClickUntilRef.current) return;
                   setSelectedNode(node);
                   setSelectedLink(null);
                 }}
-                onPointerDown={(e) => handleNodeDragStart(e, node)}
                 onMouseEnter={() => setHoverNode(node)}
                 onMouseLeave={() => setHoverNode(null)}
-                style={{
-                  cursor: draggingNodeId === node.id ? "grabbing" : "grab",
-                }}
+                style={{ cursor: "pointer" }}
                 opacity={getNodeOpacity(node)}
                 tabIndex="0"
                 role="button"
@@ -584,7 +507,7 @@ export default function GraphView({
               key={node.id}
               cx={node.x}
               cy={node.y}
-              r={getNodeRadius(node)}
+              r={getNodeRadius()}
               fill={getNodeColor(node)}
             />
           ))}

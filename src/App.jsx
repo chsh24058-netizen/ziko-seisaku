@@ -8,11 +8,13 @@ import "./App.css";
 import { useGraphData } from "./hooks/useGraphData";
 
 import Toolbar from "./components/Toolbar";
-import GraphView from "./components/GraphView";
+import GraphView, { createFitView } from "./components/GraphView";
 import SidePanel from "./components/SidePanel";
 import {
   getQualificationReading,
+  normalizeLiteralSearchText,
   normalizeSearchText,
+  matchesSearch,
 } from "./utils/searchUtils";
 
 import {
@@ -44,8 +46,15 @@ export default function App() {
   const [searchText, setSearchText] = useState("");
   const [activeCategory, setActiveCategory] = useState(null);
   const [isGuideOpen, setIsGuideOpen] = useState(true);
+  const [zoomLevel, setZoomLevel] = useState(0.25);
+
+  const handleFitView = () => {
+    const fitView = createFitView(viewportWidth, viewportHeight, graphWidth, graphHeight);
+    setZoomLevel(fitView.k);
+  };
 
   const normalizedSearch = normalizeSearchText(searchText);
+  const literalSearch = normalizeLiteralSearchText(searchText);
   const visibleRelationLinks = links.filter(
     (link) =>
       Number(link.common_count) >= 2 &&
@@ -68,19 +77,7 @@ export default function App() {
 
   const isSearchMatched = (node) => {
     if (!normalizedSearch) return false;
-
-    const values = [
-      node.name,
-      node.category,
-      node.type,
-      node.vendor,
-      getQualificationReading(node.key),
-      ...(node.topics ?? []),
-    ];
-
-    return values.some((value) =>
-      normalizeSearchText(value).includes(normalizedSearch)
-    );
+    return matchesSearch(node, normalizedSearch, searchText);
   };
 
   const searchResults = nodes.filter(isSearchMatched);
@@ -89,14 +86,24 @@ export default function App() {
     .sort((a, b) => {
       const getRank = (node) => {
         const nameValues = [
+          normalizeLiteralSearchText(node.name),
           normalizeSearchText(node.name),
           normalizeSearchText(getQualificationReading(node.key)),
         ];
+        const searchValues = [literalSearch, normalizedSearch].filter(Boolean);
 
-        if (nameValues.some((value) => value.startsWith(normalizedSearch))) {
+        if (
+          nameValues.some((value) =>
+            searchValues.some((searchValue) => value.startsWith(searchValue))
+          )
+        ) {
           return 0;
         }
-        if (nameValues.some((value) => value.includes(normalizedSearch))) {
+        if (
+          nameValues.some((value) =>
+            searchValues.some((searchValue) => value.includes(searchValue))
+          )
+        ) {
           return 1;
         }
         return 2;
@@ -106,8 +113,7 @@ export default function App() {
         getRank(a) - getRank(b) ||
         a.name.localeCompare(b.name, "ja")
       );
-    })
-    .slice(0, 6);
+    });
 
   const legendItems = getLegendItems();
 
@@ -222,6 +228,9 @@ export default function App() {
           searchCount={searchResults.length}
           suggestions={searchSuggestions}
           onSelectSuggestion={selectSearchSuggestion}
+          zoomLevel={zoomLevel}
+          setZoomLevel={setZoomLevel}
+          onFitView={handleFitView}
         />
 
         {dataError ? (
@@ -248,6 +257,9 @@ export default function App() {
             getNodeOpacity={getNodeOpacity}
             getLinkOpacity={getLinkOpacity}
             minSimilarity={minSimilarity}
+            zoomLevel={zoomLevel}
+            setZoomLevel={setZoomLevel}
+            toolbarZoomLevel={zoomLevel}
           />
         )}
       </main>
@@ -255,10 +267,6 @@ export default function App() {
       <SidePanel
         selectedNode={selectedNode}
         selectedLink={selectedLink}
-        setSelectedNode={setSelectedNode}
-        setSelectedLink={setSelectedLink}
-        normalizedSearch={normalizedSearch}
-        searchResults={searchResults}
         activeCategory={activeCategory}
         setActiveCategory={setActiveCategory}
         legendItems={legendItems}
@@ -292,7 +300,7 @@ export default function App() {
             <ol className="guide-steps">
               <li>
                 <strong>資格を探す：</strong>
-                検索欄へ資格名・分野・主催団体・試験内容を入力します。
+                検索欄へ資格名・分野・主催団体を入力します。
               </li>
               <li>
                 <strong>詳細を見る：</strong>
@@ -308,7 +316,7 @@ export default function App() {
               </li>
               <li>
                 <strong>マップを動かす：</strong>
-                ノードをドラッグすると配置を変更できます。背景をドラッグするとマップが移動し、ホイールまたは右上のボタンで拡大・縮小できます。「全体」で表示を戻せます。
+                背景をドラッグするとマップが移動し、ホイールまたは右上のボタンで拡大・縮小できます。「全体」で表示を戻せます。
               </li>
             </ol>
 

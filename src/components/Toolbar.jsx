@@ -8,6 +8,9 @@ export default function Toolbar({
   searchCount,
   suggestions,
   onSelectSuggestion,
+  zoomLevel,
+  setZoomLevel,
+  onFitView,
 }) {
   const searchRef = useRef(null);
   const [isSuggestionOpen, setIsSuggestionOpen] = useState(false);
@@ -77,6 +80,26 @@ export default function Toolbar({
     setActiveSuggestionIndex(-1);
   };
 
+  const handleZoomInputChange = (e) => {
+    const value = e.target.value;
+    if (value === "") return;
+    const num = Number(value);
+    if (!isNaN(num)) {
+      const clamped = Math.max(0.2, Math.min(2, num / 100));
+      setZoomLevel(clamped);
+    }
+  };
+
+  const handleZoomIn = () => {
+    const newZoom = Math.min(2, zoomLevel + 0.1);
+    setZoomLevel(newZoom);
+  };
+
+  const handleZoomOut = () => {
+    const newZoom = Math.max(0.2, zoomLevel - 0.1);
+    setZoomLevel(newZoom);
+  };
+
   return (
     <div className="toolbar">
       <div className="search-combobox" ref={searchRef}>
@@ -91,7 +114,7 @@ export default function Toolbar({
             if (normalizedSearch) setIsSuggestionOpen(true);
           }}
           onKeyDown={handleSearchKeyDown}
-          placeholder="資格名・分野・試験内容で検索"
+          placeholder="資格名・分野・主催団体で検索"
           role="combobox"
           aria-autocomplete="list"
           aria-expanded={Boolean(showSuggestions)}
@@ -141,6 +164,39 @@ export default function Toolbar({
       {normalizedSearch && (
         <span className="result-count">検索結果：{searchCount}件</span>
       )}
+
+      <div className="size-control">
+        <label htmlFor="zoom-slider">ズーム：</label>
+        <input
+          id="zoom-slider"
+          type="range"
+          min="0.2"
+          max="2"
+          step="0.1"
+          value={zoomLevel}
+          onChange={(e) => setZoomLevel(Number(e.target.value))}
+          className="zoom-slider"
+        />
+        <input
+          type="number"
+          min="20"
+          max="200"
+          step="5"
+          value={Math.round(zoomLevel * 100)}
+          onChange={handleZoomInputChange}
+          className="zoom-input"
+          aria-label="ズームレベルを入力"
+        />
+        <span className="size-value">%</span>
+        <button
+          type="button"
+          onClick={onFitView}
+          className="fit-button"
+          aria-label="全体を表示"
+        >
+          全体
+        </button>
+      </div>
     </div>
   );
 }

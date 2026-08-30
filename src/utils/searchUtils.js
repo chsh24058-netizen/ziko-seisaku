@@ -195,6 +195,13 @@ const katakanaToHiragana = (value) => {
   });
 };
 
+export const normalizeLiteralSearchText = (value) => {
+  let text = String(value ?? "").normalize("NFKC").toLowerCase();
+  text = katakanaToHiragana(text);
+
+  return text.replace(/[\s\p{P}\p{S}ー]+/gu, "");
+};
+
 export const normalizeSearchText = (value) => {
   let text = String(value ?? "").normalize("NFKC");
 
@@ -226,4 +233,36 @@ export const normalizeSearchText = (value) => {
 
 export const getQualificationReading = (key) => {
   return qualificationReadings[key] ?? "";
+};
+
+export const getNodeSearchText = (node) => {
+  if (!node) return "";
+
+  const values = [
+    node.name,
+    node.category,
+    node.type,
+    node.vendor,
+    getQualificationReading(node.key),
+  ];
+
+  return values
+    .flatMap((value) => [
+      normalizeLiteralSearchText(value),
+      normalizeSearchText(value),
+    ])
+    .filter(Boolean)
+    .join(" ");
+};
+
+export const matchesSearch = (node, normalizedSearchText, rawSearchText = "") => {
+  if (!node || !normalizedSearchText) return false;
+
+  const nodeSearchText = getNodeSearchText(node);
+  const searchValues = [
+    normalizedSearchText,
+    normalizeLiteralSearchText(rawSearchText),
+  ].filter(Boolean);
+
+  return searchValues.some((value) => nodeSearchText.includes(value));
 };

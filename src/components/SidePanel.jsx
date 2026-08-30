@@ -3,10 +3,6 @@ import Legend from "./Legend";
 export default function SidePanel({
   selectedNode,
   selectedLink,
-  setSelectedNode,
-  setSelectedLink,
-  normalizedSearch,
-  searchResults,
   activeCategory,
   setActiveCategory,
   legendItems,
@@ -191,41 +187,9 @@ export default function SidePanel({
           </p>
         </div>
       ) : (
-        <p className="muted">
+        <p className="muted side-panel-empty">
           左の資格または関係線をクリックすると、ここに詳細が表示されます。
         </p>
-      )}
-
-      {normalizedSearch && (
-        <>
-          <hr />
-
-          <h3>検索結果</h3>
-
-          {searchResults.length > 0 ? (
-            searchResults.map((node) => (
-              <button
-                type="button"
-                key={node.id}
-                onClick={() => {
-                  setSelectedNode(node);
-                  setSelectedLink(null);
-                }}
-                className={`search-result${
-                  selectedNode?.id === node.id ? " is-selected" : ""
-                }`}
-              >
-                <strong>{node.name}</strong>
-                <br />
-                <span className="search-result-meta">
-                  {node.category} / {node.type}
-                </span>
-              </button>
-            ))
-          ) : (
-            <p className="muted">一致する資格はありません。</p>
-          )}
-        </>
       )}
 
       <hr />
