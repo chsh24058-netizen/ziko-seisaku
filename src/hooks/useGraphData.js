@@ -11,13 +11,19 @@ export function useGraphData(
 ) {
   const [nodes, setNodes] = useState([]);
   const [links, setLinks] = useState([]);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     let simulation;
     let animationFrame;
+    let cancelled = false;
+
+    setError(null);
 
     Promise.all([d3.csv(nodesCsv), d3.csv(edgesCsv)]).then(
       ([nodeData, edgeData]) => {
+        if (cancelled) return;
+
         const loadedNodes = nodeData.map((d) => ({
           id: Number(d.id),
           key: d.key,
@@ -127,13 +133,22 @@ export function useGraphData(
           });
         });
       }
-    );
+    ).catch(() => {
+      if (cancelled) return;
+
+      setNodes([]);
+      setLinks([]);
+      setError(
+        "資格データを読み込めませんでした。ページを再読み込みしてください。"
+      );
+    });
 
     return () => {
+      cancelled = true;
       if (simulation) simulation.stop();
       if (animationFrame) cancelAnimationFrame(animationFrame);
     };
   }, [nodesCsv, edgesCsv, graphWidth, graphHeight, minSimilarity]);
 
-  return { nodes, links };
+  return { nodes, links, error };
 }

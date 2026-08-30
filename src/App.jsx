@@ -31,7 +31,7 @@ const graphHeight = 2500;
 
 export default function App() {
   const minSimilarity = 0.42;
-  const { nodes, links } = useGraphData(
+  const { nodes, links, error: dataError } = useGraphData(
     nodesCsv,
     edgesCsv,
     graphWidth,
@@ -225,25 +225,32 @@ export default function App() {
           onSelectSuggestion={selectSearchSuggestion}
         />
 
-        <GraphView
-          viewportWidth={viewportWidth}
-          viewportHeight={viewportHeight}
-          graphWidth={graphWidth}
-          graphHeight={graphHeight}
-          nodes={nodes}
-          links={links}
-          selectedNode={selectedNode}
-          selectedLink={selectedLink}
-          hoverNode={hoverNode}
-          setSelectedNode={setSelectedNode}
-          setSelectedLink={setSelectedLink}
-          setHoverNode={setHoverNode}
-          resetSelection={resetSelection}
-          isSearchMatched={isSearchMatched}
-          getNodeOpacity={getNodeOpacity}
-          getLinkOpacity={getLinkOpacity}
-          minSimilarity={minSimilarity}
-        />
+        {dataError ? (
+          <div className="data-error" role="alert">
+            <strong>データの読み込みに失敗しました</strong>
+            <span>{dataError}</span>
+          </div>
+        ) : (
+          <GraphView
+            viewportWidth={viewportWidth}
+            viewportHeight={viewportHeight}
+            graphWidth={graphWidth}
+            graphHeight={graphHeight}
+            nodes={nodes}
+            links={links}
+            selectedNode={selectedNode}
+            selectedLink={selectedLink}
+            hoverNode={hoverNode}
+            setSelectedNode={setSelectedNode}
+            setSelectedLink={setSelectedLink}
+            setHoverNode={setHoverNode}
+            resetSelection={resetSelection}
+            isSearchMatched={isSearchMatched}
+            getNodeOpacity={getNodeOpacity}
+            getLinkOpacity={getLinkOpacity}
+            minSimilarity={minSimilarity}
+          />
+        )}
       </main>
 
       <SidePanel
@@ -297,8 +304,8 @@ export default function App() {
                 右側の凡例を選ぶと、その分野の資格と分野内の関係を確認できます。
               </li>
               <li>
-                <strong>関連度を変える：</strong>
-                マップ右上の基準を変更すると、表示する関係を30%〜60%で比較できます。
+                <strong>関連度の基準：</strong>
+                共通項目が2個以上あり、関連度42%以上の関係を表示します。
               </li>
               <li>
                 <strong>マップを動かす：</strong>

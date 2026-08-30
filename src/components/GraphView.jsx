@@ -223,7 +223,7 @@ export default function GraphView({
   };
 
   const categories = getLegendItems();
-  const visibleLinks = links.filter((link) => getLinkOpacity(link) > 0.2);
+  const visibleLinks = links.filter((link) => getLinkOpacity(link) > 0);
   const minimapLinks = links.filter(
     (link) =>
       Number(link.common_count) >= 2 &&
@@ -248,7 +248,10 @@ export default function GraphView({
     hoverNodeScreenX + 24 + hoverCardWidth > viewportWidth
       ? -hoverCardWidth - 24
       : 24;
-  const hoverCardYOffset = hoverNodeScreenY < 28 ? 24 : -24;
+  const hoverCardYOffset =
+    hoverNodeScreenY - hoverCardHeight - 18 >= 8
+      ? -hoverCardHeight - 18
+      : 18;
 
   return (
     <div className="graph-card">

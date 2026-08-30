@@ -57,7 +57,7 @@ export default function Toolbar({
       return;
     }
 
-    if (e.key === "Enter" && suggestions.length > 0) {
+    if (e.key === "Enter" && showSuggestions) {
       e.preventDefault();
       const index =
         activeSuggestionIndex >= 0 ? activeSuggestionIndex : 0;
