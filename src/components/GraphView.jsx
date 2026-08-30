@@ -96,7 +96,11 @@ export default function GraphView({
 }) {
   const svgRef = useRef(null);
   const panRef = useRef(null);
+  const nodeDragRef = useRef(null);
+  const suppressNodeClickUntilRef = useRef(0);
   const [isPanning, setIsPanning] = useState(false);
+  const [draggingNodeId, setDraggingNodeId] = useState(null);
+  const [, updateNodePositions] = useState(0);
   const [view, setView] = useState(() =>
     createInitialView(viewportWidth, viewportHeight, graphWidth, graphHeight)
   );
@@ -176,7 +180,63 @@ export default function GraphView({
     setIsPanning(true);
   };
 
+  const handleNodeDragStart = (e, node) => {
+    e.preventDefault();
+    e.stopPropagation();
+
+    const rect = svgRef.current.getBoundingClientRect();
+    svgRef.current.setPointerCapture(e.pointerId);
+    node.fx = node.x;
+    node.fy = node.y;
+    nodeDragRef.current = {
+      pointerId: e.pointerId,
+      clientX: e.clientX,
+      clientY: e.clientY,
+      x: node.x,
+      y: node.y,
+      node,
+      zoom: view.k,
+      scaleX: viewportWidth / rect.width,
+      scaleY: viewportHeight / rect.height,
+      moved: false,
+    };
+    setDraggingNodeId(node.id);
+  };
+
   const handlePanMove = (e) => {
+    const nodeDrag = nodeDragRef.current;
+
+    if (nodeDrag?.pointerId === e.pointerId) {
+      const clientDeltaX = e.clientX - nodeDrag.clientX;
+      const clientDeltaY = e.clientY - nodeDrag.clientY;
+
+      if (Math.abs(clientDeltaX) > 3 || Math.abs(clientDeltaY) > 3) {
+        nodeDrag.moved = true;
+      }
+
+      const nextX = Math.max(
+        110,
+        Math.min(
+          graphWidth - 110,
+          nodeDrag.x + (clientDeltaX * nodeDrag.scaleX) / nodeDrag.zoom
+        )
+      );
+      const nextY = Math.max(
+        100,
+        Math.min(
+          graphHeight - 100,
+          nodeDrag.y + (clientDeltaY * nodeDrag.scaleY) / nodeDrag.zoom
+        )
+      );
+
+      nodeDrag.node.x = nextX;
+      nodeDrag.node.y = nextY;
+      nodeDrag.node.fx = nextX;
+      nodeDrag.node.fy = nextY;
+      updateNodePositions((version) => version + 1);
+      return;
+    }
+
     if (!panRef.current || panRef.current.pointerId !== e.pointerId) return;
 
     const start = panRef.current;
@@ -194,6 +254,20 @@ export default function GraphView({
   };
 
   const handlePanEnd = (e) => {
+    const nodeDrag = nodeDragRef.current;
+
+    if (nodeDrag?.pointerId === e.pointerId) {
+      if (svgRef.current.hasPointerCapture(e.pointerId)) {
+        svgRef.current.releasePointerCapture(e.pointerId);
+      }
+      if (nodeDrag.moved) {
+        suppressNodeClickUntilRef.current = Date.now() + 300;
+      }
+      nodeDragRef.current = null;
+      setDraggingNodeId(null);
+      return;
+    }
+
     if (!panRef.current || panRef.current.pointerId !== e.pointerId) return;
 
     const shouldResetSelection =
@@ -281,7 +355,7 @@ export default function GraphView({
       </div>
 
       <div className="graph-help">
-        背景をドラッグ：移動　ホイール：拡大・縮小
+        ノードをドラッグ：配置変更　背景をドラッグ：移動　ホイール：拡大・縮小
       </div>
 
       <svg
@@ -391,12 +465,16 @@ export default function GraphView({
                 transform={`translate(${node.x}, ${node.y})`}
                 onClick={(e) => {
                   e.stopPropagation();
+                  if (Date.now() < suppressNodeClickUntilRef.current) return;
                   setSelectedNode(node);
                   setSelectedLink(null);
                 }}
+                onPointerDown={(e) => handleNodeDragStart(e, node)}
                 onMouseEnter={() => setHoverNode(node)}
                 onMouseLeave={() => setHoverNode(null)}
-                style={{ cursor: "pointer" }}
+                style={{
+                  cursor: draggingNodeId === node.id ? "grabbing" : "grab",
+                }}
                 opacity={getNodeOpacity(node)}
                 tabIndex="0"
                 role="button"

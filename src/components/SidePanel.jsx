@@ -34,12 +34,6 @@ export default function SidePanel({
           </p>
 
           <p>
-            <strong>接続した理由：</strong>
-            <br />
-            {selectedLink.reason || "未設定"}
-          </p>
-
-          <p>
             <strong>共通項目数：</strong>
             {selectedLink.common_count}個
           </p>
