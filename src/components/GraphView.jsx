@@ -1,7 +1,5 @@
 import { useEffect, useRef, useState } from "react";
 import {
-  getCategoryPosition,
-  getLegendItems,
   getNodeColor,
   getNodeRadius,
   getShortName,
@@ -11,7 +9,6 @@ const minZoom = 0.2;
 const initialZoom = 0.25;
 const maxZoom = 2;
 const minNodeScreenRadius = 8;
-const minCategoryLabelScreenSize = 11;
 const minStrokeScale = 0.45;
 const hoverCardWidth = 264;
 
@@ -244,7 +241,6 @@ export default function GraphView({
     }));
   };
 
-  const categories = getLegendItems();
   const visibleLinks = links.filter((link) => getLinkOpacity(link) > 0);
   const minimapLinks = links.filter(
     (link) =>
@@ -258,10 +254,6 @@ export default function GraphView({
     height: viewportHeight / view.k,
   };
   const strokeScale = Math.max(minStrokeScale, Math.min(1, view.k));
-  const categoryLabelFontSize = Math.max(
-    30,
-    minCategoryLabelScreenSize / view.k
-  );
   const hoverNameLines = getHoverNameLines(hoverNode?.name);
   const hoverCardHeight = hoverNameLines.length === 1 ? 72 : 92;
   const hoverNodeScreenX = hoverNode ? view.x + hoverNode.x * view.k : 0;
@@ -303,29 +295,6 @@ export default function GraphView({
         />
 
         <g transform={`translate(${view.x} ${view.y}) scale(${view.k})`}>
-          <g className="category-labels" aria-hidden="true">
-            {categories.map((item) => {
-              const position = getCategoryPosition(
-                item.label,
-                graphWidth,
-                graphHeight
-              );
-
-              return (
-                <text
-                  key={item.label}
-                  x={position.x}
-                  y={position.y - 95}
-                  textAnchor="middle"
-                  fill={item.color}
-                  style={{ fontSize: categoryLabelFontSize }}
-                >
-                  {item.label}
-                </text>
-              );
-            })}
-          </g>
-
           {visibleLinks.map((link) => {
             const selected = selectedLink === link;
             const opacity = getLinkOpacity(link);
